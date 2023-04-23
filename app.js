@@ -11,7 +11,6 @@
 // NPM, N. P. M. (2022, May 11). HTTP-errors. npm., from https://www.npmjs.com/package/http-errors 
 // Philiapp, P. (2022, February 2). X mark letters. X mark symbols - ✖., from https://www.piliapp.com/symbol/x-mark/ 
 // SNHU, S. N. H. U. (2023, May 1). CS 465 Full Stack Guide., from https://learn.snhu.edu/d2l/home 
-// Yaytext, Y. (2021, May 1). 🛒 shopping cart emoji. YayText!, from https://yaytext.com/emoji/shopping-cart/ 
 
 // create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
 const createError = require('http-errors');
