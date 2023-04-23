@@ -12,17 +12,16 @@
 // Philiapp, P. (2022, February 2). X mark letters. X mark symbols - ✖., from https://www.piliapp.com/symbol/x-mark/ 
 // SNHU, S. N. H. U. (2023, May 1). CS 465 Full Stack Guide., from https://learn.snhu.edu/d2l/home 
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
+/* Get the homepage for the application (SNHU, 2023, p. 1)*/
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
+// const index variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
+const index = (req, res) => {
 
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const ctrlMain = require('../controllers/main');
+    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by index (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
+    res.render('index', {title: 'Travlr Getaways' });
+};
 
-/* GET home page. (SNHU, 2023, p. 1) */
-router.get('/', ctrlMain.index);
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the index function (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
+module.exports = {
+    index
+};

@@ -1,3 +1,12 @@
+/*
+Lawrence Arundel CS 465  
+Sources: 
+Mozilla, M. (2022, April 2). Using media queries - CSS: Cascading style sheets: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries 
+Mozilla, M. (2022, April 2). Font-weight: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+Mozilla, M. (2022, April 2). Transform: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+Mozilla, M. (2022, April 2). list-style-position: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position
+Oberoi, R. (2019, November 7). Difference between media-only and media-screen CSS queries. Medium., from https://medium.com/@oberoirahul537/difference-between-media-only-and-media-screen-css-queries-c9d42666f861#:~:text=The%20%40media%20screen%20query%20simply,maximum%20width%20of%20500%20pixels. 
+W3C, W. C. (2022, March 3). 15 alignment, font styles, and horizontal rules. Alignment, font styles, and horizontal rules in HTML documents., from https://www.w3.org/TR/html401/present/graphics.html 
 /* Website template by freewebsitetemplates.com */
 body {
 	background: #ffb744 url(../images/bg-body.jpg) repeat left bottom;
@@ -56,6 +65,7 @@ img {
 	padding: 0;
 }
 #navigation li {
+	position: relative;
 	float: left;
 	background-position: 0 -118px;
 	background-repeat: no-repeat;
@@ -75,7 +85,7 @@ img {
 	display: block;
 	font: bold 14px/48px Arial, Helvetica, sans-serif;
 	height: 49px;
-	text-decoration: none;
+	text-decoration: underline;
 	text-transform: uppercase;
 }
 #navigation li a:hover {
@@ -231,12 +241,34 @@ hr {
 	height: 144px;
 	margin-bottom: 12px;
 }
+
+#sidebar div.section {
+	height: 144px;
+	margin-bottom: 12px;
+}
+
 #sidebar div.section:first-child {
 	padding: 3px 0 0;
+
 }
 #sidebar div.section > a:hover {
 	filter:alpha(opacity=60);
 	opacity: 0.6;
+}
+#sidebar .section:nth-child(1) img {
+    position: relative;
+    right: 275px;
+	top: 136px
+}
+#sidebar .section:nth-child(2) img {
+    position: relative;
+    right: -375px;
+	top: -20px;
+}
+#sidebar .section:nth-child(3) img {
+    position: relative;
+    right: -50px;
+	top: -50px;
 }
 /** testimonials **/
 #contents div#testimonials h3 {
@@ -542,4 +574,104 @@ hr {
 }
 #connect a.googleplus:hover {
 	background-position: 0 -197px;
+}
+
+/* Source- (Mozilla, 2022, p. 1)
+Property that sets the position of the marker relative to a list item <ul>*/
+li {
+  list-style: none; 
+  margin-bottom: 10px; 
+}
+
+/* Source- (Mozilla, 2022, p. 1)
+Function that positions the X within the first element with the relative property*/
+li.selected_x {
+  position: relative; 
+}
+
+/* Source- (Mozilla, 2022, p. 1)
+Function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
+li.selected_x a:before {
+  content: "X"; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  transform: scaleY(12); 
+  transform: scaleX(5); 
+  font-weight: 100; 
+  pointer-events: none;
+}
+
+/* Source- (Mozilla, 2022, p. 1)
+Function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
+li.selected_x a:before {
+  transform: translate(-630%) rotate(90deg) scaleX(5) scaleY(12) ; 
+}
+
+/* Source - (W3C, 2022, p. 1)
+Properties for the <p> element within the application*/
+p {
+	text-align: center;
+	color: #594334;
+  }
+
+  /* Source - (Mozilla, 2022, p. 1)
+  Label properties for the corporate logo within the index screen of application*/
+  label[for="corp-logo"] {
+	font-weight: bold;
+	color: white;
+  }
+
+   /* Source - (Mozilla, 2022, p. 1)
+  Label properties for the corporate logo within the index screen of application*/
+  label[for="logged-label"] {
+	font-weight: bold;
+	color: white;
+  }
+
+     /* Source - (Mozilla, 2022, p. 1)
+  Label properties used to incorporate the user icon located next to login on each screen*/
+ #user-icon {
+	width: 25%;
+	height: 55%;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	
+  }
+
+     /* Source - (Mozilla, 2022, p. 1)
+  Label properties used to incorporate the shopping cart icon located next to login on each screen*/
+  #shopping-icon {
+	width: 20%;
+	height: 55%;
+	float: left;
+	position: absolute;
+	top: 10px;
+	left: -2px;
+    
+  }
+
+  /* Source - (Mozilla, 2022, p. 1)
+  Properties used to show the Travel header within the travel menu for application*/
+#header-travel{
+	color: #594334;
+	font-size: 24px;
+	line-height: 48px;
+	margin: -22px 50px 20px;
+	background-color: #ac9e94;
+	
+}
+#edit-label{
+	color: #594334;
+	position: relative;
+	font-size: 24px;
+  left: -328px;
+  top: -10px;
+}
+#previous-screen{
+	color: #594334;
+	position: relative;
+  left: 330px;
+  top: -55px;
 }
