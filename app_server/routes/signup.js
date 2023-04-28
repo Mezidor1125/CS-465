@@ -5,10 +5,6 @@
 // Express, E. (2022, February 12). Middleware Morgan., Middleware Morgan., from https://expressjs.com/en/resources/middleware/morgan.html
 // GeeksForGeeks, G. F. G. (2023, March 16). Express.js res.render() function. GeeksforGeeks., from https://www.geeksforgeeks.org/express-js-res-render-function/ 
 // GeeksForGeeks, G. F. G. (2023, March 16). Express.js express.Router() Function. GeeksforGeeks., from https://www.geeksforgeeks.org/express-js-express-router-function/
-// IconScout, I. S. (2022, March 3). Free user circle icon - download in Glyph style. IconScout., from https://iconscout.com/icon/user-circle-3609976 
-// IconScout, I. S. (2022, March 3). Free Mail Icon - download in Glyph style. IconScout., from https://iconscout.com/icons/mail-icon?price=free
-// IconScout, I. S. (2022, March 3). Free Message Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/chat-bubble-4398305
-// IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
@@ -23,10 +19,10 @@ const express = require('express');
 const router = express.Router();
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/users');
+const controller = require('../controllers/signup');
 
 /* GET home page. (SNHU, 2023, p. 1) */
-router.get('/', controller.users);
+router.get('/', controller.signup);
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = router;

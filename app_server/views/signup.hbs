@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bootstrap Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+	</style>
+	<script src="javascripts/function-scripts.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body>
+	<div id="background">
+		<div id="page">
+			{{> header}}
+			<p id="title">Travlr Getaways</p>
+			<h1 id="signup-label">Sign Up</h1>
+			<div id="contents">
+				<div class="signup-section">
+					<form id="login-window">
+						<label for="name" id="name-label-signup"><b>* Name:</b></label>
+						<input type="text" id="input-name-signup" name="name">
+						<label for="email" id="email-label-signup"><b>* Email: </b></label>
+						<input type="text" id="input-email-signup" name="email">
+						<label for="password" id="password-label-signup"><b>* Password:</b></label>
+						<input type="password" id="input-password-signup" name="password">
+						<label for="password-label" id="retype-password-label-signup"><b>* Re-type password:</b></label>
+						<input type="password" id="retype-input-password-signup" name="password-label">
+						<a href = "/signup" id="forgot-password-question-mark">?</a>
+
+						<label id = "signup-check">
+							<input type="checkbox" name="checkbox-signup">
+							I agree to the <a href="/signup" id = "terms-url">Terms of Use</a> and <a href="/signup">Privacy Policy.</a>
+
+						</label>
+					</form>
+					<button id="signup-button-signup" onclick="goSignUp()">Sign-up</button>
+					<a href="/signup" id="learn-more">Learn more</a>
+				</div>
+				<div id="main">
+					<div id="sidebar">
+						<div class="section">
+							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
+								alt="Background Images Showing Destinations">
+							</a>
+						</div>
+						<div class="section">
+							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
+								alt="Background Images Showing Destinations">
+							</a>
+						</div>
+						<div class="section">
+							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
+								alt="Background Images Showing Destinations">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+{{> footer}}
+</html>

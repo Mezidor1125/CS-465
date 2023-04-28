@@ -1,53 +1,28 @@
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Travlr Getways | Checkout</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+	</style>
+	<script src="javascripts/function-scripts.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
+
+
 <body>
 	<div id="background">
 		<div id="page">
-			<div id="header">
-				<div id="logo">
-					<a href="/"><img src="images/logo.png" alt="LOGO" height="100" width="200"></a>
-				</div>
-				<div id="navigation">
-					<ul>
-						<li class = "selected_x">
-							<a href="/"></a>
-						</li>
-						<li>
-							<a href="/travel">Travel</a>
-						</li>
-						<li>
-							<a href="news.html">News</a>
-						</li>
-						<li>
-							<a href="reservations.html">Reservations</a>
-						</li>
-						<li>
-							<a href="admin.html">Admin</a>
-						</li>
-						<li class="selected">
-							<a href="checkout.html">Checkout
-								<img id = "shopping-icon" src="images/shoppingcart.png" alt="Invalid Image">
-							</a>
-						</li>
-						<li>
-							<a href="login.html">Login
-								<img id = "user-icon" src="images/usericon.png" alt="Invalid Image">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			{{> header}}
+			<p id="title">Travlr Getaways</p>
 			<div id="contents">
 				<div class="box">
 					<div>
 						<div class="body">
-							<h1>About</h1>
+							<h1>Reservations</h1>
 							<h2>We Have Free Templates for Everyone</h2>
 							<p>
 								Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What's more, they're absolutely free! You can do a lot with them. You can modify them. You can use them to design websites for clients, so long as you agree with the <a href="http://www.freewebsitetemplates.com/about/terms/">Terms of Use</a>. You can even remove all our links if you want to.
@@ -79,39 +54,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer">
-			<div>
-				<ul class="navigation">
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/travel">Travel</a>
-					</li>
-					<li>
-						<a href="news.html">News</a>
-					</li>
-					<li>
-						<a href="reservations.html">Reservations</a>
-					</li>
-					<li>
-						<a href="admin.html">Admin</a>
-					</li>
-					<li class ="active">
-						<a href="checkout.html">Checkout</a>
-					</li>
-					<li>
-						<a href="login.html">Login</a>
-					</li>
-				</ul>
-				<div id="connect">
-					<a href="http://pinterest.com/fwtemplates/" target="_blank" class="pinterest"></a> <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a> <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a> <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a>
-				</div>
-			</div>
 		</div>
 	</div>
-	<p>
-		© 2023 by Travlr Getaways. All Rights Reserved
-		</p>
 </body>
+{{> footer}}
 </html>

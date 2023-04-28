@@ -5,14 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+	</style>
 	<script src="javascripts/function-scripts.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
+
 <body>
 	<div id="background">
 		<div id="page">
-			{{> header isIndexPage=true}}
+			{{> header}}
 			<p id="title">Travlr Getaways</p>
 			<div id="contents">
 				<div id="main">
@@ -31,11 +33,24 @@
 							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
 								alt="Background Images Showing Destinations">
 							</a>
+							<div class="login-section">
+								<form id="login-window">
+									<label for="username" id="email-label"><b>Email:</b></label>
+									<input type="text" id="input-email" name="username">
+									<label for="password" id="password-label"><b>Password:</b></label>
+									<input type="password" id="input-password" name="password">
+									<button type="submit" id="login-button">Login</button>
+								</form>
+								<button id="signup-button" onclick="goSignUp()">Sign-up</button>
+								<a href="/login" id="forgot-password">Forgot Password?</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			{{> footer}}
+			<h1 id="login-label">Login</h1>
 		</div>
 </body>
+
 </html>

@@ -39,6 +39,25 @@ const usersRouter = require('./app_server/routes/users');
 // travel router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const travelRouter = require('./app_server/routes/travel');
 
+// admin router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const adminRouter = require('./app_server/routes/admin');
+
+// checkout router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const checkoutRouter = require('./app_server/routes/checkout');
+
+// login router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const loginRouter = require('./app_server/routes/login');
+
+// news router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const newsRouter = require('./app_server/routes/news');
+
+// reservation router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const reservationRouter = require('./app_server/routes/reservations');
+
+// signup router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const signupRouter = require('./app_server/routes/signup');
+
+
 // function that allows application to access the properties and functions within the Express framework (Mozilla, 2022, p. 1)
 const app = express();
 
@@ -46,7 +65,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
 // register handlebars partials (NPM, 2021, p. 1)
-hbs.registerPartials(path.join(__dirname, 'app_server','views/partials'));
+hbs.registerPartials(path.join(__dirname, 'app_server', 'views/partials'));
 
 // engine setup within the application provided (SNHU, 2023, p. 1)
 app.set('view engine', 'hbs');
@@ -67,13 +86,34 @@ app.use('/users', usersRouter);
 // configures middleware for the application utilizing the travel router variable (Mozilla, 2022, p. 1)
 app.use('/travel', travelRouter);
 
+// configures middleware for the application utilizing the admin router variable (Mozilla, 2022, p. 1)
+app.use('/admin', adminRouter);
+
+// configures middleware for the application utilizing the checkout router variable (Mozilla, 2022, p. 1)
+app.use('/checkout', checkoutRouter);
+
+// configures middleware for the application utilizing the login router variable (Mozilla, 2022, p. 1)
+app.use('/login', loginRouter);
+
+// configures middleware for the application utilizing the news router variable (Mozilla, 2022, p. 1)
+app.use('/news', newsRouter);
+
+// configures middleware for the application utilizing the reservation router variable (Mozilla, 2022, p. 1)
+app.use('/reservations', reservationRouter);
+
+// configures middleware for the application utilizing the signup router variable (Mozilla, 2022, p. 1)
+app.use('/signup', signupRouter);
+
+// configures middleware for the application utilizing the users router variable (Mozilla, 2022, p. 1)
+app.use('/users', usersRouter);
+
 // catches the 404 error message and forwards the error handler within the application (SNHU, 2023, p. 1)
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler functions within the application (SNHU, 2023, p. 1)
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 
   // sets the locals of the application, providing the error within the development (SNHU, 2023, p. 1)
   res.locals.message = err.message;

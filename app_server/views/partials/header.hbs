@@ -1,33 +1,64 @@
-<div id="header">
-				<div id="logo">
-					<a href="/"><img src="images/logo.png" alt="LOGO" height="100" width="200"></a>
-				</div>
+<header id="project-header">
+	<div class="container">
+		<div class="navigation">
+			<div id="header">
 				<div id="navigation">
 					<ul>
-						<li class = "selected_x">
+						<li class="selected_x">
 							<a href="/"></a>
+							<label for="corp-logo" {{#unless isIndexPage}}class="hidden" {{/unless}}>Corp Logo</label>
 						</li>
-						<li class="selected">
+						<li>
 							<a href="/travel">Travel</a>
 						</li>
 						<li>
-							<a href="news.html">News</a>
+							<a href="/news">News</a>
 						</li>
 						<li>
-							<a href="reservations.html">Reservations</a>
+							<a href="/reservations">Reservations</a>
+
+							<label for="logged-label" {{#unless
+								isIndexPage}}class="hidden {{/unless}}other-label">Logged In
+								Only</label>
 						</li>
 						<li>
-							<a href="admin.html">Admin</a>
+							<a href="/admin">Admin</a>
 						</li>
 						<li>
-							<a href="checkout.html">Checkout
-								<img id = "shopping-icon" src="images/shoppingcart.png" alt="Invalid Image">
+							<a href="/checkout">Checkout
+								<img id="shopping-icon" src="images/shoppingcart.png" alt="Invalid Image">
 							</a>
 						</li>
 						<li>
-							<a href="login.html">Login</a>
-							<img id = "user-icon" src="images/usericon.png" alt="Invalid Image">
+							<a href="/login">
+								<img id="user-icon" src="images/usericon.png" alt="Invalid Image">
+								Login</a>
 						</li>
 					</ul>
 				</div>
 			</div>
+			<button onclick="goBackPage()" class="arrow">&larr;</button>
+			<button onclick="goForwardPage()" class="arrow">&rarr;</button>
+			<button onclick="stopProcess()" class="x-symbol">&#10005;</button>
+			<button onclick="goHomeScreen()" class="home-button">&#8962;</button>
+		</div>
+		<form onsubmit="navigateToLink(event)">
+			<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
+		</form>
+		<form action="/" id="search-bar-top" method="get">
+			<div class="top-search">
+				<input type="text" placeholder=" ">
+				<i class="fa fa-search search-icon"></i>
+			</div>
+		</form>
+		<script>
+  const searchBarAddress = document.querySelector("#search-bar-address");
+  
+  if (window.checkoutPath && window.location.pathname === window.checkoutPath) {
+    searchBarAddress.value = "https://travlr.com" + window.checkoutPath;
+  } else {
+    searchBarAddress.value = "https://travlr.com";
+  }
+</script>
+	</div>
+</header>
