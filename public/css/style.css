@@ -1,130 +1,136 @@
-/*
-Lawrence Arundel CS 465  
-Sources: 
-Mozilla, M. (2022, April 2). Using media queries - CSS: Cascading style sheets: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries 
-Mozilla, M. (2022, April 2). Font-weight: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
-Mozilla, M. (2022, April 2). Transform: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/transform
-Mozilla, M. (2022, April 2). list-style-position: MDN. CSS: Cascading Style Sheets | MDN., from https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position
-Oberoi, R. (2019, November 7). Difference between media-only and media-screen CSS queries. Medium., from https://medium.com/@oberoirahul537/difference-between-media-only-and-media-screen-css-queries-c9d42666f861#:~:text=The%20%40media%20screen%20query%20simply,maximum%20width%20of%20500%20pixels. 
-W3C, W. C. (2022, March 3). 15 alignment, font styles, and horizontal rules. Alignment, font styles, and horizontal rules in HTML documents., from https://www.w3.org/TR/html401/present/graphics.html 
-/* Website template by freewebsitetemplates.com */
+/*Lawrence Arundel CS 465
 
-.top-search {
+// Sources:
+// Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
+// Compart, C. (2022, March 3). Find all unicode characters from hieroglyphs to dingbats – unicode compart. https://www.compart.com/en/unicode/U+27. Retrieved April 29, 2023, from https://www.compart.com/en/unicode/U+2753 
+// Emoji Combos, E. C. (2022, February 14). Emoji Combosbeta. Emoji Combos., from https://emojicombos.com/ 
+// Express, E. (2022, February 12). Cookie-parser. Express cookie-parser middleware., from https://expressjs.com/en/resources/middleware/cookie-parser.html 
+// Express, E. (2022, February 12). Middleware Morgan., Middleware Morgan., from https://expressjs.com/en/resources/middleware/morgan.html
+// Fitzgerald, A. (2022, July 14). HTML tables: When to use them and how to make &amp; edit them. HubSpot Blog., from https://blog.hubspot.com/website/make-a-table-in-html#:~:text=To%20make%20a%20table%20in%20HTML%2C%20use%20the,tag%20defines%20the%20table%20header. 
+// Forret, P. (2021, April 3). HTML character: right arrow. HTML character: right arrow · toolstud.io., from https://toolstud.io/web/charmap.php?encoded=larr 
+// Forret, P. (2021, April 3). HTML character: left arrow. HTML character: left arrow · toolstud.io., from https://toolstud.io/web/charmap.php?encoded=rarr
+// GeeksForGeeks, G. F. G. (2023, March 16). Express.js res.render() function. GeeksforGeeks., from https://www.geeksforgeeks.org/express-js-res-render-function/ 
+// GeeksForGeeks, G. F. G. (2023, March 16). Express.js express.Router() Function. GeeksforGeeks., from https://www.geeksforgeeks.org/express-js-express-router-function/
+// Holmes, S., &amp; Harber, C. (2019). Getting mean with Mongo, express, angular, and node. Manning. 
+// Hotsymbol, H. (2020, November 13). House copy and Paste - Hotsymbol. Hotsymbol., from https://www.hotsymbol.com/symbol/house 
+// IconScout, I. S. (2022, March 3). Free user circle icon - download in Glyph style. IconScout., from https://iconscout.com/icon/user-circle-3609976 
+// IconScout, I. S. (2022, March 3). Free Mail Icon - download in Glyph style. IconScout., from https://iconscout.com/icons/mail-icon?price=free
+// IconScout, I. S. (2022, March 3). Free Message Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/chat-bubble-4398305
+// IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
+// Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
+// Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
+// Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
+// Mozilla, M. (2022, February 1). Background., from https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
+// NPM, N. P. M. (2022, May 11). HTTP-errors. npm., from https://www.npmjs.com/package/http-errors 
+// Philiapp, P. (2022, February 2). X mark letters. X mark symbols - ✖., from https://www.piliapp.com/symbol/x-mark/ 
+// Phuoc, N. H. (2021, September 4). Loop over a nodelist - HTML dom. 1LOC., from https://htmldom.dev/loop-over-a-nodelist/ 
+// Sam, B. (2022, July 22). How to highlight-change color of selected row in table. OutSystems., from https://www.outsystems.com/forums/discussion/80134/how-to-highlight-change-color-of-selected-row-in-table/ 
+// Scherer, M. (2023, April 3). 🔍︎ (text style) magnifying glass tilted left : U+1F50D fe0e unicode information. EmojiAll., from https://www.emojiall.com/en/code/1F50D-FE0E 
+// SNHU, S. N. H. U. (2023, May 1). CS 465 Full Stack Guide., from https://learn.snhu.edu/d2l/home 
+// SNHU, S. N. H. U. (2023, May 1). CS 465 Travlr Getaways Wireframe., from https://learn.snhu.edu/content/enforced/1313027-CS-465-T5558-OL-TRAD-UG.23EW5/course_documents/CS%20465%20Travlr%20Getaways%20Wireframe.pdf?ou=1313027
+// SNHU Media, S. N. H. U. M. (2020, March 3). CS 465: MVC Routing. YouTube., from https://www.youtube.com/watch?v=aNIrBEpc1cM&amp;ab_channel=SNHUMedia 
+// SNHU Media, S. N. H. U. M. (2020, March 3). CS 465: Dynamic view rendering. YouTube., from https://www.youtube.com/watch?v=vXr5FVuVAyg&amp;ab_channel=SNHUMedia 
+// Softel, S. (2021, March 5). Simple Image Placeholder Service. Placeholder Service., from https://placehold.jp/en.html 
+// W3Schools, W. S. (2021, May 4). How to - tabs. How To Create Tabs., from https://www.w3schools.com/howto/howto_js_tabs.asp 
+// W3Schools, W. S. (2021, May 4). JavaScript HTML DOM EventListener., from https://www.w3schools.com/js/js_htmldom_eventlistener.asp#:~:text=The%20addEventListener()%20method%20attaches,event%20handlers%20to%20one%20element.
+// W3Schools, W. S. (2021, May 4). GetElementByID()., from https://www.w3schools.com/jsref/met_document_getelementbyid.asp#:~:text=Definition%20and%20Usage,or%20edit%20an%20HTML%20element.
+// W3Schools, W. S. (2021, May 4). HTML DOM Document querySelectorAll()., from https://www.w3schools.com/jsref/met_document_queryselectorall.asp#:~:text=Definition%20and%20Usage,the%20selector(s)%20is%20invalid
+// W3Schools, W. S. (2021, May 4). HTML DOM Element classList., from https://www.w3schools.com/jsref/prop_element_classlist.asp
+// W3Schools, W. S. (2021, May 4). Style display Property., from https://www.w3schools.com/jsref/prop_style_display.asp
+// W3Schools, W. S. (2021, May 4). HTML DOM Element className., from https://www.w3schools.com/jsref/prop_html_classname.asp
+// W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
+// W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the reservation, news, and checkout tabs */
+#contents {
 	position: relative;
-	display: inline-block;
-	top:-50px;
-	left:1111px;
+	left: -15px;
 }
 
-.top-search input[type="text"] {
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for search bar in the travel screen located with the label "search travel" */
+.travel-search {
+	position: relative;
+	top: 65px;
+	left: 181px;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for for the input box for the travel search label */
+.travel-search input[type="text"] {
 	padding-left: 30px;
 	border: 1px solid #ccc;
-	border-radius: 4px;
 	height: 20px;
-	width: 100px;
+	width: 325px;
 	font-size: 16px;
 	padding: 10px;
-	border-radius:40px;
+
 }
 
-.search-icon {
-	position: absolute;
-	top: 50%;
-	left: 5px;
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for magnifying glass associated with the "search travel" labeled search box within the travel page */
+.travel-search-icon {
+	position: relative;
+	top: 11px;
+	left: -325px;
 	transform: translateY(-50%);
 	color: #aaa;
 	font-size: 18px;
 }
 
-.top-search input[type="text"]:focus+.search-icon,
-.top-search input[type="text"]:not(:placeholder-shown)+.search-icon {
-	display: none;
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the search bar in the top right corner of screen*/
+.top-search {
+	position: relative;
+	top: -87px;
+	left: 981px;
 }
 
-
-
-
-
-.navigation button {
-	margin: 0 -4px;
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the search bar in the top right corner of screen*/
+.top-search input[type="text"] {
+	border: 1px solid #ccc;
+	height: 20px;
+	width: 100px;
+	font-size: 16px;
+	padding: 2px;
+	border-radius: 40px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the URL bar at the top of the screen*/
 #search-bar-address {
 	position: relative;
 	width: 70.5%;
 	height: 20px;
-	top: -25px;
+	top: -75px;
 	left: 17%;
 
 }
 
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the body of the application*/
 body {
 	background: gray;
 	font-family: "Times New Roman", Times, serif;
 	margin: 0;
-
-
-
+	height: 100%;
 }
 
-#background {
-	background-color: gray;
-	min-height: 1318px;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the page div of the application*/
 #page {
 	width: 960px;
 	margin: 0 auto;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used in the section of the admin page which contains everything below the header of the page contained within the body */
 #page-admin {
-	width: 1990px;
-	height: 900px;
+	width: 1100px;
 	position: relative;
-	top: 170px;
-	left: 250px;
+	top: 70px;
+	left: 143px;
 	margin: 0 auto;
 	background-color: #ac9e94;
+	height: 100%;
 
 }
 
-img {
-	border: 0;
-}
-
-/*------------------------------ Sprites ------------------------------*/
-#navigation li,
-#navigation li a:hover,
-#navigation li.selected a {
-
-	background-repeat: repeat-x;
-}
-
-#contents div.box,
-#contents div.box>div,
-#contents div.body {
-	background-image: url(../images/content-box.png);
-	background-repeat: no-repeat;
-}
-
-#main div.box,
-#main div.box>div,
-#main div.box>div>div {
-
-	background-repeat: no-repeat;
-}
-
-
-
-/** Logo **/
-#logo {
-	float: left;
-	margin-bottom: 20px;
-	margin-left: 49px;
-}
-
-/** Navigation **/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation {
 	background-color: darkgray;
 	clear: both;
@@ -132,11 +138,10 @@ img {
 	width: 860px;
 	margin: 0 auto;
 	position: relative;
-	top:120px;
-	left: 120px;
-
+	top: 78px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation ul {
 	display: inline-block;
 	width: 860px;
@@ -145,6 +150,7 @@ img {
 	padding: 0;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li {
 	position: relative;
 	float: left;
@@ -156,6 +162,7 @@ img {
 	text-align: center;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li:first-child {
 	background: none;
 	margin-left: 0;
@@ -163,12 +170,14 @@ img {
 	border: 2px solid black;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li:last-child {
 	background: none;
 	margin-left: 0;
 	padding-left: 0;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li a {
 	color: #fff;
 	display: block;
@@ -179,18 +188,20 @@ img {
 	border-left: 1px solid black;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li a:hover {
 	background-position: 0 -59px;
 	color: #6d6157;
 }
 
-/*------------------------------ CONTENTS ------------------------------*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents {
 	display: inline-block;
 	width: 865px;
 	padding: 0 47px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents h1 {
 	color: gray;
 	font: 26px/30px "Times New Roman", Times, serif;
@@ -199,6 +210,7 @@ img {
 	text-transform: uppercase;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents div.body h1,
 #contents h2 {
 	color: gray;
@@ -207,16 +219,19 @@ img {
 	text-transform: uppercase;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents h2 {
 	font-size: 22px;
 	margin: 0 0 30px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents h2 a {
 	color: #2c9688;
 	text-decoration: none;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p {
 	color: #5a4535;
 	font-size: 15px;
@@ -225,16 +240,30 @@ img {
 	padding: 0 0 24px 2px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a {
 	color: #5a4535;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a:hover,
 #news div.sidebar ul li a:hover {
 	color: #917157;
 }
 
-/** box-shadow **/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
+#contents p a:hover,
+#reservations div.sidebar ul li a:hover {
+	color: #917157;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
+#contents p a:hover,
+#checkout div.sidebar ul li a:hover {
+	color: #917157;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents div.box {
 	background-position: left bottom;
 	margin-bottom: 20px;
@@ -242,11 +271,13 @@ img {
 	padding: 0 0 6px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents div.box>div {
 	background-position: -1745px top;
 	padding: 6px 0 0;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents div.body {
 	background-position: -871px top;
 	background-repeat: repeat-y;
@@ -254,126 +285,39 @@ img {
 	padding: 30px 40px 0;
 }
 
-/** Adbox **/
-#adbox {
-	background: url(../images/bg-adbox.png) no-repeat left top;
-	width: 852px;
-	margin: 0 auto;
-	padding: 4px 5px 18px;
-}
-
-#adbox p {
-	font-size: 16px;
-}
-
-.ads {
-	float: right;
-	width: 220px;
-	border-left: 1px solid #bbbbbb;
-	margin-left: 20px;
-	padding-left: 20px;
-}
-
-hr {
-	border: 0;
-	border-top: 1px solid #bbbbbb;
-	margin-bottom: 30px;
-}
-
-/** MAIN **/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the div used within the main class which specifies parameters within it including the images on each page, etc. */
 #main {
 	float: left;
 	min-height: 100px;
 	width: 566px;
 }
 
-#main div.box {
-	background-position: left bottom;
-	margin-bottom: 12px;
-	padding: 0 0 6px;
-}
-
-#main div.box>div {
-	background-position: -1145px top;
-	padding: 6px 0 0;
-}
-
-#main div.box>div>div {
-	background-position: -572px top;
-	background-repeat: repeat-y;
-	padding: 17px;
-}
-
-#main div.box h3 {
-	color: #316e66;
-	font-weight: normal;
-	letter-spacing: 1px;
-	border-bottom: 1px dotted #9c8964;
-	margin: 0;
-	padding: 0 0 12px;
-	text-transform: uppercase;
-}
-
-#main div.box h4 {
-	font: 22px/24px "Times New Roman", Times, serif;
-	font-weight: normal;
-	margin: 6px 0 0;
-}
-
-#main div.box h4 a {
-	color: #5a4535;
-	text-decoration: none;
-}
-
-#main div.box ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#main div.box ul li {
-	border-bottom: 1px dotted #9c8964;
-}
-
-#main div.box ul li span {
-	color: #5a4535;
-	display: block;
-	font-size: 14px;
-	margin-bottom: 12px;
-}
-
-#main div.box ul li p {
-	line-height: 24px;
-	padding: 0 0 3px;
-}
-
-/** SIDEBAR **/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen to position the login window properly*/
 #sidebar {
 	float: right;
 	height: auto;
 	width: 285px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar div.section {
 	height: 144px;
 	margin-bottom: 12px;
 }
 
-#sidebar div.section {
-	height: 144px;
-	margin-bottom: 12px;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar div.section:first-child {
 	padding: 3px 0 0;
 
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows (hover properties)*/
 #sidebar div.section>a:hover {
 	filter: alpha(opacity=60);
 	opacity: 0.6;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(1) img {
 	position: relative;
 	left: 20%;
@@ -382,14 +326,16 @@ hr {
 	border-radius: 10px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(2) img {
 	position: relative;
-	top:70px;
+	top: 70px;
 	left: -92%;
 
 	border-radius: 10px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(3) img {
 	position: relative;
 	left: 135%;
@@ -398,161 +344,15 @@ hr {
 
 }
 
-/** testimonials **/
-#contents div#testimonials h3 {
-	color: #2c9688;
-	font-weight: normal;
-	letter-spacing: 1px;
-	border-bottom: 0;
-	padding-bottom: 0;
-}
-
-#testimonials p {
-	display: inline-block;
-	line-height: 24px;
-	padding-bottom: 3px;
-}
-
-#testimonials p span {
-	float: right;
-}
-
-#testimonials p span a {
-	color: #2c9688;
-	text-decoration: none;
-}
-
-#testimonials p span a:hover {
-	color: #2c9688;
-}
-
-/** Rooms, Foods Dive Sites **/
-#rooms,
-#foods,
-#sites {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#rooms li,
-#foods li,
-#sites li {
-	display: inline-block;
-	width: 784px;
-	border-top: 1px solid #b7b7b7;
-	padding: 30px 0;
-	position: relative;
-}
-
-#rooms li:first-child,
-#foods li:first-child,
-#sites li:first-child {
-	border-top: 0;
-}
-
-#rooms li img {
-	float: left;
-	border: 1px solid #2c9688;
-	margin-right: 15px;
-}
-
-#rooms .rate {
-	color: #316e66;
-	display: inline-block;
-	font: 16px/35px "Times New Roman", Times, serif;
-	height: 35px;
-	width: 138px;
-	border: 1px solid #5a4535;
-	text-align: center;
-	position: relative;
-	bottom: 30px;
-}
-
-/** Food **/
-#foods li>div.infos {
-	height: 169px;
-	width: 780px;
-	position: relative;
-}
-
-#foods li>div.infos p {
-	background: url(../images/bg-foodDetail.png) repeat;
-	color: #316e66;
-	display: none;
-	height: 60px;
-	width: 740px;
-	padding: 6px 20px 0;
-	position: relative;
-	left: 0;
-	bottom: 0;
-}
-
-#foods li>div.infos p span {
-	display: block;
-	font: 22px/22px "Times New Roman", Times, serif;
-}
-
-#foods li>div.infos:hover span.cover {
-	background: url(../images/bg-foodInfos.png) repeat;
-	display: inline-block;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	left: 0;
-	top: 0;
-}
-
-#foods li>div.infos:hover p {
-	display: block;
-}
-
-/** Dive Site **/
-#sites li {
-	padding-bottom: 0;
-}
-
-#sites li img {
-	float: right;
-	border: 1px solid #2c9688;
-	margin-left: 15px;
-}
-
-/** News **/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the news, reservations, and checkout screen middle text starting with "Sed et" */
 #news {
-	display: inline-block;
-	width: 784px;
+	position: relative;
+	top: 20px;
+	left: 70px;
+	background-color: white;
 }
 
-#news>div {
-	width: 560px;
-	border-right: 1px solid #bbbbbb;
-	padding-right: 35px;
-}
-
-#news>div img {
-	border: 1px solid #2c9688;
-	margin-bottom: 20px;
-}
-
-#news>div h2 {
-	margin-bottom: 12px;
-}
-
-#news>div span {
-	color: #5a4535;
-	display: block;
-	font: 15px/24px "Times New Roman", Times, serif;
-	margin-bottom: 30px;
-}
-
-#news>div span.author {
-	color: #2c9688;
-	display: block;
-	font-size: 14px;
-	margin-bottom: 20px;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar {
 	float: right;
 	width: 160px;
@@ -560,27 +360,20 @@ hr {
 	padding: 0;
 }
 
-#news div.sidebar h3 {
-	color: gray;
-	font-size: 20px;
-	font-weight: normal;
-	border-top: 1px solid #b7b7b7;
-	margin: 0 0 12px;
-	padding-top: 18px;
-	text-transform: uppercase;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar h3:first-child {
 	border: 0;
 	padding-top: 0px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar ul {
 	list-style: none;
 	margin: 0 0 8px;
 	padding: 0;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar ul li a {
 	color: #5a4535;
 	display: inline-block;
@@ -589,79 +382,102 @@ hr {
 	text-decoration: none;
 }
 
-#news ul li {
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkoutul li {
 	margin-bottom: 12px;
 }
 
-/** Contact **/
-#contact form {
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the news, reservations, and checkout screen middle text starting with "Sed et" */
+#checkout {
+	position: relative;
+	top: 20px;
+	left: 70px;
+	background-color: white;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkout div.sidebar {
 	float: right;
-	color: #5a4535;
-	height: 320px;
-	width: 420px;
-	border: 1px solid #5a4535;
-	padding: 19px 19px 6px;
-}
-
-#contact form table {
-	border-collapse: collapse;
-}
-
-#contact form table td {
-	padding-bottom: 6px;
-}
-
-#contact table td:first-child {
-	font-size: 14px;
-	line-height: 30px;
-	width: 180px;
-	text-transform: uppercase;
-}
-
-#contact table td.txtarea {
-	vertical-align: top;
-}
-
-#contact form input {
-	height: 17px;
-	line-height: 17px;
-	width: 278px;
-	border: 1px solid #5a4535;
-	border-radius: 2px;
-}
-
-#contact textarea {
-	height: 143px;
-	line-height: 17px;
-	width: 338px;
-	border: 1px solid #5a4535;
-	border-radius: 2px;
-	overflow: auto;
-	resize: none;
-}
-
-#contact input.btn {
-	background: url(../images/btn-send.png) no-repeat -70px 0;
-	cursor: pointer;
-	height: 26px;
-	width: 60px;
+	width: 160px;
 	border: 0;
 	padding: 0;
-	margin: 0;
 }
 
-#contact input.btn:hover {
-	background-position: 0 0;
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkout div.sidebar h3:first-child {
+	border: 0;
+	padding-top: 0px;
 }
 
-#contact p span {
-	display: block;
-	text-transform: uppercase;
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkout div.sidebar ul {
+	list-style: none;
+	margin: 0 0 8px;
+	padding: 0;
 }
 
-/*------------------------------ FOOTER ------------------------------*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkout div.sidebar ul li a {
+	color: #5a4535;
+	display: inline-block;
+	font-size: 15px;
+	margin-bottom: 6px;
+	text-decoration: none;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#checkout ul li {
+	margin-bottom: 12px;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the news, reservations, and checkout screen middle text starting with "Sed et" */
+#reservations {
+	position: relative;
+	top: 20px;
+	left: 70px;
+	background-color: white;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#reservations div.sidebar {
+	float: right;
+	width: 160px;
+	border: 0;
+	padding: 0;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#reservationsdiv.sidebar h3:first-child {
+	border: 0;
+	padding-top: 0px;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#reservations div.sidebar ul {
+	list-style: none;
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#reservations div.sidebar ul li a {
+	color: #5a4535;
+	display: inline-block;
+	font-size: 15px;
+	margin-bottom: 6px;
+	text-decoration: none;
+}
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
+#reservations ul li {
+	margin-bottom: 12px;
+}
+
+
+
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to style the footer within the application */
 #footer {
-	color: #594334;
+	color: white;
 	font-size: 14px;
 	line-height: 48px;
 	margin: -38px 0 20px;
@@ -669,119 +485,21 @@ hr {
 	text-transform: uppercase;
 }
 
-#footer>div {
-	background-color: #ac9e94;
-	height: 48px;
-	width: 822px;
-	border-bottom: 1px solid #72675f;
-	border-top: 1px solid #cdbeb2;
-	margin: 0 auto;
-	padding: 0 20px;
-	text-align: right;
-}
-
-#footer ul.navigation {
-	float: left;
-	display: inline-block;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#footer ul.navigation li {
-	float: left;
-	margin-right: 10px;
-}
-
-#footer ul.navigation li a {
-	color: #594334;
-	padding: 0 5px;
-	text-decoration: none;
-}
-
-#footer ul.navigation li:first-child a {
-	border-left: 0;
-	padding-left: 0;
-}
-
-#footer ul.navigation li a:hover {
-	color: #eee7c3;
-}
-
-#footer ul.navigation li.active a {
-	color: #fff;
-}
-
-#footer p {
-	margin: 0;
-	text-align: center;
-	text-transform: none;
-}
-
-/** Connect **/
-#connect {
-	float: right;
-	display: inline-block;
-	line-height: 26px;
-	margin: 12px 0 0;
-}
-
-#connect a {
-	background: url(../images/icons.png) no-repeat;
-	display: inline-block;
-	height: 23px;
-	width: 23px;
-	margin-left: 10px;
-}
-
-#connect a.pinterest {
-	background-position: 0 -33px;
-}
-
-#connect a.facebook {
-	background-position: 0 -98px;
-}
-
-#connect a.twitter {
-	background-position: 0 -164px;
-	width: 28px;
-}
-
-#connect a.googleplus {
-	background-position: 0 -230px;
-}
-
-#connect a.pinterest:hover {
-	background-position: 0 0;
-}
-
-#connect a.facebook:hover {
-	background-position: 0 -65px;
-}
-
-#connect a.twitter:hover {
-	background-position: 0 -131px;
-}
-
-#connect a.googleplus:hover {
-	background-position: 0 -197px;
-}
-
-/* Source- (Mozilla, 2022, p. 1)
-	Property that sets the position of the marker relative to a list item <ul>*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	property that sets the position of the marker relative to a list item <ul>*/
 li {
 	list-style: none;
 	margin-bottom: 10px;
 }
 
-/* Source- (Mozilla, 2022, p. 1)
-	Function that positions the X within the first element with the relative property*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	function that positions the X within the first element with the relative property*/
 li.selected_x {
 	position: absolute;
 }
 
-/* Source- (Mozilla, 2022, p. 1)
-	Function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
 li.selected_x a:before {
 	content: "X";
 	position: absolute;
@@ -793,35 +511,35 @@ li.selected_x a:before {
 	pointer-events: none;
 }
 
-/* Source- (Mozilla, 2022, p. 1)
-	Function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
 li.selected_x a:before {
 	transform: translate(-630%) rotate(90deg) scaleX(5) scaleY(12);
 }
 
-/* Source - (W3C, 2022, p. 1)
-	Properties for the <p> element within the application*/
+/* Source - (W3C, 2022, p. 1);(W3Schools, 2022, p. 1)
+	properties for the <p> element within the application*/
 p {
 	text-align: center;
 	color: white
 }
 
-/* Source - (Mozilla, 2022, p. 1)
-	  Label properties for the corporate logo within the index screen of application*/
+/* Source - (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	  label properties for the corporate logo within the index screen of application*/
 label[for="corp-logo"] {
 	font-weight: bold;
 	color: white;
 }
 
-/* Source - (Mozilla, 2022, p. 1)
-	  Label properties for the corporate logo within the index screen of application*/
+/* Source - (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	  label properties for the corporate logo within the index screen of application*/
 label[for="logged-label"] {
 	font-weight: bold;
 	color: white;
 }
 
-/* Source - (Mozilla, 2022, p. 1)
-	  Label properties used to incorporate the user icon located next to login on each screen*/
+/* Source - (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	  label properties used to incorporate the user icon located next to login on each screen*/
 #user-icon {
 	width: 25%;
 	height: 55%;
@@ -830,8 +548,8 @@ label[for="logged-label"] {
 
 }
 
-/* Source - (Mozilla, 2022, p. 1)
-	  Label properties used to incorporate the shopping cart icon located next to login on each screen*/
+/* Source - (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	  label properties used to incorporate the shopping cart icon located next to login on each screen*/
 #shopping-icon {
 	width: 20%;
 	height: 55%;
@@ -842,65 +560,72 @@ label[for="logged-label"] {
 
 }
 
-/* Source - (Mozilla, 2022, p. 1)
-	  Properties used to show the Travel header within the travel menu for application*/
+/* Source - (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
+	  properties used to show the Travel header within the travel menu for application*/
 #header-travel {
 	position: relative;
 	left: -250px;
-	top: 22px;
+	top: 52px;
 	color: #594334;
 	font-size: 24px;
 	line-height: 48px;
 	margin: -22px 50px 20px;
 	background-color: #ac9e94;
 	display: inline-block;
-	max-width: 1004px;
+	width: 1370px;
 	padding: 10px;
 
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the edit labl in the travel screen */
 #edit-label {
 	color: #594334;
 	position: relative;
 	font-size: 24px;
 	left: -567px;
-	top: 5px;
+	top: 38px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the previous page clickable lable within the travel screen  */
 #previous-screen {
 	color: #594334;
 	position: relative;
 	left: 130px;
-	top: -40px;
+	top: -10px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the previous page clickable lable within the travel screen  */
 #previous-screen:hover {
 	color: purple;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table rows within the travel screen */
 tr {
 	color: #594334;
 	text-align: left;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table within the travel screen */
 table {
 	cursor: pointer;
 	position: relative;
-	left: -185px;
-	top: 2px;
-	width: 140%;
+	left: -200px;
+	top: 42px;
+	width: 142%;
 	border-collapse: collapse;
 
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the selected table class within the travel screen */
 .selected-table {
 	background-color: #ac9e94;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the previous button within the travel screen */
 #previous-table {
 	position: relative;
-	left: 1150px;
-	top: 400px;
+	left: 950px;
+	top: 30px;
 	margin: 25px;
 	background-color: #ac9e94;
 	color: #594334;
@@ -910,37 +635,38 @@ table {
 	transition: transform 0.2s;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the previous button within the travel screen */
 #previous-table:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the next button within the travel screen */
 #next-table {
 	position: relative;
-	left: 1250px;
-	top: 399px;
+	left: 925px;
+	top: 30px;
 	margin: 25px;
 	background-color: #ac9e94;
 	color: #594334;
 	margin-top: 30px;
-	/* Add some space above the button */
 	text-decoration: underline;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the next button within the travel screen */
 #next-table:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
-/* Style the tab */
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen */
 .tab {
 	position: relative;
 	width: 375px;
 	left: -190px;
-	top: 10px;
+	top: 45px;
 	background-color: #ac9e94;
 	color: #594334;
 	margin-left: 50px;
@@ -948,7 +674,7 @@ table {
 	border-top-left-radius: 10px;
 }
 
-/* Style the buttons inside the tab */
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen */
 .tab button {
 	background-color: #ac9e94;
 	float: left;
@@ -962,234 +688,123 @@ table {
 	border-top-right-radius: 10px;
 }
 
-/* Change background color of buttons on hover */
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen (hover) */
 .tab button:hover {
 	background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen (focus) */
 .tab button:focus {
 	background-color: darksalmon;
 	color: #fff;
 }
 
-/* Style the tab content */
-.tabcontent {
-	display: none;
-	padding: 6px 12px;
-	border: 1px solid #ccc;
-	border-top: none;
-}
-
-.hidden {
-	display: none;
-}
-
-#search-bar {
-	position: relative;
-	left: -25px;
-	top: 0px;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the add trip button within the travel screen */
 #add-trip {
 	position: relative;
-	left: 550px;
-	top: -13px;
-	width: 180px;
-	height: 18px;
+	left: 530px;
+	font-size: 12px;
+	top: 38px;
+	width: 220px;
+	height: 21px;
 	background-color: #ac9e94;
 	color: #594334;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
 }
 
-/* property for the shadow underneath add a trip button in travel screen*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the add trip button within the travel screen */
 #add-trip:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
-/* background for the magnifying glass in the travel screen labeled "search travel"*/
-.search-button {
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 0;
-}
-
-/* magnifying glass properties in the travel screen labeled "search travel"*/
-.search-button svg,
-.search-button .fa {
-	display: block;
-	height: 18px;
-	width: 30px;
-	top: 25px;
-	left: 190px;
-	position: relative;
-}
-
-
-
-
-/* serach bar in the travel screen that is labeled "search travel"*/
-#search {
-	padding: 0px 30px 0px 20px;
-	position: relative;
-	top: 20px;
-	left: 200px;
-	width: 295px;
-	height: 30px;
-}
-
-
-
-/* magnifying glass on the travel page labeled "search travel"*/
-.search-button {
-	position: relative;
-	top: 50%;
-	right: 500px;
-	transform: translateY(-50%);
-	width: 30px;
-	height: 30px;
-	border: none;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table header within the travel screen */
 th {
 	background-color: #ac9e94;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row child within the travel screen */
 tr:nth-child(even) td {
 	background-color: #f2f2f2;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row child within the travel screen */
 tr:nth-child(odd) td {
 	background-color: lightgray;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row for salmon property functionality within the travel screen */
 tr.salmon td {
 	background-color: salmon;
 }
 
-#travel-footer {
-	background-color: #ac9e94;
-}
-
-/* style for the background of the magnifying glass top right */
-.search-button-top {
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 0;
-}
-
-/* properties for the top right magnifying glass */
-.search-button-top svg,
-.search-button-top .fa {
-
-	height: 25px;
-	width: 25px;
-	top: 414px;
-	left: 10px;
-	background-color: darkgrey;
-	position: absolute;
-	border-radius: 200px;
-}
-
-
-
-/* search bar at the top right of screen*/
-#search-top {
-	padding: 0px 30px 0px 20px;
-	position: relative;
-	top: -65px;
-	left: 102.55%;
-	max-width: 8%;
-	height: 20px;
-	border-radius: 25px;
-}
-
-
-/* magnify glass position in the top right of page*/
-.search-button-top {
-	position: relative;
-	top: -480.5px;
-	right: -460px;
-	width: 20px;
-	height: 20px;
-	border: none;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the title located on each page */
 #title {
 	position: relative;
 	font-size: 20px;
 	top: -60px;
-
-
 	color: white;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used for the hidden capabilities of each table within the travel screen */
 .hidden {
 	display: none;
 }
 
-/*navigation top left of screen*/
-.navigation {
-	position: relative;
-	left: -9.5%;
-	top: 6px;
-
-
-
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the arrow in the navigation bar in the top left of each page */
 .arrow {
 	font-size: 25px;
 	background-color: transparent;
 	color: white;
 	border: none;
+	position: relative;
+	top: -15px;
+	left: -100px
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the arrow in the navigation bar in the top left of each page (hover) */
 .arrow:hover {
-
 	background-color: darkgray;
 	border-radius: 10px;
-
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the x-symbol in the navigation bar in the top left of each page (hover) */
 .x-symbol:hover {
-
 	background-color: darkgray;
 	border-radius: 10px;
-
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the x-symbol in the navigation bar in the top left of each page */
 .x-symbol {
 	font-size: 20.5px;
 	background-color: transparent;
 	color: white;
 	border: none;
+	position: relative;
+	top: -15px;
+	left: -100px
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the home button in the navigation bar in the top left of each page */
 .home-button {
 	font-size: 30px;
 	text-decoration: none;
 	color: white;
 	background-color: transparent;
 	border: none;
-
+	position: relative;
+	top: -15px;
+	left: -100px
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the home button in the navigation bar in the top left of each page (hover) */
 .home-button:hover {
 	background-color: darkgray;
 	border-radius: 10px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login label in the login screen */
 #login-label {
 	position: relative;
 	left: 196px;
@@ -1197,13 +812,15 @@ tr.salmon td {
 	color: #5a4535;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup label in the signup screen */
 #signup-label {
 	position: relative;
-	left: 400px;
-	top: 150px;
+	left: 210px;
+	top: -490px;
 	color: #5a4535;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login button in the login screen */
 #login-button {
 	background-color: #ac9e94;
 	color: rgb(68, 68, 68);
@@ -1214,14 +831,15 @@ tr.salmon td {
 	left: -80px;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
-
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login button in the login screen */
 #login-button:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the email label in the login screen */
 #email-label {
 	color: #5a4535;
 	position: relative;
@@ -1229,6 +847,7 @@ tr.salmon td {
 	top: 20px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the forgot password label in the login screen */
 #forgot-password-question-mark {
 	border-radius: 50%;
 	padding: 1px;
@@ -1237,14 +856,11 @@ tr.salmon td {
 	color: black;
 	position: relative;
 	text-decoration: none;
-	top: 150px;
-	left: 360px;
+	top: 80px;
+	left: 60px;
 }
 
-#forgot-password-question-mark:hover {
-	color: black;
-}
-
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the password label in the login screen */
 #password-label {
 	color: #5a4535;
 	position: relative;
@@ -1252,6 +868,7 @@ tr.salmon td {
 	top: 70px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login section in the login screen */
 .login-section {
 	border: solid black 2px;
 	background-color: #ac9e94;
@@ -1263,23 +880,26 @@ tr.salmon td {
 	z-index: 1;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup check mark in the sign up screen */
 #signup-check {
 	position: relative;
-	top: 250px;
-	left: 190px;
+	top: 150px;
+	left: 196px;
 }
 
+/* Source-(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup section in the signup screen */
 .signup-section {
 	border: solid black 2px;
 	background-color: #ac9e94;
 	width: 560px;
 	height: 350px;
 	position: relative;
-	top: 225px;
-	left: 400px;
+	top: -325px;
+	left: -120px;
 	z-index: 999;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the input email in the login screen */
 #input-email {
 	border: 2px solid black;
 	position: relative;
@@ -1288,6 +908,7 @@ tr.salmon td {
 	width: 250px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the input password in the login screen */
 #input-password {
 	border: 2px solid black;
 	position: relative;
@@ -1296,6 +917,7 @@ tr.salmon td {
 	width: 250px;
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the login screen */
 #signup-button {
 	background-color: #ac9e94;
 	color: rgb(68, 68, 68);
@@ -1306,68 +928,71 @@ tr.salmon td {
 	left: 290px;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
-
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the signup screen */
 #signup-button-signup {
 	background-color: #ac9e94;
 	color: rgb(68, 68, 68);
 	border: none;
 	padding: 5px 30px;
 	position: relative;
-	top: 243px;
+	top: 150px;
 	left: 190px;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
-
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the signup screen */
 #signup-button:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the signup screen */
 #signup-button-signup:active {
 	box-shadow: none;
 	transform: translateY(5px);
 }
 
-/* style properties used for the forgot password label within the login page (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the forgot password label within the login page (Mozilla, 2022, p. 1)*/
 #forgot-password {
 	position: relative;
 	top: 70px;
 	left: 130px;
 }
 
-/* properties for the links within the application that will change the color to blue when the link is
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the links within the application that will change the color to blue when the link is
 	visited which will work for when the user presses on link, will highlight purple and go back to blue (Mozilla, 2022, p. 1)*/
 a:visited {
 	color: blue;
 }
 
-/* properties for the links within the application that will hover the color purple when the user
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the links within the application that will hover the color purple when the user
 	scrolls over active url elements (Mozilla, 2022, p. 1)*/
 a:hover,
 a:active {
 	color: purple;
 }
 
-/* style properties for label for the learn more attribute in the signup page (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for label for the learn more attribute in the signup page (Mozilla, 2022, p. 1)*/
 #learn-more {
 	position: relative;
-	top: 310px;
-	left: 320px;
+	top: 150px;
+	left: 200px;
+	text-decoration: underline;
 }
 
-/* style properties for label for the name in the signup page (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)properties for label for the name in the signup page (Mozilla, 2022, p. 1)*/
 #name-label-signup {
 	color: #5a4535;
 	position: relative;
 	left: 126px;
-	top: 45px;
+	top: 49px;
+
 }
 
-/* style properties for input box for the name in the signup page (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the name in the signup page (Mozilla, 2022, p. 1)*/
 #input-name-signup {
 	border: 2px solid black;
 	position: relative;
@@ -1376,88 +1001,106 @@ a:active {
 	width: 250px;
 }
 
-/* style properties for label for the email in the signup page (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for label for the email in the signup page (Mozilla, 2022, p. 1)*/
 #email-label-signup {
 	color: #5a4535;
 	position: relative;
-	left: 126px;
+	left: -190px;
 	top: 100px;
 }
 
-/*  style properties for input box for the email in the signup page (Mozilla, 2022, p. 1)*/
+/*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the email in the signup page (Mozilla, 2022, p. 1)*/
 #input-email-signup {
 	border: 2px solid black;
 	position: relative;
 	left: 194px;
-	top: 80px;
+	top: 60px;
 	width: 250px;
 }
 
-/*  style properties for label for the password in the signupscreen (Mozilla, 2022, p. 1)*/
+/*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for label for the password in the signupscreen (Mozilla, 2022, p. 1)*/
 #password-label-signup {
 	color: #5a4535;
 	position: relative;
-	left: -160px;
-	top: 130px;
+	left: -151px;
+	top: 115px;
 }
 
-/*  style properties for input box for the password in the signup screen (Mozilla, 2022, p. 1)*/
+/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the password in the signup screen (Mozilla, 2022, p. 1)*/
 #input-password-signup {
 	border: 2px solid black;
 	position: relative;
-	left: -154px;
-	top: 130px;
+	left: -146px;
+	top: 115px;
 	width: 150px;
 }
 
-/*  style properties for retype input label for the password in the signup screen (Mozilla, 2022, p. 1)*/
+/*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for retype input label for the password in the signup screen (Mozilla, 2022, p. 1)*/
 #retype-password-label-signup {
 	color: #5a4535;
 	position: relative;
-	left: 45px;
-	top: 202px;
+	left: 47px;
+	top: 132px;
 }
 
-/*  style properties for retype input box for the password in the signup screen (Mozilla, 2022, p. 1)*/
+/*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for retype input box for the re-type password in the signup screen (Mozilla, 2022, p. 1)*/
 #retype-input-password-signup {
 	border: 2px solid black;
 	position: relative;
 	width: 150px;
-	top: 160px;
-	left: 194px;
+	top: 130px;
+	left: 52px;
 }
 
-.box-x {
+/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project label within the admin page (Mozilla, 2022, p. 1)*/
+.project-label {
 	position: relative;
-	width: 75px;
-	height: 60px;
-	border: 3px solid black;
-	text-align: center;
-	font-size: 10px;
-	font-weight: bold;
-	top: 15px;
-	left: 60px;
-}
-
-.label {
-	position: relative;
-	top: 12px;
-	left: -11px;
-	right: 0;
-	font-size: 15px;
-	width: 75px;
-	margin: 0 auto;
-	padding: 10px 10px;
-	background-color: rgba(255, 255, 255, 0.5);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	color: white;
+	width: 85px;
+	margin: 0 auto;
+	padding: 10px 10px;
+	top: -37px;
+	left: -665px;
+	font-size: 11px;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
 	z-index: 1;
-
+	text-align: center;
 }
 
+/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
+.box-with-x {
+	width: 60px;
+	height: 50px;
+	border: 2px solid black;
+	position: relative;
+	top: -80px;
+	left: -145px;
+	background-color: silver;
+}
+
+/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
+.box-with-x:before,
+.box-with-x:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	transform: translate(-50%, -50%) rotate(35deg);
+}
+
+/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
+.box-with-x:before {
+	transform: translate(-50%, -50%) rotate(-35deg);
+}
+
+/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
 .close {
 	position: relative;
 	top: 0;
@@ -1468,84 +1111,61 @@ a:active {
 	cursor: default
 }
 
-.x {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	width: 120%;
-	height: 2px;
-	background-color: darkgray;
-	transform-origin: center;
-}
-
-.line-left {
-	transform: translate(-50%, -50%) rotate(98deg);
-}
-
-.line-right {
-	transform: translate(-50%, -50%) rotate(-187deg);
-}
-
-/* style properties used for the right side list which shows user, email, message, and mail (Iconscout, 2022, p. 1)*/
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the travel, reservations, users, and settings*/
 #admin-sidebar a {
 	color: white;
 	position: relative;
-	top: 35px;
+	top: -10px;
+	left: -215px;
 	padding: 10px;
 	margin: 10px;
+	text-decoration: underline;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the travel, reservations, users, and settings*/
 #admin-sidebar a:hover {
 	color: purple;
 }
 
+/* (Iconscout, 2022, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the question mark, chat bubbles, mail, and user logo*/
 #user-options {
-	position: relative;
-	top: -37px;
-	left: 600px;
+	position: absolute;
+	top: -42px;
+	left: 1020px;
 	transform: rotate(90deg);
 	transform-origin: center center;
-	height:10px;
-	width:100px;
+	height: 10px;
+	width: 100px;
 }
 
+/* (Iconscout, 2022, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the question mark, chat bubbles, mail, and user logo*/
 #user-logo {
 	fill: white;
 	transform: rotate(-90deg);
+	position: relative;
+	left: 3px;
 }
 
-#user-logo:hover {
-	background-color: #5a4535;
-}
-
+/* (Iconscout, 2022, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the question mark, chat bubbles, mail, and user logo*/
 #message-icon {
 	fill: white;
 	transform: rotate(-90deg);
+	padding: 4px;
 }
 
-#message-icon:hover {
-	background-color: #5a4535;
-}
-
+/* (Iconscout, 2022, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the question mark, chat bubbles, mail, and user logo*/
 #chat-icon {
 	fill: white;
 	transform: rotate(-90deg);
 }
 
-#chat-icon:hover {
-	background-color: #5a4535;
-}
-
+/* (Iconscout, 2022, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the question mark, chat bubbles, mail, and user logo*/
 #question-icon {
 	fill: white;
 	transform: rotate(-90deg);
 }
 
-#question-icon:hover {
-	background-color: #5a4535;
-}
-
-/* Default styles for header */
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the header in the admin page*/
 #project-header {
 	display: flex;
 	align-items: center;
@@ -1554,29 +1174,32 @@ a:active {
 	height: 60px;
 	padding: 0 20px;
 	position: relative;
-	width:1370px;
-	left:-200px;
+	width: 5370px;
+	left: -2200px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the footer in the admin page*/
 .admin-footer {
 	position: relative;
 	top: 600px;
 	left: 570px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the middle section in the admin page*/
 .admin-box {
 	width: 700px;
 	height: 330px;
-	top: 250px;
+	top: -140px;
 	border: 2px solid black;
 	position: relative;
-	left: 380px;
+	left: 110px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the group name label in the admin page*/
 #admin-group-name {
 	position: relative;
-	top: 230px;
-	left: 400px;
+	top: -482px;
+	left: 130px;
 	z-index: 1;
 	text-decoration: bold;
 	font-size: 18px;
@@ -1585,123 +1208,134 @@ a:active {
 	padding: 10px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the id label in the admin page*/
 #id-label {
 	color: #5a4535;
 	position: relative;
-	left: 270px;
-	top: 15px;
+	left: 230px;
+	top: -460px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the destination label in the admin page*/
 #destination-label {
 	color: #5a4535;
 	position: relative;
-	left: 95px;
-	top: 50px;
+	left: 65px;
+	top: -420px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the resort label in the admin page*/
 #resort-label {
 	color: #5a4535;
 	position: relative;
-	left: -125px;
-	top: 200px;
+	left: -245px;
+	top: -280px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the person label in the admin page*/
 #person-label {
 	color: #5a4535;
 	position: relative;
-	left: 460px;
-	top: 515px;
+	left: -585px;
+	top: -230px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the id input in the admin page*/
 #id-input {
 	border: 2px solid black;
 	position: relative;
 	width: 75px;
-	top: 15px;
-	left: 294px;
+	top: -460px;
+	left: 250px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the destination input in the admin page*/
 #destination-input {
 	border: 2px solid black;
 	position: relative;
-	width: 150px;
-	top: 50px;
-	left: 120px;
+	width: 250px;
+	top: -420px;
+	left: 84px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the resort input in the admin page*/
 #resort-input {
 	border: 2px solid black;
 	position: relative;
-	width: 150px;
-	top: 200px;
-	left: -95px;
+	width: 250px;
+	top: -280px;
+	left: -225px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the person input in the admin page*/
 #person-input {
 	border: 2px solid black;
 	position: relative;
 	width: 120px;
-	top: 250px;
-	left: -256px;
+	top: -230px;
+	left: -563px;
 }
 
-/* input for the number of days of stay */
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the counter of number of days input*/
 #length-stay {
 	border: 2px solid black;
 	position: relative;
 	width: 30px;
 	height: 20px;
-	top: 91px;
-	left: -500px;
+	top: -412px;
+	left: 280px;
 }
 
-/* label for the input number of days*/
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of days input*/
 #length-label {
 	color: #5a4535;
 	position: relative;
-	left: -525px;
-	top: 90px;
+	left: -818px;
+	top: -380px;
 }
 
-/* label for the counter of nights*/
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of night input*/
 #night-label {
 	color: #5a4535;
 	position: relative;
-	left: 370px;
-	top: 65px;
+	left: 285px;
+	top: -412px;
 }
 
-/* label for the counter of days*/
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of days input*/
 #length-label-day {
 	color: #5a4535;
 	position: relative;
-	left: 420px;
-	top: 65px;
+	left: 345px;
+	top: -412px;
+
 }
 
-/* day counter slider*/
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label for the days */
 #length-stay-day {
 	border: 2px solid black;
 	position: relative;
 	width: 30px;
 	height: 20px;
-	top: 65px;
-	left: 340px;
+	top: -412px;
+	left: 267px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the date input */
 #date-input {
 	border: 2px solid black;
 	position: relative;
-	width: 105px;
+	width: 120px;
 	height: 20px;
-	top: 115px;
-	left: 115px;
+	top: -365px;
+	left: 45px;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the date input */
 input[type="date"]::-webkit-calendar-picker-indicator {
 	position: relative;
-	right: 0px;
-	top: 50%;
+	left: 30px;
+	top: 12px;
 	transform: translateY(-50%);
 	width: 20px;
 	height: 20px;
@@ -1709,9 +1343,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	border: none;
 }
 
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the date label*/
 #date-label {
 	color: #5a4535;
 	position: relative;
-	left: 90px;
-	top: 115px;
+	left: 20px;
+	top: -365px;
+}
+
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the div on the left side of the admin screen*/
+.left-side-color-admin {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 0%;
+	height: 100%;
+	background-color: gray;
+
+}
+
+/* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the div on the bottom side of the admin screen*/
+.bottom-side-color-admin {
+	position: relative;
+	top: -655px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #ac9e94;
 }
