@@ -1,4 +1,4 @@
-<!--Lawrence Arundel CS 465
+<!--Lawrence Arundel CS 465 
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -72,7 +73,7 @@
 			{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
 
 			<!-- title of the page (SNHU, 2023, p. 1) -->
-			<p id="title">Travlr Getaways</p>
+			<p id="title">{{this.title}}</p>
 
 			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
 			<form onsubmit="navigateToLink(event,'search-bar-address')">
@@ -100,31 +101,31 @@
 								<form id="login-window">
 
 									<!-- label used to denote the email within the window  (SNHU, 2023, p.  1)-->
-									<label for="username" id="email-label"><b>Email:</b></label>
+									<label for="username" id="email-label"><b>{{logins.[0].email}}</b></label>
 
 									<!-- input used to denote the email within the window  (SNHU, 2023, p.  1)-->
 									<input type="text" id="input-email" name="username">
 
 									<!-- label used to denote the password within the window  (SNHU, 2023, p.  1)-->
-									<label for="password" id="password-label"><b>Password:</b></label>
+									<label for="password" id="password-label"><b>{{logins.[1].password}}</b></label>
 
 									<!-- input used to denote the password within the window  (SNHU, 2023, p.  1)-->
 									<input type="password" id="input-password" name="password">
 
 									<!-- button used to denote the login function within the window  (SNHU, 2023, p.  1)-->
-									<button type="submit" id="login-button">Login</button>
+									<button type="submit" id="login-button">{{logins.[3].login}}</button>
 								</form>
 
 								<!-- button used to denote the signup function within the window  (SNHU, 2023, p.  1)-->
-								<button id="signup-button" onclick="goSignUp()">Sign-up</button>
-								<a href="/login" id="forgot-password">Forgot Password?</a>
+								<button id="signup-button" onclick="goSignUp()">{{logins.[4].signup}}</button>
+								<a href="/login" id="forgot-password">{{logins.[2].forgotpassword}}</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
-			<h1 id="login-label">Login</h1>
+			<h1 id="login-label">{{logins.[5].loginlabel}}</h1>
 			<!-- label used for the login window within the webage located top left (SNHU, 2023, p. 1) -->
 
 		</div>

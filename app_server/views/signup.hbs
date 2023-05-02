@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -74,7 +75,7 @@
 			{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
 
 			<!-- title of the page (SNHU, 2023, p. 1) -->
-			<p id="title">Travlr Getaways</p>
+			<p id="title">{{this.title}}</p>
 
 			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
 			<form onsubmit="navigateToLink(event,'search-bar-address')">
@@ -88,45 +89,46 @@
 							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
 								alt="Background Images Showing Destinations">
 							<!-- Placeholder image (Softel, 2021, p. 1) -->
-							</a>
+
 						</div>
 						<div class="section">
 							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
 								alt="Background Images Showing Destinations">
 							<!-- Placeholder image (Softel, 2021, p. 1) -->
-							</a>
+
 						</div>
 						<div class="section">
 							<img src="https://via.placeholder.com/200x100?text=Background+Images+Showing+Destinations"
 								alt="Background Images Showing Destinations">
 							<!-- Placeholder image (Softel, 2021, p. 1) -->
-							</a>
 
 							<!-- div used to construct the sign up window within the application (SNHU, 2023, p. 1) -->
 							<div class="signup-section">
 								<form id="login-window">
 
+
 									<!-- label used to denote the name within the window  (SNHU, 2023, p.  1)-->
-									<label for="name" id="name-label-signup"><b>* Name:</b></label>
+									<label for="name" id="name-label-signup"><b>{{signups.[0].name}}</b></label>
 
 									<!-- input used to denote the name within the window  (SNHU, 2023, p.  1)-->
 									<input type="text" id="input-name-signup" name="name">
 
 									<!-- label used to denote the email within the window  (SNHU, 2023, p.  1)-->
-									<label for="email" id="email-label-signup"><b>* Email: </b></label>
+									<label for="email" id="email-label-signup"><b>{{signups.[1].email}} </b></label>
 
 									<!-- input used to denote the email within the window  (SNHU, 2023, p.  1)-->
 									<input type="text" id="input-email-signup" name="email">
 
 									<!-- label used to denote the password within the window  (SNHU, 2023, p.  1)-->
-									<label for="password" id="password-label-signup"><b>* Password:</b></label>
+									<label for="password"
+										id="password-label-signup"><b>{{signups.[2].password}}</b></label>
 
 									<!-- input used to denote the password within the window  (SNHU, 2023, p.  1)-->
 									<input type="password" id="input-password-signup" name="password">
 
 									<!-- label used to denote the re-type password within the window  (SNHU, 2023, p.  1)-->
-									<label for="password-label" id="retype-password-label-signup"><b>* Re-type
-											password:</b></label>
+									<label for="password-label"
+										id="retype-password-label-signup"><b>{{signups.[3].retypepassword}}</b></label>
 
 									<!-- input used to denote the re-type password within the window  (SNHU, 2023, p.  1)-->
 									<input type="password" id="retype-input-password-signup" name="password-label">
@@ -137,22 +139,23 @@
 									<!-- label used to denote the check box within the window including text for termsf and conditions(SNHU, 2023, p.  1)-->
 									<label id="signup-check">
 										<input type="checkbox" name="checkbox-signup">
-										I agree to the <a href="/signup" id="terms-url"
-											style="text-decoration:underline">Terms of Use</a> and <a href="/signup"
-											style="text-decoration:underline">Privacy Policy.</a>
+										{{signups.[4].agree}} <a href="/signup" id="terms-url"
+											style="text-decoration:underline">{{signups.[5].terms}}</a>
+										{{signups.[6].and}} <a href="/signup"
+											style="text-decoration:underline">{{signups.[7].privacy}}</a>
 									</label>
 								</form>
 
 								<!-- button used to denote the signup function within the window  (SNHU, 2023, p.  1)-->
-								<button id="signup-button-signup" onclick="goSignUp()">Sign-up</button>
-								<a href="/signup" id="learn-more">Learn more</a>
+								<button id="signup-button-signup" onclick="goSignUp()">{{signups.[8].signup}}</button>
+								<a href="/signup" id="learn-more">{{signups.[9].learn}}</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
-			<h1 id="signup-label">Sign Up</h1>
+			<h1 id="signup-label">{{signups.[10].signlabel}}</h1>
 			<!-- label used for the sign up window within the webage located top left (SNHU, 2023, p. 1) -->
 		</div>
 </body>

@@ -1,4 +1,4 @@
-<!--Lawrence Arundel CS 465 
+// Lawrence Arundel CS 465
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -42,148 +43,18 @@
 // W3Schools, W. S. (2021, May 4). HTML DOM Element className., from https://www.w3schools.com/jsref/prop_html_classname.asp
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
-*/-->
 
-<!DOCTYPE html>
-<html>
+// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
+const express = require('express');
 
-<head>
-	<!-- meta tag used as the viewport for the application depending on the device used (Mozilla, 2022, p. 1) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
+const router = express.Router();
 
-	<!-- *attempt import from bootstrap to utilize resizing capabilities for header (Mark, 2021, p. 1)-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
+const controller = require('../controllers/traveler');
 
-	<!-- style sheet used for css properties within the application (SNHU, 2023, p. 1) -->
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+/* GET home page. (SNHU, 2023, p. 1) */
+router.get('/', controller.traveler);
 
-	<!-- script used for editing and formatting table within application (SNHU, 2023, p. 1) -->
-	<script src="javascripts/function-scripts.js"></script>
-
-	<!-- cdn libraries/css used for different fonts used within the application (cdnjs, 2022, p. 1) -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
-	<!-- *attempt import from bootstrap to utilize resizing capabilities for header (Mark, 2021, p. 1)-->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-</head>
-
-
-<body>
-	<div id="background"> <!-- div for the page background (SNHU, 2023, p. 1) -->
-		<div id="page"> <!-- div with the id equal to page (SNHU, 2023, p. 1) -->
-			{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
-
-			<!-- title of the page (SNHU, 2023, p. 1) -->
-			<p id="title">Travlr Getaways</p>
-
-			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
-			<form onsubmit="navigateToLink(event,'search-bar-address')">
-				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
-			</form>
-
-			<!-- contents which including the description for the reservation information within the application (SNHU, 2023, p. 1) -->
-			<div id="contents">
-				<div>
-					<div id="reservations" class="body">
-						<div class="sidebar">
-							<h3>Latest Reservations</h3>
-							<ul>
-								<li>
-									<a href="/reservations">2023 Best Beaches Contest Winners</a>
-								</li>
-								<li>
-									<a href="/reservations">Top 10 Diving Spots</a>
-								</li>
-								<li>
-									<a href="/reservations">Fishing ban to be implemented this year</a>
-								</li>
-								<li>
-									<a href="/reservations">Lifeguard saves child from drowning</a>
-								</li>
-							</ul>
-							<h3>Vaction Tips</h3>
-							<ul>
-								<li>
-									<a href="/reservations">What to bring on the beach?</a>
-								</li>
-								<li>
-									<a href="/reservations">Planning Fun Activities</a>
-								</li>
-								<li>
-									<a href="/reservations">Diving Checklist</a>
-								</li>
-								<li>
-									<a href="/reservations">First Aid</a>
-								</li>
-								<li>
-									<a href="/reservations">How to Build a Sand Castle?</a>
-								</li>
-								<li>
-									<a href="/reservations">Tanning Tips</a>
-								</li>
-							</ul>
-						</div>
-						<div>
-							<h1>Reservations</h1>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<img src="images/kayak.jpg" alt="Img">
-							<h2>Experience Kayaking!</h2>
-							<span class="time">April 03, 2023<br> by: Juan De La Cruz</span>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar
-								sagittis metus ut tristique. Pellentesque habitant morbi tristique senectus et netus
-								et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Nulla at
-								nunc sit amet justo cursus imperdiet. Mauris est leo, placerat nec eleifend eu,
-								facilisis id dolor. Donec nisi nibh, elementum vitae imperdiet non, placerat et
-								felis. Maecenas scelerisque odio quis arcu fringilla malesuada. Nulla facilisi. In
-								libero nulla, fermentum ut pretium ac, pharetra et eros.
-							</p>
-							<p>
-								Phasellus viverra fringilla lacus, malesuada blandit velit iaculis dignissim.
-								Suspendisse rutrum massa mauris. Donec quis tempus elit.Integer magna leo, posuere
-								et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat
-								volutpat.
-							</p>
-						</div>
-						{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-
-</html>
+// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
+module.exports = router;

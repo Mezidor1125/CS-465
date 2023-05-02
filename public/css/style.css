@@ -592,6 +592,7 @@ label[for="logged-label"] {
 	position: relative;
 	left: 130px;
 	top: -10px;
+	text-decoration:underline;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the previous page clickable lable within the travel screen  */

@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -70,26 +71,50 @@
 		<div id="page"> <!-- div with the id equal to page (SNHU, 2023, p. 1) -->
 			{{> header}} <!-- reference for the header partial template (SNHU, 2023, p. 1) -->
 
-			<!-- title of the page (SNHU, 2023, p. 1) -->
-			<p id="title">Travlr Getaways | Travel</p>
+
+			<!-- title of the page utilizing the JSON format this.title (SNHU, 2023, p. 1) -->
+			<p id="title">{{this.title}}</p>
 
 			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
 			<form onsubmit="navigateToLink(event,'search-bar-address')">
 				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com/travel">
 			</form>
+			{{#with travelers.[0]}} <!-- travel label within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
 
 			<!-- title of the page with the id header-travel located at the left side of screen (SNHU, 2023, p. 1) -->
-			<h1 id="header-travel">Travel</h1>
+			<h1 id="header-travel">{{this.header}}</h1>
+			{{/with}}
 
-			<!-- label for the editable list section (SNHU, 2023, p. 1) -->
-			<p id="edit-label">Editable List of Stuff</p>
+			{{#with travelers.[1]}}
+			<!-- editable list of stuff label within the travel page  (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
+
+			<!-- label for the editable list section (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
+			<p id="edit-label">{{this.edit}}</p>
+			{{/with}}
+
+			{{#with travelers.[2]}}
+			<!-- implementation of the static to JSON methodology utilizing the previous screen label in travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
 
 			<!-- link used to go back to the previous scree using window.history.back() (W3Schools, 2023, p. 1) -->
-			<a id="previous-screen" href="#" onclick="window.history.back();"> &lt Back To Previous Page</a>
+			<a id="previous-screen" href="#" onclick="window.history.back();"> {{this.previous}}</a>
+			{{/with}}
+
 			<div class="tab">
-				<button class="table-travel active" onclick="openTable(event, 'Beaches')">Beaches (5)</button>
-				<button class="table-travel" onclick="openTable(event, 'Cruises')">Cruises (4) </button>
-				<button class="table-travel" onclick="openTable(event, 'Mountains')">Mountains (6)</button>
+				{{#with travelers.[3]}}
+				<!-- tab label for beach table within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
+				<button class="table-travel active" onclick="openTable(event, 'Beaches')">{{this.beach}}</button>
+				{{/with}}
+
+				{{#with travelers.[4]}}
+				<!-- tab label cruise table within the travel page  (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
+				<button class="table-travel" onclick="openTable(event, 'Cruises')">{{this.cruise}} </button>
+				{{/with}}
+
+				{{#with travelers.[5]}}
+				<!-- tab label for mountain table within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
+				<button class="table-travel" onclick="openTable(event, 'Mountains')">{{this.mountain}}</button>
+				{{/with}}
+
 			</div>
 
 			<!-- search bar utilized at the middle of the screen near the table for searching the table contents (SNHU, 2023, p. 1) -->
@@ -99,269 +124,119 @@
 				<a href="/travel" id="search-bar-submit"><i class="fa fa-search travel-search-icon"></i></a>
 			</form>
 
+			{{#with travelers.[6]}}
 			<!-- button which adds a new trip within the table located at the top right (SNHU, 2023, p. 1) -->
-			<button type="submit" id="add-trip">Add a Trip</button>
-
+			<button type="submit" id="add-trip">{{this.addtrip}}</button>
+			{{/with}}
 			<!-- table used to display the beaches table content within the travel page (SNHU, 2023, p. 1) -->
 			<table id="beaches-table" class="table-content">
-
 				<!-- table header for the beaches table within the travel page (SNHU, 2023, p. 1) -->
+				{{#each travelers.[7].tableheader}}
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Length</th>
-					<th>Start</th>
-					<th>Resort</th>
-					<th>Per Person</th>
-					<th></th>
+					<th>{{this.id}}</th>
+					<th>{{this.name}}</th>
+					<th>{{this.length}}</th>
+					<th>{{this.start}}</th>
+					<th>{{this.resort}}</th>
+					<th>{{this.price}}</th>
+					<th></th> <!-- make sure extra space is created with invisible header (SNHU, 2023, p. 1) -->
 				</tr>
+				{{/each}}
 
-				<!--implementing the first row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
+				{{#each travelers.[8].beaches}}
+				<!--implementing the rows of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
 				<tr>
-					<td>B0101</td>
-					<td>Cancun</td>
-					<td>4 nights / 5 days</td>
-					<td>Feb 14, 2021</td>
-					<td>Emerald Bay, 3-stars</td>
-					<td>$799.00</td>
+					<td>{{this.id}}</td>
+					<td>{{this.name}}</td>
+					<td>{{this.length}}</td>
+					<td>{{this.start}}</td>
+					<td>{{this.resort}}</td>
+					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
+					<td class="no-selection" onclick="event.stopPropagation()"><a
+							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
+							style="text-decoration:none;">{{this.delete}}</a></td>
 				</tr>
-
-				<!--implementing the second row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0103</td>
-					<td>Barbados</td>
-					<td>5 nights / 6 days</td>
-					<td>Febr 28, 2021</td>
-					<td>Castaway Cove, 4-stars</td>
-					<td>$1,299.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-				<tr>
-
-					<!--implementing the third row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
-					<td>B0401</td>
-					<td>Panama City</td>
-					<td>4 nights / 5 days</td>
-					<td>Mar 21, 2021</td>
-					<td>Sunseeker Surf, 4-stars</td>
-					<td>$1,199.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the fourth row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0701</td>
-					<td>Tahiti</td>
-					<td>6 nights / 7 days</td>
-					<td>Mar 28, 2021</td>
-					<td>Hedonist Heaven, 5-stars</td>
-					<td>$1,799.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the fourth row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0901</td>
-					<td>French Riviera</td>
-					<td>5 nights / 6 days</td>
-					<td>Apr 11, 2021</td>
-					<td>Chateau Royal, 5-stars</td>
-					<td>$2,499.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
+				{{/each}}
 			</table>
 
 			<!-- table used to display the mountains table content within the travel page (SNHU, 2023, p. 1) -->
 			<table id="mountains-table" class="table-content hidden">
 
+				{{#each travelers.[7].tableheader}}
 				<!-- table header for the mountains table within the travel page (SNHU, 2023, p. 1) -->
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Length</th>
-					<th>Start</th>
-					<th>Resort</th>
-					<th>Per Person</th>
-					<th></th>
+					<th>{{this.id}}</th>
+					<th>{{this.name}}</th>
+					<th>{{this.length}}</th>
+					<th>{{this.start}}</th>
+					<th>{{this.resort}}</th>
+					<th>{{this.price}}</th>
+					<th></th> <!-- make sure extra space is created with invisible header (SNHU, 2023, p. 1) -->
 				</tr>
+				{{/each}}
 
-				<!--implementing the first row of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
+				{{#each travelers.[10].mountains}}
+				<!--implementing the rows of data within the beaches table within the travel page (SNHU, 2023, p. 1) -->
 				<tr>
-					<td>B0101</td>
-					<td>Cancun</td>
-					<td>4 nights / 5 days</td>
-					<td>Feb 14, 2021</td>
-					<td>Emerald Bay, 3-stars</td>
-					<td>$799.00</td>
+					<td>{{this.id}}</td>
+					<td>{{this.name}}</td>
+					<td>{{this.length}}</td>
+					<td>{{this.start}}</td>
+					<td>{{this.resort}}</td>
+					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
+					<td class="no-selection" onclick="event.stopPropagation()"><a
+							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
+							style="text-decoration:none;">{{this.delete}}</a></td>
 				</tr>
-
-				<!--implementing the second row of data within the mountains table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0103</td>
-					<td>Barbados</td>
-					<td>5 nights / 6 days</td>
-					<td>Febr 28, 2021</td>
-					<td>Castaway Cove, 4-stars</td>
-					<td>$1,299.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the third row of data within the mountains table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0401</td>
-					<td>Panama City</td>
-					<td>4 nights / 5 days</td>
-					<td>Mar 21, 2021</td>
-					<td>Sunseeker Surf, 4-stars</td>
-					<td>$1,199.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the fourth row of data within the mountains table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0701</td>
-					<td>Tahiti</td>
-					<td>6 nights / 7 days</td>
-					<td>Mar 28, 2021</td>
-					<td>Hedonist Heaven, 5-stars</td>
-					<td>$1,799.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the fifth row of data within the mountains table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0901</td>
-					<td>French Riviera</td>
-					<td>5 nights / 6 days</td>
-					<td>Apr 11, 2021</td>
-					<td>Chateau Royal, 5-stars</td>
-					<td>$2,499.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the sixth row of data within the mountains table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0901</td>
-					<td>French Riviera</td>
-					<td>5 nights / 6 days</td>
-					<td>Apr 11, 2021</td>
-					<td>Chateau Royal, 5-stars</td>
-					<td>$2,499.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
+				{{/each}}
 			</table>
 
 			<!-- table used to display the cruises table content within the travel page (SNHU, 2023, p. 1) -->
 			<table id="cruises-table" class="table-content hidden">
 
+				{{#each travelers.[7].tableheader}}
 				<!-- table header for the cruises table within the travel page (SNHU, 2023, p. 1) -->
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Length</th>
-					<th>Start</th>
-					<th>Resort</th>
-					<th>Per Person</th>
-					<th></th>
+					<th>{{this.id}}</th>
+					<th>{{this.name}}</th>
+					<th>{{this.length}}</th>
+					<th>{{this.start}}</th>
+					<th>{{this.resort}}</th>
+					<th>{{this.price}}</th>
+					<th></th> <!-- make sure extra space is created with invisible header (SNHU, 2023, p. 1) -->
 				</tr>
+				{{/each}}
 
-				<!--implementing the first row of data within the cruises table within the travel page (SNHU, 2023, p. 1) -->
+				{{#each travelers.[9].cruises}}
+				<!--implementing the rows of data within the cruises table within the travel page (SNHU, 2023, p. 1) -->
 				<tr>
-					<td>B0101</td>
-					<td>Cancun</td>
-					<td>4 nights / 5 days</td>
-					<td>Feb 14, 2021</td>
-					<td>Emerald Bay, 3-stars</td>
-					<td>$799.00</td>
+					<td>{{this.id}}</td>
+					<td>{{this.name}}</td>
+					<td>{{this.length}}</td>
+					<td>{{this.start}}</td>
+					<td>{{this.resort}}</td>
+					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
+					<td class="no-selection" onclick="event.stopPropagation()"><a
+							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
+							style="text-decoration:none;">{{this.delete}}</a></td>
 				</tr>
-
-				<!--implementing the second row of data within the cruises table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0103</td>
-					<td>Barbados</td>
-					<td>5 nights / 6 days</td>
-					<td>Feb 28, 2021</td>
-					<td>Castaway Cove, 4-stars</td>
-					<td>$1,299.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the third row of data within the cruises table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0401</td>
-					<td>Panama City</td>
-					<td>4 nights / 5 days</td>
-					<td>Mar 21, 2021</td>
-					<td>Sunseeker Surf, 4-stars</td>
-					<td>$1,199.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
-
-				<!--implementing the fourth row of data within the cruises table within the travel page (SNHU, 2023, p. 1) -->
-				<tr>
-					<td>B0701</td>
-					<td>Tahiti</td>
-					<td>6 nights / 7 days</td>
-					<td>Mar 28, 2021</td>
-					<td>Hedonist Heaven, 5-stars</td>
-					<td>$1,799.00</td>
-
-					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);">Edit</a> <a
-							href="javascript:void(0);" style="text-decoration:none;">⊗</a></td>
-				</tr>
+				{{/each}}
 			</table>
 
+			{{#with travelers.[12]}}
 			<!-- reference to the previous and next table buttons within the application (SNHU, 2023, p. 1) -->
-			<button id="previous-table">Previous</button>
-
+			<button id="previous-table">{{this.previous}}</button>
+			{{/with}}
+			{{#with travelers.[11]}}
 			<!-- reference to the previous and next table buttons within the application (SNHU, 2023, p. 1) -->
-			<button id="next-table">Next</button>
+			<button id="next-table">{{this.next}}</button>
+			{{/with}}
 			{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 		</div>
 		<script src="javascripts/function-scripts.js"></script> <!-- script used for editing and formatting table within application (SNHU, 2023, p. 1)

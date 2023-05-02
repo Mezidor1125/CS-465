@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -42,6 +43,7 @@
 // W3Schools, W. S. (2021, May 4). HTML DOM Element className., from https://www.w3schools.com/jsref/prop_html_classname.asp
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
+
 // create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
 const express = require('express');
 

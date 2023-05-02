@@ -1,4 +1,4 @@
-// Lawrence Arundel CS 465
+<!--Lawrence Arundel CS 465 
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -42,17 +43,68 @@
 // W3Schools, W. S. (2021, May 4). HTML DOM Element className., from https://www.w3schools.com/jsref/prop_html_classname.asp
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
+*/-->
+<!DOCTYPE html>
+<html>
 
-/* GET reservations view (SNHU, 2023, p. 1) */
+<head>
+	<!-- meta tag used as the viewport for the application depending on the device used (Mozilla, 2022, p. 1) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-// const reservations  variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
-const reservations  = (req, res) => {
-    
-    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by reservations  (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
-    res.render('reservations', {title: 'Travlr Getaways' });
-};
+	<!-- *attempt import from bootstrap to utilize resizing capabilities for header (Mark, 2021, p. 1)-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the reservations variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = {
-    reservations 
-};
+	<!-- style sheet used for css properties within the application (SNHU, 2023, p. 1) -->
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+	<!-- script used for editing and formatting table within application (SNHU, 2023, p. 1) -->
+	<script src="javascripts/function-scripts.js"></script>
+
+	<!-- cdn libraries/css used for different fonts used within the application (cdnjs, 2022, p. 1) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+	<!-- *attempt import from bootstrap to utilize resizing capabilities for header (Mark, 2021, p. 1)-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+<body>
+	<div id="background"> <!-- div for the page background (SNHU, 2023, p. 1) -->
+		<div id="page"> <!-- div with the id equal to page (SNHU, 2023, p. 1) -->
+			{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
+
+			<!-- title of the page (SNHU, 2023, p. 1) -->
+			<p id="title">{{this.title}}</p>
+
+			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
+			<form onsubmit="navigateToLink(event,'search-bar-address')">
+				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
+			</form>
+
+			<!-- contents which including the description for the reservation information within the application (SNHU, 2023, p. 1) -->
+			<div id="contents">
+				<div>
+					<div id="reservations" class="body">
+						<ul id="sites">
+							{{#each trips}}
+							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
+							<li>
+								<a href="/reservations"><img src="images/{{this.image}}" alt="Img"></a>
+								<h2><a href="/reservations">{{this.name}}</a></h2>
+								{{{this.description}}}
+								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
+								{{/each}}
+							</li>
+						</ul>
+						{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

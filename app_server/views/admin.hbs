@@ -1,4 +1,4 @@
-<!--Lawrence Arundel CS 465
+<!--Lawrence Arundel CS 465 
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -73,7 +74,7 @@
 		{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
 
 		<!-- title of the page (SNHU, 2023, p. 1) -->
-		<p id="title">Travlr Getaways | Admin</p>
+		<p id="title">{{this.title}}</p>
 
 		<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
 		<form onsubmit="navigateToLink(event,'search-bar-address')">
@@ -84,15 +85,15 @@
 	<!-- div used to construct the admin page within the application including the box class, project-label class, admin sidebar, admin-window, and the bottom divs
 	to construct the proper colors  (SNHU, 2023, p. 1) -->
 	<div id="page-admin">
-		<div class="project-label">My Project</div>
+		<div class="project-label">{{admins.[7].projectlabel}}</div>
 		<div class="box-with-x"></div>
 
 		<!-- admin sidebar including links to the travel page, reservation page, users page, and the settings page (SNHU, 2023, p. 1) -->
 		<ul id="admin-sidebar">
-			<li><a href="/travel">Travel</a></li>
-			<li><a href="/reservations">Reservations</a></li>
-			<li><a href="/users">Users</a></li>
-			<li><a href="/admin">Settings</a></li>
+			<li><a href="/travel">{{admins.[8].travel}}</a></li>
+			<li><a href="/reservations">{{admins.[9].reservations}}</a></li>
+			<li><a href="/users">{{admins.[10].users}}</a></li>
+			<li><a href="/admin">{{admins.[11].settings}}</a></li>
 		</ul>
 
 		</ul>
@@ -101,52 +102,52 @@
 		<div class="admin-box"></div>
 
 		<!-- span id admin-group-name used to show the label for the grid within the admin-box class (SNHU, 2023, p. 1) -->
-		<span id="admin-group-name">Group Name</span>
+		<span id="admin-group-name">{{admins.[6].group}}</span>
 
 		<!-- admin-window used to denote the various labels and inputs required by the client (SNHU, 2023, p. 1) -->
 		<form id="admin-window">
 
 			<!-- label used to denote the id within the window  (SNHU, 2023, p.  1)-->
-			<label for="id" id="id-label"><b>ID:</b></label>
+			<label for="id" id="id-label"><b>{{admins.[0].id}}</b></label>
 
 			<!-- input used to denote the id within the window  (SNHU, 2023, p.  1)-->
 			<input type="text" id="id-input" name="id">
 
 			<!-- label used to denote the destination within the window  (SNHU, 2023, p.  1)-->
-			<label for="destination" id="destination-label"><b>Destination: </b></label>
+			<label for="destination" id="destination-label"><b>{{admins.[1].destination}}</b></label>
 
 			<!-- input used to denote the destination within the window  (SNHU, 2023, p.  1)-->
 			<input type="text" id="destination-input" name="destination">
 
 			<!-- label used to denote the resort within the window  (SNHU, 2023, p.  1)-->
-			<label for="resort" id="resort-label"><b>Resort:</b></label>
+			<label for="resort" id="resort-label"><b>{{admins.[4].resort}}</b></label>
 
 			<!-- input used to denote the resort within the window  (SNHU, 2023, p.  1)-->
 			<input type="text" id="resort-input" name="resort">
 
 			<!-- label used to denote the person within the window  (SNHU, 2023, p.  1)-->
-			<label for="person-label" id="person-label"><b>Per Person:</b></label>
+			<label for="person-label" id="person-label"><b>{{admins.[5].person}}</b></label>
 
 			<!-- input used to denote the person within the window  (SNHU, 2023, p.  1)-->
 			<input type="text" id="person-input" name="person-label">
 
 			<!-- label used to denote the length of stay within the window  (SNHU, 2023, p.  1)-->
-			<label for="length-stay" id="length-label"><b>Length of Stay:</b></label>
+			<label for="length-stay" id="length-label"><b>{{admins.[2].lengthofstay}}</b></label>
 
 			<!-- input used to denote the length of stay within the window  (SNHU, 2023, p.  1)-->
 			<input type="number" id="length-stay" name="length-stay" value="3" min="1" max="365" step="1">
 
 			<!-- label used to denote the length of stay (night) within the window  (SNHU, 2023, p.  1)-->
-			<label for="length-stay" id="night-label"><b>Nights</b></label>
+			<label for="length-stay" id="night-label"><b>{{admins.[12].night}}</b></label>
 
 			<!-- label used to denote the length of stay (day) within the window  (SNHU, 2023, p.  1)-->
-			<label for="length-stay-day" id="length-label-day"><b>Days</b></label>
+			<label for="length-stay-day" id="length-label-day"><b>{{admins.[13].day}}</b></label>
 
 			<!-- inputused to denote the length of stay (day) within the window  (SNHU, 2023, p.  1)-->
 			<input type="number" id="length-stay-day" name="length-stay-day" value="3" min="1" max="365" step="1">
 
 			<!-- label used to denote the date within the window  (SNHU, 2023, p.  1)-->
-			<label for="date-label" id="date-label"><b>Start Date:</b></label>
+			<label for="date-label" id="date-label"><b>{{admins.[3].startdate}}</b></label>
 
 			<!-- input used to denote the date within the window  (SNHU, 2023, p.  1)-->
 			<input type="date" id="date-input" name="start-date">

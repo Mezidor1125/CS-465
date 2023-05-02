@@ -1,4 +1,4 @@
-<!--Lawrence Arundel CS 465
+<!--Lawrence Arundel CS 465 
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -66,7 +67,6 @@
 	<!-- *attempt import from bootstrap to utilize resizing capabilities for header (Mark, 2021, p. 1)-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
 </head>
 
 
@@ -76,114 +76,99 @@
 			{{> header}} <!-- reference to the header partial within the application (SNHU, 2023, p. 1) -->
 
 			<!-- title of the page (SNHU, 2023, p. 1) -->
-			<p id="title">Travlr Getaways</p>
+			<p id="title">{{this.title}}</p>
 
 			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
 			<form onsubmit="navigateToLink(event,'search-bar-address')">
 				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
 			</form>
 
-			<!-- contents which including the description for the reservations information within the application (SNHU, 2023, p. 1) -->
+			<!-- contents which including the description for the news information within the application (SNHU, 2023, p. 1) -->
 			<div id="contents">
 				<div>
-					<div id="checkout" class="body">
+					<div id="news" class="body">
 						<div class="sidebar">
-							<h3>Latest Checkout</h3>
+							<h3>{{checkouts.[0].name}}</h3>
 							<ul>
 								<li>
-									<a href="/checkout">2023 Best Beaches Contest Winners</a>
+									{{{checkouts.[0].listone}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Top 10 Diving Spots</a>
+									{{{checkouts.[0].listtwo}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Fishing ban to be implemented this year</a>
+									{{{checkouts.[0].listthree}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Lifeguard saves child from drowning</a>
+									{{{checkouts.[0].listfour}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 							</ul>
-							<h3>Vaction Tips</h3>
+							<h3>{{checkouts.[1].name}}</h3>
 							<ul>
 								<li>
-									<a href="/checkout">What to bring on the beach?</a>
+									{{{checkouts.[1].listone}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Planning Fun Activities</a>
+									{{{checkouts.[1].listtwo}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Diving Checklist</a>
+									{{{checkouts.[1].listthree}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">First Aid</a>
+									{{{checkouts.[1].listfour}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">How to Build a Sand Castle?</a>
+									{{{checkouts.[1].listfive}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 								<li>
-									<a href="/checkout">Tanning Tips</a>
+									{{{checkouts.[1].listsix}}}
+									<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
 								</li>
 							</ul>
 						</div>
 						<div>
-							<h1>Checkout</h1>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<img src="images/kayak.jpg" alt="Img">
-							<h2>Experience Kayaking!</h2>
-							<span class="time">April 03, 2023<br> by: Juan De La Cruz</span>
-							<p>
-								Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis
-								vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi.
-								Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus
-								semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper
-								vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc
-								nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
-							</p>
-							<p>
-								Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar
-								sagittis metus ut tristique. Pellentesque habitant morbi tristique senectus et netus
-								et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Nulla at
-								nunc sit amet justo cursus imperdiet. Mauris est leo, placerat nec eleifend eu,
-								facilisis id dolor. Donec nisi nibh, elementum vitae imperdiet non, placerat et
-								felis. Maecenas scelerisque odio quis arcu fringilla malesuada. Nulla facilisi. In
-								libero nulla, fermentum ut pretium ac, pharetra et eros.
-							</p>
-							<p>
-								Phasellus viverra fringilla lacus, malesuada blandit velit iaculis dignissim.
-								Suspendisse rutrum massa mauris. Donec quis tempus elit.Integer magna leo, posuere
-								et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat
-								volutpat.
-							</p>
+							<h1>{{checkouts.[2].name}}</h1>
+
+							{{{checkouts.[2].listone}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+							{{{checkouts.[2].listtwo}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+							{{{checkouts.[2].listthree}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+							{{{checkouts.[2].listfour}}} <!-- image used within the checkout page (SNHU, 2023, p. 1) -->
+
+							<h2>{{checkouts.[3].name}}</h2>
+							{{{checkouts.[3].listone}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+
+							{{{checkouts.[3].listtwo}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+
+							{{{checkouts.[3].listthree}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+
+							{{{checkouts.[3].listfour}}}
+							<!-- text used for the checkout page with description (SNHU, 2023, p. 1) -->
+
+
+							{{> footer}}
+							<!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 						</div>
-						{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>

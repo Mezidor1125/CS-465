@@ -68,7 +68,7 @@ const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
 
 // travel router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
-const travelRouter = require('./app_server/routes/travel');
+const travelRouter = require('./app_server/routes/traveler');
 
 // admin router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const adminRouter = require('./app_server/routes/admin');
@@ -83,7 +83,7 @@ const loginRouter = require('./app_server/routes/login');
 const newsRouter = require('./app_server/routes/news');
 
 // reservation router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
-const reservationRouter = require('./app_server/routes/reservations');
+const reservationRouter = require('./app_server/routes/travel');
 
 // signup router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const signupRouter = require('./app_server/routes/signup');

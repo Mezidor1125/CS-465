@@ -19,6 +19,7 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -43,13 +44,19 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
+// required Node JS file system component used to read JSON file (SNHU, 2023, p. 1)
+var fs = require('fs');
+
+// required variable that parses the contents of the file and inserts them into the signups variable (SNHU, 2023, p. 1)
+var signups = JSON.parse(fs.readFileSync('./data/signup.json', 'utf8'));
+
 /* GET signup view (SNHU, 2023, p. 1) */
 
 // const signup variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
 const signup = (req, res) => {
     
     // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by signup (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
-    res.render('signup', {title: 'Travlr Getaways' });
+    res.render('signup', {title: 'Travlr Getaways', signups });
 };
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the signup variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
