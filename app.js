@@ -19,6 +19,10 @@
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
+// MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
+// MongoDB, M. D. B. (2022, March 1). Connection String URI Format. Connection String URI Format - MongoDB Manual., from https://www.mongodb.com/docs/manual/reference/connection-string/ 
+// MongoDB, M. D. B. (2022, February 11). Query on Embedded/Nested Documents - MongoDB Manual., from https://www.mongodb.com/docs/manual/tutorial/query-embedded-documents/ 
+// Mongoose, M. (2022, May 11). Getting started. Mongoose v7.1.0: Getting Started., from https://mongoosejs.com/docs/ 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName

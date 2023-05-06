@@ -1,6 +1,7 @@
 [
     {
         "1": {
+            "id": 1,
             "code": "GALR210214",
             "name": "Gale Reef",
             "length": "4 nights / 5 days",
@@ -13,6 +14,7 @@
     },
     {
         "2": {
+            "id": 2,
             "code": "DAWR210315",
             "name": "Dawson's Reef",
             "length": "4 nights / 5 days",
@@ -25,6 +27,7 @@
     },
     {
         "3": {
+            "id": 3,
             "code": "CLAR210621",
             "name": "Claire's Reef",
             "length": "4 nights / 5 days",

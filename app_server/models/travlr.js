@@ -21,6 +21,7 @@
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
 // MongoDB, M. D. B. (2022, March 1). Connection String URI Format. Connection String URI Format - MongoDB Manual., from https://www.mongodb.com/docs/manual/reference/connection-string/ 
+// MongoDB, M. D. B. (2022, February 11). Query on Embedded/Nested Documents - MongoDB Manual., from https://www.mongodb.com/docs/manual/tutorial/query-embedded-documents/ 
 // Mongoose, M. (2022, May 11). Getting started. Mongoose v7.1.0: Getting Started., from https://mongoosejs.com/docs/ 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
@@ -51,6 +52,7 @@ const mongoose = require('mongoose');
 
 // defining of the trip schema (SNHU, 2023, p. 1)
 const tripSchema = new mongoose.Schema({
+    _id: { type: String, required: true },
     code: { type: String, required: true, index: true },
     name: { type: String, required: true, index: true },
     length: { type: String, required: true },

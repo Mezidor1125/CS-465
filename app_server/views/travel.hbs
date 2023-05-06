@@ -88,15 +88,37 @@
 				<div>
 					<div id="reservations" class="body">
 						<ul id="sites">
-							{{#each trips}}
+							{{#with trips.[0]}}
 							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
 							<li>
-								<a href="/reservations"><img src="images/{{this.image}}" alt="Img"></a>
-								<h2><a href="/reservations">{{this.name}}</a></h2>
-								{{{this.description}}}
+								<a href="/reservations"><img src="images/{{this.1.image}}" alt="Img"></a>
+								<h2><a href="/reservations">{{this.1.name}}</a></h2>
+								{{{this.1.description}}}
 								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
-								{{/each}}
 							</li>
+							{{/with}}
+							
+							{{#with trips.[1]}}
+							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
+							<li>
+								<a href="/reservations"><img src="images/{{this.2.image}}" alt="Img"></a>
+								<h2><a href="/reservations">{{this.2.name}}</a></h2>
+								{{{this.2.description}}}
+								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
+							</li>
+							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
+							
+							{{/with}}
+
+							{{#with trips.[2]}}
+							<li>
+								<a href="/reservations"><img src="images/{{this.3.image}}" alt="Img"></a>
+								<h2><a href="/reservations">{{this.3.name}}</a></h2>
+								{{{this.3.description}}}
+								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
+							</li>
+
+							{{/with}}
 						</ul>
 						{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 					</div>

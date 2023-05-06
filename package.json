@@ -18,9 +18,9 @@
   },
   "seedgoose": {
     "modelBaseDirectory": "app_server/models",
-    "models": "./app_server/models/*.js",
-    "data": "./data/trips.json",
-    "db": "mongodb://localhost:27017/"
+    "models": "travlr.js",
+    "data": "data",
+    "db": "mongodb://127.0.0.1:27017/travlr"
   },
   "devDependencies": {
     "seedgoose": "^2.0.2"
