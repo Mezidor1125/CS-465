@@ -20,6 +20,8 @@
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
+// MongoDB, M. D. B. (2022, March 1). Connection String URI Format. Connection String URI Format - MongoDB Manual., from https://www.mongodb.com/docs/manual/reference/connection-string/ 
+// Mongoose, M. (2022, May 11). Getting started. Mongoose v7.1.0: Getting Started., from https://mongoosejs.com/docs/ 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -44,18 +46,20 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
+// opens the required connection to run mongoose within the environment (Mongoose, 2022, p.  1)
+const mongoose = require('mongoose');
 
-const express = require('express');
+// defining of the trip schema (SNHU, 2023, p. 1)
+const tripSchema = new mongoose.Schema({
+    code: { type: String, required: true, index: true },
+    name: { type: String, required: true, index: true },
+    length: { type: String, required: true },
+    start: { type: Date, required: true },
+    resort: { type: String, required: true },
+    perPerson: { type: String, required: true },
+    image: { type: String, required: true },
+    description: { type: String, required: true }
+});
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
-
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/users');
-
-/* GET home page. (SNHU, 2023, p. 1) */
-router.get('/', controller.users);
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+// mongoose function which compiles the model (Mongoose, 2022, p. 1)
+mongoose.model('trips', tripSchema);

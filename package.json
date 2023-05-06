@@ -13,6 +13,21 @@
     "express-sslify": "^1.2.0",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "mongoose": "^7.1.0",
     "morgan": "~1.9.1"
+  },
+  "config": {
+    "seedgoose": {
+      "modelBaseDirectory": "app_server/models",
+      "models": [
+        "./app_server/models/travlr.js",
+        "./app_server/models/db.js"
+      ],
+      "data": "C:/Users/L69de/travlr/data/trips.json",
+      "db": "mongodb://localhost:27017/"
+    }
+  },
+  "devDependencies": {
+    "seedgoose": "^2.0.2"
   }
 }
