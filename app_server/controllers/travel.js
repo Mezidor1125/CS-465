@@ -47,19 +47,77 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// required Node JS file system component used to read JSON file (SNHU, 2023, p. 1)
-var fs = require('fs');
+// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
+const request = require('request');
 
-// required variable that parses the contents of the file and inserts them into the trips variable (SNHU, 2023, p. 1)
-var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+// api variable used to retrieve static JSON file
+const apiOptions = {
+    server: 'http://localhost:3000'
+};
+
+
+/* internal method to render the travel list */
+const renderTravel = (req, res, responseBody) => {
+
+    // set message equal to null (SNHU, 2023, p. 1)
+    let message = null;
+
+    // set the page title equal to header within application (SNHU, 2023, p. 1)
+    let pageTitle = 'Travlr Getaways';
+
+    // condition that states if the response body is not an instanceof an array, output api lookup error and empty the response body
+    // variable (SNHU, 2023, p. 1)
+    if (!(responseBody instanceof Array)) {
+        message = 'API lookup error';
+        responseBody = [];
+    }
+
+    // condition that states if the responsebody.length if not present, then set message to appropriate output (SNHU, 2023, p. 1)
+    else {
+        if (!responseBody.length) {
+            message = 'No trips exist in our database!';
+        }
+    }
+
+    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by reservations  (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
+    res.render('travel',
+        {
+            title: pageTitle,
+            heading: "Reservations",
+            trips: responseBody,
+            message
+
+        }
+    );
+}
 
 /* GET reservations view (SNHU, 2023, p. 1) */
 
 // const reservations  variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
 const travel = (req, res) => {
 
-    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by reservations  (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
-    res.render('travel', { title: 'Travlr Getaways', trips});
+    // set the path to the api trips path (SNHU, 2023, p. 1)
+    const path = '/api/trips';
+
+    // set request options equal to the server path, set method, and add json capabilities (SNHU, 2023, p. 1)
+    const requestOptions = {
+        url: `${apiOptions.server}${path}`,
+        method: 'GET',
+        json: {},
+    };
+
+    // output the info of travel list being called within the application (SNHU, 2023, p. 1)
+    console.info('>> travelController.travelList calling ' + requestOptions.url);
+
+    // request from the server the request options, error, response, and body variables to output an error if there can be no request
+    // if the console does not pose an error, then render the travel based on these variables (SNHU, 2023, p. 1)
+    request(requestOptions, (err, response, body) => {
+        (err, { statusCode }, body) => {
+            console.error(err);
+        }
+        renderTravel(req, res, body);
+    }
+    );
 };
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the reservations variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
