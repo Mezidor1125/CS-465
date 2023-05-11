@@ -65,6 +65,9 @@ const logger = require('morgan');
 // create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
 const hbs = require('hbs');
 
+// triggers the database connection and mongoose schema models to be loaded within the application (SNHU, 2023, p. 1)
+require('./app_api/models/db');
+
 // index router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const indexRouter = require('./app_server/routes/index');
 
@@ -92,6 +95,8 @@ const reservationRouter = require('./app_server/routes/travel');
 // signup router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const signupRouter = require('./app_server/routes/signup');
 
+// api router required to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
+const apiRouter = require('./app_api/routes/index');
 
 // function that allows application to access the properties and functions within the Express framework (Mozilla, 2022, p. 1)
 const app = express();
@@ -141,6 +146,9 @@ app.use('/signup', signupRouter);
 
 // configures middleware for the application utilizing the users router variable (Mozilla, 2022, p. 1)
 app.use('/users', usersRouter);
+
+// configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
+app.use('/api', apiRouter);
 
 // catches the 404 error message and forwards the error handler within the application (SNHU, 2023, p. 1)
 app.use(function (req, res, next) {
