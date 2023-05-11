@@ -13,11 +13,11 @@
     "express-sslify": "^1.2.0",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "mongoose": "^7.1.1",
+    "mongoose": "^5.11.15",
     "morgan": "~1.9.1"
   },
   "seedgoose": {
-    "modelBaseDirectory": "app_server/models",
+    "modelBaseDirectory": "app_api/models",
     "models": "travlr.js",
     "data": "data",
     "db": "mongodb://127.0.0.1:27017/travlr"

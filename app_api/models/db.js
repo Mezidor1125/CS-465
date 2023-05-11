@@ -54,18 +54,18 @@ const mongoose = require('mongoose');
 const host = process.env.DB_HOSE || '127.0.0.1'
 
 // variable used to denote the mongoDB connection within the application (MongoDB, 2022, p. 1)
-const dbURI = 'mongodb://${host}/travlr';
+const dbURI = 'mongodb://localhost/travlr';
 const readLine = require('readline');
 
 // avoids the 'current Server Discovery and Monitoring engine is deprecated' (SNHU, 2023, p. 1) 
-mongoose.set('useUnifiedTopology', true);
+//mongoose.set('useUnifiedTopology', true);
 
 // connecting to the database utilizing mongoose connect credentials, creating a new URL, and creating
 // a new index (Mongoose, 2022, p. 1)
 const connect = () => {
     setTimeout(() => mongoose.connect(dbURI, {
-        useNewURLParser: true,
-        useCreateIndex: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true // Set the useUnifiedTopology option to true
     }), 1000);
 }
 

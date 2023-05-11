@@ -81,13 +81,13 @@ const tripsList = async (req, res) => {
 // GET: /trips/:tripCode - returns a single trip
 const tripsFindByCode = async (req, res) => {
     Model
-        .find({ 'code': req.params.tripCode })
-        .exec((err, trip) => {
+        .findOne({ 'code': req.params.code })
+        .exec((err, trips) => {
 
             // condition that states if no trip exists, then return the status 404 and output the message in json accordingly,
             // else if there exists an error within the execution, return 404 and output the error message, 
             // else return status 200 and set the trips variable to json format (SNHU, 2023, p. 1)
-            if (!trip) {
+            if (!trips) {
                 return res
                     .status(404)
                     .json({ "message": "trip not found" });
@@ -100,7 +100,7 @@ const tripsFindByCode = async (req, res) => {
             else {
                 return res
                     .status(200)
-                    .json(trip);
+                    .json(trips);
             }
         });
 };
