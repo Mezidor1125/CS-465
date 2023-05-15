@@ -56,9 +56,15 @@ const router = express.Router();
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
 const controller = require('../controllers/trips');
 
-/* GET home page. (SNHU, 2023, p. 1) */
-router.get('/:code', controller.tripsFindByCode);
-router.get('/', controller.tripsList);
+router
+    .route('/:code')
+    .get(controller.tripsFindByCode)
+    .put(controller.tripsUpdateTrip);
+
+router
+    .route('/')
+    .get(controller.tripsList)
+    .post(controller.tripsAddTrip)
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = router;

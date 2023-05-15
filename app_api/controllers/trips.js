@@ -105,10 +105,75 @@ const tripsFindByCode = async (req, res) => {
         });
 };
 
+const tripsAddTrip = async (req, res) => {
+    Model
+        .create({
+            _id: new mongoose.Types.ObjectId(),
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        }, (err, trip) => {
+            if (err) {
+                return res
+                    .status(400) // bad request, invalid content
+                    .json(err);
+            } else {
+                return res
+                    .status(201) // created
+                    .json(trip);
+            }
+        });
+}
+
+const tripsUpdateTrip = async (req, res) => {
+    console.log(req.body);
+    Model
+        .findOneAndUpdate({ 'code': req.params.code }, {
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        }, { new: true })
+        .then(trip => {
+            if (!trip) {
+                return res
+                    .status(404)
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.code
+                    });
+            }
+            res.send(trip);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res
+                    .status(404)
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.code
+                    });
+            }
+            return res
+                .status(500) // server error
+                .json(err);
+        });
+}
+
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the 
 // tripsList and tripsFindByCode variables (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = {
     tripsList,
-    tripsFindByCode
+    tripsFindByCode,
+    tripsAddTrip,
+    tripsUpdateTrip
 };
 
