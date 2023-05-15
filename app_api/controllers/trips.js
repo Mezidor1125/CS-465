@@ -77,8 +77,8 @@ const tripsList = async (req, res) => {
             }
         });
 };
-
-// GET: /trips/:tripCode - returns a single trip
+ 
+// GET: /trips/:tripCode - returns a single trip (SNHU, 2023, p. 1)
 const tripsFindByCode = async (req, res) => {
     Model
         .findOne({ 'code': req.params.code })
@@ -105,43 +105,45 @@ const tripsFindByCode = async (req, res) => {
         });
 };
 
+// statement used to extract various properties of the Model to create new instances of add trip function within application (SNHU, 2023, p. 1)
 const tripsAddTrip = async (req, res) => {
     Model
         .create({
             _id: new mongoose.Types.ObjectId(),
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
+            code: req.body.code, // code from request body (SNHU, 2023, p. 1)
+            name: req.body.name, // name from request body (SNHU, 2023, p. 1)
+            length: req.body.length, // length of time from request body (SNHU, 2023, p. 1)
+            start: req.body.start, // start date from request body (SNHU, 2023, p. 1)
+            resort: req.body.resort, // resort name from request body (SNHU, 2023, p. 1)
+            perPerson: req.body.perPerson, // price per person from request body (SNHU, 2023, p. 1)
+            image: req.body.image, // image file from request body (SNHU, 2023, p. 1)
+            description: req.body.description // description from request body (SNHU, 2023, p. 1)
         }, (err, trip) => {
             if (err) {
                 return res
-                    .status(400) // bad request, invalid content
+                    .status(400) // bad request, invalid content (SNHU, 2023, p. 1)
                     .json(err);
             } else {
                 return res
-                    .status(201) // created
+                    .status(201) // created (SNHU, 2023, p. 1)
                     .json(trip);
             }
         });
 }
 
+// statement used to update trip which requires proper implementation of request body applying to correct properties described below (SNHU, 2023, p. 1)
 const tripsUpdateTrip = async (req, res) => {
     console.log(req.body);
     Model
         .findOneAndUpdate({ 'code': req.params.code }, {
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
+            code: req.body.code, // updating code with request body value code (SNHU, 2023, p. 1)
+            name: req.body.name, // updating name with request body value name (SNHU, 2023, p. 1)
+            length: req.body.length, // updating length of time with request body length of time (SNHU, 2023, p. 1)
+            start: req.body.start, // updating start time with request body start time (SNHU, 2023, p. 1)
+            resort: req.body.resort, // updating resort name with request body resort (SNHU, 2023, p. 1)
+            perPerson: req.body.perPerson, // updating price per person with request body (SNHU, 2023, p. 1)
+            image: req.body.image, // updating image name with request body (SNHU, 2023, p. 1)
+            description: req.body.description // updating description name with request body (SNHU, 2023, p. 1)
         }, { new: true })
         .then(trip => {
             if (!trip) {
@@ -163,7 +165,7 @@ const tripsUpdateTrip = async (req, res) => {
                     });
             }
             return res
-                .status(500) // server error
+                .status(500) // server error (SNHU, 2023, p. 1)
                 .json(err);
         });
 }

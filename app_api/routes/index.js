@@ -56,11 +56,14 @@ const router = express.Router();
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
 const controller = require('../controllers/trips');
 
+
+// GET and  PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
 router
     .route('/:code')
     .get(controller.tripsFindByCode)
     .put(controller.tripsUpdateTrip);
 
+// GET and POSt method to add trip and print trip list within application (SNHU, 2023, p. 1)
 router
     .route('/')
     .get(controller.tripsList)
