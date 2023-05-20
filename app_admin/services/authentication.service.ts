@@ -47,60 +47,79 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
+// import the injectable from angular (SNHU, 2023, p. 1)
+import { Inject, Injectable } from '@angular/core';
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
+// import used for browser storage (SNHU, 2023, p. 1)
+import { BROWSER_STORAGE } from '../../app_admin/src/app/storage';
 
-const jwt = require('jsonwebtoken');
+// import used for user within application (SNHU, 2023, p. 1)
+import { User } from '../models/user';
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
+// auth response import used within application (SNHU, 2023, p. 1)
+import { AuthResponse } from '../models/authresponse';
 
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
+// trip data service import used within application (SNHU, 2023, p. 1)
+import { TripDataService } from '../services/trip-data.service';
+
+// injectable found within the root (SNHU, 2023, p. 1)
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthenticationService {
+
+  constructor(
+    @Inject(BROWSER_STORAGE) private storage: Storage,
+    private tripDataService: TripDataService
+  ) { }
+
+  // public function that retrives token (SNHU, 2023, p. 1)
+  public getToken(): string {
+    return this.storage.getItem('travlr-token');
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
+  // public function that saves token (SNHU, 2023, p. 1)
+  public saveToken(token: string): void {
+    this.storage.setItem('travlr-token', token);
+  }
+
+  // public login that sets the login based on user (SNHU, 2023, p. 1)
+  public login(user: User): Promise<any> {
+    return this.tripDataService.login(user)
+      .then((authResp: AuthResponse) =>
+        this.saveToken(authResp.token));
+  }
+
+  // public function that registers user (SNHU, 2023, p. 1)
+  public register(user: User): Promise<any> {
+    return this.tripDataService.register(user)
+      .then((authResp: AuthResponse) =>
+        this.saveToken(authResp.token));
+  }
+
+  // public function that logs user out of application (SNHU, 2023, p. 1)
+  public logout(): void {
+    this.storage.removeItem('travlr-token');
+  }
+
+  // public function that checks if the user is logged in (SNHU, 2023, p. 1)
+  public isLoggedIn(): boolean {
+    const token: string = this.getToken();
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.exp > (Date.now() / 1000);
+    } else {
+      return false;
     }
+  }
 
-    req.user = decoded;
-    next();
-  });
-};
-
-
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/trips');
-
-// imports the main modules which the contents containing the authentication functions for the application (SNHU, 2023, p. 1)
-const authController = require('../controllers/authentication');
-
-// POST method to add user authentication for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/login')
-    .post(authController.login);
-
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/register')
-    .post(authController.register);
-
-
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
-router
-    .route('/:code')
-    .get(controller.tripsFindByCode)
-    .put(auth, controller.tripsUpdateTrip);
-
-// GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
-router
-    .route('/')
-    .get(controller.tripsList)
-    .post(auth, controller.tripsAddTrip)
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+  // public function that checks what the current user is that is logged in (SNHU, 2023, p. 1)
+  public getCurrentUser(): User {
+    if (this.isLoggedIn()) {
+      const token: string = this.getToken();
+      const { email, name } =
+        JSON.parse(atob(token.split('.')[1]));
+      return { email, name } as User;
+    }
+  }
+}

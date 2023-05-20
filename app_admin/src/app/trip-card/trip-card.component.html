@@ -58,10 +58,11 @@
     <p class="card-subtitle mt-3 mb-3 text-muted">
       <!-- 'length' and 'perPerson' properties of the 'trip' object utilizing the card-subtitle property (SNHU, 2023, p. 1) -->
       {{ trip.length }} only {{ trip.perPerson |
-      currency:'USD':'symbol' }} per person</p>
+      currency:'USD':'symbol' }} per person
+    </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
     <!-- 'description' property of the 'trip' object utilizing the innerhtml trip.description attribute (SNHU, 2023, p. 1) -->
-    <div>
+    <div *ngIf="isLoggedIn()">
       <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
       <!-- button utilized to trigger the edit trip function utilizing the btn btn-info class (SNHU, 2023, p. 1) -->
     </div>

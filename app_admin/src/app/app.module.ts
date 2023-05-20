@@ -80,6 +80,18 @@ import { AddTripComponent } from './add-trip/add-trip.component';
 // import used for edit trip component form angular framework (SNHU, 2023, p. 1)
 import { EditTripComponent } from './edit-trip/edit-trip.component';
 
+// import used for the login component form angular framework (SNHU, 2023, p. 1) 
+import { LoginComponent } from './login/login.component';
+
+// import used for the nav bar component form angular framework (SNHU, 2023, p. 1)
+import { NavbarComponent } from './navbar/navbar.component';
+
+// import used for the home component form angular framework (SNHU, 2023, p. 1)
+import { HomeComponent } from './home/home.component';
+
+// import used for the forms module component angular framework (SNHU, 2023, p. 1)
+import { FormsModule } from '@angular/forms';
+
 
 // declaration, imports, providers, boostrap utilized for HTTP requests, browser specific functions, and routing configurations (SNHU, 2023, p. 1)
 @NgModule({
@@ -88,13 +100,17 @@ import { EditTripComponent } from './edit-trip/edit-trip.component';
     TripListingComponent,
     TripCardComponent,
     AddTripComponent,
-    EditTripComponent
+    EditTripComponent,
+    LoginComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     TripDataService

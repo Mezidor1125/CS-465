@@ -56,6 +56,10 @@ import { Router } from "@angular/router";
 // import utilized to import trip class(SNHU, 2023, p. 1)
 import { Trip } from '../../../models/trip';
 
+// import utilized for authentication service import
+import { AuthenticationService } from 'services/authentication.service';
+
+
 @Component({
   selector: 'app-trip-card',
   templateUrl: './trip-card.component.html',
@@ -64,7 +68,8 @@ import { Trip } from '../../../models/trip';
 export class TripCardComponent implements OnInit {
   @Input('trip') trip: any;
   constructor(
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
   ngOnInit(): void { }
 
@@ -75,6 +80,12 @@ export class TripCardComponent implements OnInit {
     localStorage.setItem("tripCode", trip.code);
     this.router.navigate(['edit-trip']);
   }
+
+  // public function used to check whether user is logged in within application (SNHU, 2023, p. 1)
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
+
 
 }
 

@@ -62,10 +62,18 @@ import { AddTripComponent } from './add-trip/add-trip.component';
 // import used in the edit listing component within the application (SNHU, 2023, p. 1)
 import { EditTripComponent } from './edit-trip/edit-trip.component';
 
+// login component import within the application (SNHU, 2023, p. 1)
+import { LoginComponent } from './login/login.component';
+
+// import used within the applicaiton for the home component (SNHU, 2023, p. 1)
+import { HomeComponent } from './home/home.component';
+
 const routes: Routes = [
     { path: 'add-trip', component: AddTripComponent },
     { path: 'edit-trip', component: EditTripComponent },
-    { path: '', component: TripListingComponent, pathMatch: 'full' }
+    { path: 'login', component: LoginComponent },
+    { path: 'list-trips', component: TripListingComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' }
 ]
 
 @NgModule({

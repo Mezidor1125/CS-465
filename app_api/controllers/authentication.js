@@ -47,60 +47,69 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
+// create passport environment within application (SNHU, 2023, p. 1)
+const passport = require('passport');
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
+// opens the required connection to run mongoose within the environment (Mongoose, 2022, p.  1)
+const mongoose = require('mongoose');
 
-const jwt = require('jsonwebtoken');
+// user variable utilized to model the users schema (SNHU, 2023, p. 1)
+const User = mongoose.model('users');
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
+// register variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
+const register = (req, res) => {
+    if (!req.body.name || !req.body.email || !req.body.password) {
+        return res
+            .status(400)
+            .json({ "message": "All fields required" });
     }
+    const user = new User();
+    user.name = req.body.name;
+    user.email = req.body.email;
 
-    req.user = decoded;
-    next();
-  });
+    user.setPassword(req.body.password);
+    user.save((err) => {
+        if (err) {
+            res
+                .status(400)
+                .json(err);
+        } else {
+            const token = user.generateJwt();
+            res
+                .status(200)
+                .json({ token });
+        }
+    })
 };
 
+// login variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
+const login = (req, res) => {
+    if (!req.body.email || !req.body.password) {
+        return res
+            .status(400)
+            .json({ "message": "All fields required" });
+    }
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
+            return res
+                .status(404)
+                .json(err);
+        }
+        if (user) {
+            const token = user.generateJwt();
+            res
+                .status(200)
+                .json({ token });
+        } else {
+            res
+                .status(401)
+                .json(info);
+        }
+    })(req, res);
+};
 
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/trips');
-
-// imports the main modules which the contents containing the authentication functions for the application (SNHU, 2023, p. 1)
-const authController = require('../controllers/authentication');
-
-// POST method to add user authentication for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/login')
-    .post(authController.login);
-
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/register')
-    .post(authController.register);
-
-
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
-router
-    .route('/:code')
-    .get(controller.tripsFindByCode)
-    .put(auth, controller.tripsUpdateTrip);
-
-// GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
-router
-    .route('/')
-    .get(controller.tripsList)
-    .post(auth, controller.tripsAddTrip)
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+// export modules register and login (SNHU, 2023, p. 1)
+module.exports = {
+    register,
+    login
+};

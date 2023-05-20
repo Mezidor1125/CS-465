@@ -47,6 +47,9 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
+// requirement used for the dovenv configuration within application (SNHU, 2023, p. 1)
+require('dotenv').config();
+
 // create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
 const createError = require('http-errors');
 
@@ -65,8 +68,14 @@ const logger = require('morgan');
 // create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
 const hbs = require('hbs');
 
+// passport requirement within application (SNHU, 2023, p. 1)
+const passport = require('passport');
+
 // triggers the database connection and mongoose schema models to be loaded within the application (SNHU, 2023, p. 1)
 require('./app_api/models/db');
+
+// triggers the passport connection to be loaded within the application (SNHU, 2023, p. 1)
+require('./app_api/config/passport');
 
 // index router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const indexRouter = require('./app_server/routes/index');
@@ -116,11 +125,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
 
 // allows for CORS within the application (SNHU, 2023, p. 1)
 app.use('/api', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next();
 });
@@ -173,6 +183,15 @@ app.use(function (err, req, res, next) {
   // renders the error page within the application (SNHU, 2023, p. 1)
   res.status(err.status || 500);
   res.render('error');
+});
+
+// catch unauthorized error and create 401 error (SNHU, 2023, p. 1)
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res
+      .status(401)
+      .json({ "message": err.name + ": " + err.message });
+  }
 });
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the app variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)

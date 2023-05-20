@@ -55,10 +55,13 @@ import { Router } from "@angular/router";
 // import { trips } from '../data/trips';
 
 // import trip data service from within the application (SNHU, 2023, p. 1)
-import { TripDataService } from '../../..//services/trip-data.service';
+import { TripDataService } from '../../../services/trip-data.service';
 
 // import utilized to import trip class(SNHU, 2023, p. 1)
 import { Trip } from '../../../models/trip';
+
+// import used for the authentication service within application (SNHU, 2023, p. 1)
+import { AuthenticationService } from 'services/authentication.service';
 
 @Component({
   selector: 'app-trip-listing',
@@ -71,7 +74,8 @@ export class TripListingComponent implements OnInit {
   // trips: Array<any> = trips;
   trips: Trip[];
   message: string;
-  constructor(private tripDataService: TripDataService, private router: Router) { }
+  constructor(private tripDataService: TripDataService, private router: Router, private authenticationService: AuthenticationService) { }
+
   private addTrip(): void {
     this.router.navigate(['add-trip']);
   }
@@ -91,5 +95,10 @@ export class TripListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrips();
+  }
+
+  // public function used to check whether user is logged in within application (SNHU, 2023, p. 1)
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 }

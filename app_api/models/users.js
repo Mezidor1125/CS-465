@@ -47,60 +47,55 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
+// opens the required connection to run mongoose within the environment (Mongoose, 2022, p.  1)
+const mongoose = require('mongoose');
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
+// open the required connection to use crypto within the environment (SNHU, 2023, p. 1)
+const crypto = require('crypto');
 
+// open the required connection for jsonwebtoken within the environment (SNHU, 2023, p. 1)
 const jwt = require('jsonwebtoken');
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
+// user schema used to determin the email and name (SNHU, 2023, p. 1)
+const userSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    hash: String,
+    salt: String
+});
 
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
-    }
-
-    req.user = decoded;
-    next();
-  });
+// method that sets the password utilizing the function, hash requirements (SNHU, 2023, p. 1)
+userSchema.methods.setPassword = function (password) {
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt,
+        1000, 64, 'sha512').toString('hex');
 };
 
+// validation of the password based on hash and comparison (SNHU, 2023, p. 1)
+userSchema.methods.validPassword = function (password) {
+    var hash = crypto.pbkdf2Sync(password,
+        this.salt, 1000, 64, 'sha512').toString('hex');
+    return this.hash === hash;
+};
 
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/trips');
+// generation of jwt utilizing the id, email, name, and expiration of password (SNHU, 2023, p. 1)
+userSchema.methods.generateJwt = function () {
+    const expiry = new Date();
+    expiry.setDate(expiry.getDate() + 7);
+    return jwt.sign({
+        _id: this._id,
+        email: this.email,
+        name: this.name,
+        exp: parseInt(expiry.getTime() / 1000, 10),
+    }, process.env.JWT_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE! (SNHU, 2023, p. 1)
+};
 
-// imports the main modules which the contents containing the authentication functions for the application (SNHU, 2023, p. 1)
-const authController = require('../controllers/authentication');
-
-// POST method to add user authentication for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/login')
-    .post(authController.login);
-
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/register')
-    .post(authController.register);
-
-
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
-router
-    .route('/:code')
-    .get(controller.tripsFindByCode)
-    .put(auth, controller.tripsUpdateTrip);
-
-// GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
-router
-    .route('/')
-    .get(controller.tripsList)
-    .post(auth, controller.tripsAddTrip)
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+// model of the user schema (SNHU, 2023, p. 1)
+mongoose.model('users', userSchema);

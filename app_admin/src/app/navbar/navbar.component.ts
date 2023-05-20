@@ -47,60 +47,31 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
+// import used for component and oninit from angular framework (SNHU, 2023, p. 1)
+import { Component, OnInit } from '@angular/core';
 
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
+// import used for authentication service from angular (SNHU, 2023, p. 1)
+import { AuthenticationService } from 'services/authentication.service';
 
-const jwt = require('jsonwebtoken');
+// component used for navbar html and css (SNHU, 2023, p. 1)
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
+// export class for navbar component implementing oninit (SNHU, 2023, p. 1)
+export class NavbarComponent implements OnInit {
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
+  // logged in and logout methods for ngoninit function (SNHU, 2023, p. 1)
+  ngOnInit() { }
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
-    }
-
-    req.user = decoded;
-    next();
-  });
-};
-
-
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/trips');
-
-// imports the main modules which the contents containing the authentication functions for the application (SNHU, 2023, p. 1)
-const authController = require('../controllers/authentication');
-
-// POST method to add user authentication for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/login')
-    .post(authController.login);
-
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/register')
-    .post(authController.register);
-
-
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
-router
-    .route('/:code')
-    .get(controller.tripsFindByCode)
-    .put(auth, controller.tripsUpdateTrip);
-
-// GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
-router
-    .route('/')
-    .get(controller.tripsList)
-    .post(auth, controller.tripsAddTrip)
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+  private onLogout(): void {
+    return this.authenticationService.logout();
+  }
+}

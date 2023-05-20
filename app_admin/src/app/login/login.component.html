@@ -1,4 +1,4 @@
-// Lawrence Arundel CS 465
+<!--Lawrence Arundel CS 465 
 
 // Sources:
 // Codepen, codepen. (2021, June 30). Draw an X in CSS (close sign) - codepen. codepen., from https://codepen.io/subin/pen/aEbvBP 
@@ -20,9 +20,6 @@
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
-// MongoDB, M. D. B. (2022, March 1). Connection String URI Format. Connection String URI Format - MongoDB Manual., from https://www.mongodb.com/docs/manual/reference/connection-string/ 
-// MongoDB, M. D. B. (2022, February 11). Query on Embedded/Nested Documents - MongoDB Manual., from https://www.mongodb.com/docs/manual/tutorial/query-embedded-documents/ 
-// Mongoose, M. (2022, May 11). Getting started. Mongoose v7.1.0: Getting Started., from https://mongoosejs.com/docs/ 
 // Mozilla, M. (2022, February 1). Express tutorial part 4: Routes and controllers - learn web development: MDN. Learn web development | MDN., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes 
 // Mozilla, M. (2022, February 1). Express/Node introduction., Express/Node introduction., from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 // Mozilla, M. (2022, February 1). Element: getElementsByClassName() method., from https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName
@@ -46,61 +43,24 @@
 // W3Schools, W. S. (2021, May 4). HTML DOM Element className., from https://www.w3schools.com/jsref/prop_html_classname.asp
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
+*/-->
 
-// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
-const express = require('express');
-
-// creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
-const router = express.Router();
-
-const jwt = require('jsonwebtoken');
-
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
-    }
-
-    req.user = decoded;
-    next();
-  });
-};
-
-
-// imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const controller = require('../controllers/trips');
-
-// imports the main modules which the contents containing the authentication functions for the application (SNHU, 2023, p. 1)
-const authController = require('../controllers/authentication');
-
-// POST method to add user authentication for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/login')
-    .post(authController.login);
-
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
-router
-    .route('/register')
-    .post(authController.register);
-
-
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
-router
-    .route('/:code')
-    .get(controller.tripsFindByCode)
-    .put(auth, controller.tripsUpdateTrip);
-
-// GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
-router
-    .route('/')
-    .get(controller.tripsList)
-    .post(auth, controller.tripsAddTrip)
-
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
-module.exports = router;
+<div class="row">
+  <div class="col-12 col-md-8">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLoginSubmit(evt)">
+      <div role="alert" *ngIf="formErrors" class="alert alert-danger">{{ formError }}</div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address"
+          [(ngModel)]="credentials.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="e.g 12+ alphanumerics"
+          [(ngModel)]="credentials.password">
+      </div>
+      <button type="submit" role="button" class="btn btnprimary">Sign In!</button>
+    </form>
+  </div>
+</div>
