@@ -57,17 +57,20 @@ const router = express.Router();
 const controller = require('../controllers/trips');
 
 
-// GET and  PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
+// POST, GET, DELETE, and PUT request for controller to find trips, add trips, delete trips, and update trips within application (SNHU, 2023, p. 1)
 router
     .route('/:code')
+    .post(controller.tripsAddTrip)
     .get(controller.tripsFindByCode)
+    .delete(controller.tripsDeleteByCode)
     .put(controller.tripsUpdateTrip);
+    
 
 // GET and POSt method to add trip and print trip list within application (SNHU, 2023, p. 1)
 router
     .route('/')
     .get(controller.tripsList)
-    .post(controller.tripsAddTrip)
+    .post(controller.tripsAddTrip);
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = router;
