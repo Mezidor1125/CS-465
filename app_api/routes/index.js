@@ -53,25 +53,13 @@ const express = require('express');
 // creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
 const router = express.Router();
 
-const jwt = require('jsonwebtoken');
+const { expressjwt: jwt } = require("express-jwt");
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: 'Invalid token' });
-    }
-
-    req.user = decoded;
-    next();
-  });
-};
-
+const auth = jwt({
+  secret: process.env.JWT_SECRET,
+  userProperty: 'payload',
+  algorithms: ["RS256"]
+});
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
 const controller = require('../controllers/trips');
@@ -84,7 +72,7 @@ router
     .route('/login')
     .post(authController.login);
 
-// POST method to add user registration for login requests to application (SNHU, 2023, p. 1)
+// POST method to add user registration for register requests to application (SNHU, 2023, p. 1)
 router
     .route('/register')
     .post(authController.register);

@@ -50,6 +50,8 @@
 // home import used for the component and oninit angular framework (SNHU, 2023, p. 1)
 import { Component, OnInit } from '@angular/core';
 
+import { AuthenticationService } from 'services/authentication.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -57,9 +59,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
-  ngOnInit() {
+  // logged in and logout methods for ngoninit function (SNHU, 2023, p. 1)
+  ngOnInit() { }
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 
 }

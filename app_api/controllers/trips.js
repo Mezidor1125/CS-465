@@ -51,11 +51,13 @@
 const mongoose = require('mongoose');
 
 // variable used to construct the model named trips (SNHU, 2023, p. 1)
-const Model = mongoose.model('trips');
+const Trip = mongoose.model('trips');
+
+const User = mongoose.model('users');
 
 // GET: /trips - lists all the trips  (SNHU, 2023, p. 1)
 const tripsList = async (req, res) => {
-    Model
+    Trip
         .find({}) // empty filter for all
         .exec((err, trips) => {
 
@@ -80,7 +82,7 @@ const tripsList = async (req, res) => {
 
 // GET: /trips/:tripCode - returns a single trip (SNHU, 2023, p. 1)
 const tripsFindByCode = async (req, res) => {
-    Model
+    Trip
         .findOne({ 'code': req.params.code })
         .exec((err, trips) => {
 
@@ -176,12 +178,37 @@ const tripsUpdateTrip = async (req, res) => {
     );
 }
 
+// get user function used to retrieve data form the JWT to query the database (Holmes, 2019, ch. 12)
+const getUser = (req, res, callback) => {
+    if (req.payload && req.payload.email) {
+        User
+            .findOne({ email: req.payload.email })
+            .exec((err, user) => {
+                if (!user) {
+                    return res
+                        .status(404)
+                        .json({ "message": "User not found" });
+                } else if (err) {
+                    console.log(err);
+                    return res;
+                }
+                callback(req, res, user.name);
+            });
+    } else {
+        return res
+            .status(404)
+            .json({ "message": "User not found" });
+    }
+};
+
+
+
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the 
 // tripsList and tripsFindByCode variables (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = {
     tripsList,
     tripsFindByCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
 };
 

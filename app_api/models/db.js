@@ -130,3 +130,4 @@ connect();
 
 // brings in the Mongoose schema within application (SNHU, 2023, p. 1)
 require('./travlr');
+require('./users');

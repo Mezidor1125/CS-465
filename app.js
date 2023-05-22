@@ -77,6 +77,9 @@ require('./app_api/models/db');
 // triggers the passport connection to be loaded within the application (SNHU, 2023, p. 1)
 require('./app_api/config/passport');
 
+// cors policy requirement to override the pre-built policies within application (SNHU, 2023, p. 1)
+var cors = require('cors');
+
 // index router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const indexRouter = require('./app_server/routes/index');
 
@@ -126,6 +129,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
+app.use(cors());
 
 // allows for CORS within the application (SNHU, 2023, p. 1)
 app.use('/api', (req, res, next) => {
@@ -168,6 +172,12 @@ app.use('/users', usersRouter);
 // configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
 app.use('/api/trips', apiRouter);
 
+// configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
+app.use('/api/login', apiRouter);
+
+// configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
+app.use('/api/register', apiRouter);
+
 // catches the 404 error message and forwards the error handler within the application (SNHU, 2023, p. 1)
 app.use(function (req, res, next) {
   next(createError(404));
@@ -193,6 +203,7 @@ app.use((err, req, res, next) => {
       .json({ "message": err.name + ": " + err.message });
   }
 });
+
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the app variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = app;

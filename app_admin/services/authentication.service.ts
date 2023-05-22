@@ -90,7 +90,7 @@ export class AuthenticationService {
         this.saveToken(authResp.token));
   }
 
-  // public function that registers user (SNHU, 2023, p. 1)
+  // public register that sets the login based on user (SNHU, 2023, p. 1)
   public register(user: User): Promise<any> {
     return this.tripDataService.register(user)
       .then((authResp: AuthResponse) =>

@@ -47,14 +47,16 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-// user variable used to model the users variable (SNHU, 2023, p. 1)
-const User = require('../models/users');
-
 // add passport requirement within the environment (SNHU, 2023, p. 1)
 const passport = require('passport');
 
 // local strategy variable to store passport (SNHU, 2023, p. 1)
 const LocalStrategy = require('passport-local').Strategy;
+
+const mongoose = require('mongoose');
+
+// user variable used to model the users variable (SNHU, 2023, p. 1)
+const User = mongoose.model('users');
 
 // create the passport used within the environment (SNHU, 2023, p. 1)
 passport.use(new LocalStrategy({
