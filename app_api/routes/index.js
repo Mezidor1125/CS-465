@@ -56,9 +56,10 @@ const router = express.Router();
 const { expressjwt: jwt } = require("express-jwt");
 
 const auth = jwt({
-  secret: process.env.JWT_SECRET,
-  userProperty: 'payload',
-  algorithms: ["RS256"]
+    secret: process.env.JWT_SECRET,
+    userProperty: 'payload',
+    algorithms: ["RS256"],
+
 });
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
@@ -78,10 +79,12 @@ router
     .post(authController.register);
 
 
-// GET and PUT request for controller to find trips by code and to update trip within application (SNHU, 2023, p. 1)
+// POST, GET, DELETE, and PUT request for controller to find trips, add trips, delete trips, and update trips within application (SNHU, 2023, p. 1)
 router
     .route('/:code')
+    .post(auth, controller.tripsAddTrip)
     .get(controller.tripsFindByCode)
+    .delete(auth, controller.tripsDeleteByCode)
     .put(auth, controller.tripsUpdateTrip);
 
 // GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)

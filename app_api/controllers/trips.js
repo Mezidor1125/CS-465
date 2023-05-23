@@ -107,6 +107,34 @@ const tripsFindByCode = async (req, res) => {
         });
 };
 
+// DELETE: /trips/:tripCode - deletes a single trip by code (SNHU, 2023, p. 1)
+const tripsDeleteByCode = async (req, res) => {
+    Model
+        .deleteOne({ 'code': req.params.code })
+        .exec((err, trips) => {
+
+            // condition that states if no trip exists, then return the status 404 and output the message in json accordingly,
+            // else if there exists an error within the execution, return 404 and output the error message, 
+            // else return status 200 and set the trips variable to json format (SNHU, 2023, p. 1)
+            if (!trips) {
+                return res
+                    .status(404)
+                    .json({ "message": "trip not found" });
+            }
+            else if (err) {
+                return res
+                    .status(404)
+                    .json(err);
+            }
+            else {
+                return res
+                    .status(200)
+                    .json(trips);
+            }
+        });
+};
+
+
 // statement used to extract various properties of the Model to create new instances of add trip function within application (SNHU, 2023, p. 1)
 const tripsAddTrip = async (req, res) => {
     getUser(req, res,
@@ -210,5 +238,6 @@ module.exports = {
     tripsFindByCode,
     tripsAddTrip,
     tripsUpdateTrip,
+    tripsDeleteByCode
 };
 
