@@ -51,6 +51,7 @@
 #contents {
 	position: relative;
 	left: -15px;
+	
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for search bar in the travel screen located with the label "search travel" */
@@ -77,7 +78,7 @@
 	top: 11px;
 	left: -325px;
 	transform: translateY(-50%);
-	color: #aaa;
+	color: lightskyblue;
 	font-size: 18px;
 }
 
@@ -110,7 +111,7 @@
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the body of the application*/
 body {
-	background: gray;
+	background: lightskyblue;
 	font-family: "Times New Roman", Times, serif;
 	margin: 0;
 	height: 100%;
@@ -129,14 +130,14 @@ body {
 	top: 70px;
 	left: 143px;
 	margin: 0 auto;
-	background-color: #ac9e94;
+	background-color: lightskyblue;
 	height: 100%;
 
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation {
-	background-color: darkgray;
+	background-color: rgba(0, 65, 139, 0.459);
 	clear: both;
 	height: 50px;
 	width: 860px;
@@ -171,7 +172,7 @@ body {
 	background: none;
 	margin-left: 0;
 	padding-left: 0;
-	border: 2px solid black;
+
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
@@ -183,19 +184,18 @@ body {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li a {
-	color: #fff;
+	color: white;
 	display: block;
 	font: bold 14px/48px Arial, Helvetica, sans-serif;
 	height: 49px;
 	text-decoration: underline;
 	text-transform: uppercase;
-	border-left: 1px solid black;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the navigation div which controls the search bar at the top right and the navigation bar on each page with the various options */
 #navigation li a:hover {
 	background-position: 0 -59px;
-	color: #6d6157;
+	color: lightskyblue;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
@@ -203,11 +203,12 @@ body {
 	display: inline-block;
 	width: 865px;
 	padding: 0 47px;
+	
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents h1 {
-	color: gray;
+	color: white;
 	font: 26px/30px "Times New Roman", Times, serif;
 	margin: 18px 0 20px;
 	padding-left: 2px;
@@ -217,7 +218,7 @@ body {
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents div.body h1,
 #contents h2 {
-	color: gray;
+	color: white;
 	font: 30px/30px "Times New Roman", Times, serif;
 	margin: 0 0 18px;
 	text-transform: uppercase;
@@ -227,17 +228,18 @@ body {
 #contents h2 {
 	font-size: 22px;
 	margin: 0 0 30px;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents h2 a {
-	color: #2c9688;
+	color: white;
 	text-decoration: none;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p {
-	color: #5a4535;
+	color: white;
 	font-size: 15px;
 	line-height: 30px;
 	margin: 0;
@@ -246,25 +248,25 @@ body {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a {
-	color: #5a4535;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a:hover,
 #news div.sidebar ul li a:hover {
-	color: #917157;
+	color: lightskyblue;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a:hover,
 #reservations div.sidebar ul li a:hover {
-	color: #917157;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
 #contents p a:hover,
 #checkout div.sidebar ul li a:hover {
-	color: #917157;
+	color: lightskyblue;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the contents div which help with proper alignment for each page for positioning purposes */
@@ -324,26 +326,24 @@ body {
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(1) img {
 	position: relative;
-	left: 20%;
-
-	top: 300px;
+	left: -10%;
+	top: 180px;
 	border-radius: 10px;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(2) img {
 	position: relative;
-	top: 70px;
-	left: -92%;
-
+	top: -50px;
+	left: -202%;
 	border-radius: 10px;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the sidebar div used in the login screen, home screen, and sign up screen to position images and windows*/
 #sidebar .section:nth-child(3) img {
 	position: relative;
-	left: 135%;
-	top: -85px;
+	left: 180%;
+	top: -205px;
 	border-radius: 10px;
 
 }
@@ -353,7 +353,8 @@ body {
 	position: relative;
 	top: 20px;
 	left: 70px;
-	background-color: white;
+	background-color: rgb(248, 194, 58);
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
@@ -362,12 +363,14 @@ body {
 	width: 160px;
 	border: 0;
 	padding: 0;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar h3:first-child {
 	border: 0;
 	padding-top: 0px;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
@@ -375,11 +378,12 @@ body {
 	list-style: none;
 	margin: 0 0 8px;
 	padding: 0;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #news div.sidebar ul li a {
-	color: #5a4535;
+	color: white;
 	display: inline-block;
 	font-size: 15px;
 	margin-bottom: 6px;
@@ -396,7 +400,7 @@ body {
 	position: relative;
 	top: 20px;
 	left: 70px;
-	background-color: white;
+	background-color: rgb(243, 225, 201);
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
@@ -422,11 +426,12 @@ body {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #checkout div.sidebar ul li a {
-	color: #5a4535;
+	color: white;
 	display: inline-block;
 	font-size: 15px;
 	margin-bottom: 6px;
 	text-decoration: none;
+	
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
@@ -439,7 +444,7 @@ body {
 	position: relative;
 	top: 20px;
 	left: 70px;
-	background-color: white;
+	background-color: rgb(248, 194, 58);
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
@@ -465,7 +470,7 @@ body {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property used to position the side text within the reservation, checkout, and news screens */
 #reservations div.sidebar ul li a {
-	color: #5a4535;
+	color: rgb(243, 225, 201);
 	display: inline-block;
 	font-size: 15px;
 	margin-bottom: 6px;
@@ -499,20 +504,9 @@ li {
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
 	function that positions the X within the first element with the relative property*/
 li.selected_x {
-	position: absolute;
-}
-
-/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
-	function that transforms the X within the first element in the <ul> menu bar for proper implementation*/
-li.selected_x a:before {
-	content: "X";
-	position: absolute;
-	top: -1px;
-	right: -5px;
-	transform: scaleY(12);
-	transform: scaleX(5);
-	font-weight: 100;
-	pointer-events: none;
+	position: relative;
+	left:-50px;
+	top:-21px;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)
@@ -570,29 +564,20 @@ label[for="logged-label"] {
 	position: relative;
 	left: -250px;
 	top: 52px;
-	color: #594334;
+	color: white;
 	font-size: 24px;
 	line-height: 48px;
 	margin: -22px 50px 20px;
-	background-color: #ac9e94;
+	background-color: lightskyblue;
 	display: inline-block;
 	width: 1370px;
 	padding: 10px;
 
 }
 
-/* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the edit labl in the travel screen */
-#edit-label {
-	color: #594334;
-	position: relative;
-	font-size: 24px;
-	left: -567px;
-	top: 38px;
-}
-
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the previous page clickable lable within the travel screen  */
 #previous-screen {
-	color: #594334;
+	color: white;
 	position: relative;
 	left: 130px;
 	top: -10px;
@@ -606,7 +591,7 @@ label[for="logged-label"] {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table rows within the travel screen */
 tr {
-	color: #594334;
+	color: rgb(255, 183, 0);
 	text-align: left;
 }
 
@@ -623,7 +608,7 @@ table {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the selected table class within the travel screen */
 .selected-table {
-	background-color: #ac9e94;
+	background-color: lightskyblue;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the previous button within the travel screen */
@@ -632,8 +617,8 @@ table {
 	left: 950px;
 	top: 30px;
 	margin: 25px;
-	background-color: #ac9e94;
-	color: #594334;
+	background-color: rgba(0, 65, 139, 0.459);
+	color: white;
 	margin-top: 30px;
 	text-decoration: underline;
 	box-shadow: 5px 5px 0px black;
@@ -652,8 +637,8 @@ table {
 	left: 925px;
 	top: 30px;
 	margin: 25px;
-	background-color: #ac9e94;
-	color: #594334;
+	background-color: rgba(0, 65, 139, 0.459);
+	color: white;
 	margin-top: 30px;
 	text-decoration: underline;
 	box-shadow: 5px 5px 0px black;
@@ -671,9 +656,9 @@ table {
 	position: relative;
 	width: 375px;
 	left: -190px;
-	top: 45px;
-	background-color: #ac9e94;
-	color: #594334;
+	top: 42px;
+	background-color: lightskyblue;
+	color: white;
 	margin-left: 50px;
 	z-index: 10;
 	border-top-left-radius: 10px;
@@ -681,7 +666,7 @@ table {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen */
 .tab button {
-	background-color: #ac9e94;
+	background-color: rgba(0, 65, 139, 0.459);
 	float: left;
 	border: none;
 	outline: none;
@@ -689,7 +674,7 @@ table {
 	padding: 14px 16px;
 	transition: 0.3s;
 	font-size: 17px;
-	color: #594334;
+	color: white;
 	border-top-right-radius: 10px;
 }
 
@@ -700,7 +685,7 @@ table {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the tabs within the travel screen (focus) */
 .tab button:focus {
-	background-color: darksalmon;
+	background-color: lightblue;
 	color: #fff;
 }
 
@@ -712,8 +697,8 @@ table {
 	top: 38px;
 	width: 220px;
 	height: 21px;
-	background-color: #ac9e94;
-	color: #594334;
+	background-color: rgba(0, 65, 139, 0.459);
+	color: white;
 	box-shadow: 5px 5px 0px black;
 	transition: transform 0.2s;
 }
@@ -726,7 +711,8 @@ table {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table header within the travel screen */
 th {
-	background-color: #ac9e94;
+	background-color: rgba(0, 65, 139, 0.459);
+	color:white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row child within the travel screen */
@@ -736,7 +722,8 @@ tr:nth-child(even) td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row child within the travel screen */
 tr:nth-child(odd) td {
-	background-color: lightgray;
+	background-color: rgb(243, 225, 201)
+	
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the table row for salmon property functionality within the travel screen */
@@ -770,13 +757,13 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the arrow in the navigation bar in the top left of each page (hover) */
 .arrow:hover {
-	background-color: darkgray;
+	background-color: rgb(248, 194, 58);
 	border-radius: 10px;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the x-symbol in the navigation bar in the top left of each page (hover) */
 .x-symbol:hover {
-	background-color: darkgray;
+	background-color: rgb(248, 194, 58);
 	border-radius: 10px;
 }
 
@@ -805,7 +792,7 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the home button in the navigation bar in the top left of each page (hover) */
 .home-button:hover {
-	background-color: darkgray;
+	background-color: rgb(248, 194, 58);
 	border-radius: 10px;
 }
 
@@ -814,7 +801,7 @@ tr.salmon td {
 	position: relative;
 	left: 196px;
 	top: -400px;
-	color: #5a4535;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup label in the signup screen */
@@ -822,13 +809,13 @@ tr.salmon td {
 	position: relative;
 	left: 210px;
 	top: -490px;
-	color: #5a4535;
+	color: white;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login button in the login screen */
 #login-button {
-	background-color: #ac9e94;
-	color: rgb(68, 68, 68);
+	background-color: lightskyblue;
+	color: white;
 	border: none;
 	padding: 5px 30px;
 	position: relative;
@@ -846,7 +833,7 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the email label in the login screen */
 #email-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 125px;
 	top: 20px;
@@ -867,7 +854,7 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the password label in the login screen */
 #password-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -210px;
 	top: 70px;
@@ -875,12 +862,12 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the login section in the login screen */
 .login-section {
-	border: solid black 2px;
-	background-color: #ac9e94;
+	border: solid white 4px;
+	background-color: lightskyblue;
 	width: 560px;
 	height: 180px;
 	position: relative;
-	top: -250px;
+	top: -425px;
 	left: -130px;
 	z-index: 1;
 }
@@ -890,23 +877,24 @@ tr.salmon td {
 	position: relative;
 	top: 150px;
 	left: 196px;
+	
 }
 
 /* Source-(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup section in the signup screen */
 .signup-section {
-	border: solid black 2px;
-	background-color: #ac9e94;
+	border: solid white 4px;
+	background-color: lightskyblue;
 	width: 560px;
 	height: 350px;
 	position: relative;
-	top: -325px;
+	top: -515px;
 	left: -120px;
 	z-index: 999;
 }
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the input email in the login screen */
 #input-email {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	left: 130px;
 	top: 15px;
@@ -915,7 +903,7 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the input password in the login screen */
 #input-password {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	left: 180px;
 	top: 30px;
@@ -924,8 +912,8 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the login screen */
 #signup-button {
-	background-color: #ac9e94;
-	color: rgb(68, 68, 68);
+	background-color: lightskyblue;
+	color: white;
 	border: none;
 	padding: 5px 30px;
 	position: relative;
@@ -937,8 +925,8 @@ tr.salmon td {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) property for the signup button in the signup screen */
 #signup-button-signup {
-	background-color: #ac9e94;
-	color: rgb(68, 68, 68);
+	background-color: lightskyblue;
+	color: white;
 	border: none;
 	padding: 5px 30px;
 	position: relative;
@@ -990,7 +978,7 @@ a:active {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1)properties for label for the name in the signup page (Mozilla, 2022, p. 1)*/
 #name-label-signup {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 126px;
 	top: 49px;
@@ -999,7 +987,7 @@ a:active {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the name in the signup page (Mozilla, 2022, p. 1)*/
 #input-name-signup {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	left: 133px;
 	top: 45px;
@@ -1008,7 +996,7 @@ a:active {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for label for the email in the signup page (Mozilla, 2022, p. 1)*/
 #email-label-signup {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -190px;
 	top: 100px;
@@ -1016,7 +1004,7 @@ a:active {
 
 /*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the email in the signup page (Mozilla, 2022, p. 1)*/
 #input-email-signup {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	left: 194px;
 	top: 60px;
@@ -1025,7 +1013,7 @@ a:active {
 
 /*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for label for the password in the signupscreen (Mozilla, 2022, p. 1)*/
 #password-label-signup {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -151px;
 	top: 115px;
@@ -1033,7 +1021,7 @@ a:active {
 
 /* Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for input box for the password in the signup screen (Mozilla, 2022, p. 1)*/
 #input-password-signup {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	left: -146px;
 	top: 115px;
@@ -1042,7 +1030,7 @@ a:active {
 
 /*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for retype input label for the password in the signup screen (Mozilla, 2022, p. 1)*/
 #retype-password-label-signup {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 47px;
 	top: 132px;
@@ -1050,70 +1038,11 @@ a:active {
 
 /*  Source- (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for retype input box for the re-type password in the signup screen (Mozilla, 2022, p. 1)*/
 #retype-input-password-signup {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 150px;
 	top: 130px;
 	left: 52px;
-}
-
-/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project label within the admin page (Mozilla, 2022, p. 1)*/
-.project-label {
-	position: relative;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	width: 85px;
-	margin: 0 auto;
-	padding: 10px 10px;
-	top: -37px;
-	left: -665px;
-	font-size: 11px;
-	background-color: rgba(255, 255, 255, 0.5);
-	color: black;
-	z-index: 1;
-	text-align: center;
-}
-
-/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
-.box-with-x {
-	width: 60px;
-	height: 50px;
-	border: 2px solid black;
-	position: relative;
-	top: -80px;
-	left: -145px;
-	background-color: silver;
-}
-
-/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
-.box-with-x:before,
-.box-with-x:after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 2px;
-	background-color: black;
-	transform: translate(-50%, -50%) rotate(35deg);
-}
-
-/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
-.box-with-x:before {
-	transform: translate(-50%, -50%) rotate(-35deg);
-}
-
-/*  Source- (Codepen, 2021, p. 1);(Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties for the my project box with the x within the admin page (Mozilla, 2022, p. 1)*/
-.close {
-	position: relative;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	transform: rotate(45deg);
-	cursor: default
 }
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for admin side bar which includes the travel, reservations, users, and settings*/
@@ -1175,7 +1104,7 @@ a:active {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: silver;
+	background: lightskyblue;
 	height: 60px;
 	padding: 0 20px;
 	position: relative;
@@ -1195,7 +1124,7 @@ a:active {
 	width: 700px;
 	height: 330px;
 	top: -140px;
-	border: 2px solid black;
+	border: 4px solid white;
 	position: relative;
 	left: 110px;
 }
@@ -1208,14 +1137,14 @@ a:active {
 	z-index: 1;
 	text-decoration: bold;
 	font-size: 18px;
-	background-color: #ac9e94;
+	background-color: lightskyblue;
 	color: white;
 	padding: 10px;
 }
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the id label in the admin page*/
 #id-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 230px;
 	top: -460px;
@@ -1223,7 +1152,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the destination label in the admin page*/
 #destination-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 65px;
 	top: -420px;
@@ -1231,7 +1160,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the resort label in the admin page*/
 #resort-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -245px;
 	top: -280px;
@@ -1239,7 +1168,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the person label in the admin page*/
 #person-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -585px;
 	top: -230px;
@@ -1247,7 +1176,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the id input in the admin page*/
 #id-input {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 75px;
 	top: -460px;
@@ -1256,7 +1185,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the destination input in the admin page*/
 #destination-input {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 250px;
 	top: -420px;
@@ -1265,7 +1194,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the resort input in the admin page*/
 #resort-input {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 250px;
 	top: -280px;
@@ -1274,7 +1203,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the person input in the admin page*/
 #person-input {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 120px;
 	top: -230px;
@@ -1283,7 +1212,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the counter of number of days input*/
 #length-stay {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 30px;
 	height: 20px;
@@ -1293,7 +1222,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of days input*/
 #length-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: -818px;
 	top: -380px;
@@ -1301,7 +1230,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of night input*/
 #night-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 285px;
 	top: -412px;
@@ -1309,7 +1238,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label of number of days input*/
 #length-label-day {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 345px;
 	top: -412px;
@@ -1318,7 +1247,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the label for the days */
 #length-stay-day {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 30px;
 	height: 20px;
@@ -1328,7 +1257,7 @@ a:active {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the date input */
 #date-input {
-	border: 2px solid black;
+	border: 2px solid white;
 	position: relative;
 	width: 120px;
 	height: 20px;
@@ -1350,7 +1279,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* (Mozilla, 2022, p. 1);(W3Schools, 2022, p. 1) properties used for the date label*/
 #date-label {
-	color: #5a4535;
+	color: white;
 	position: relative;
 	left: 20px;
 	top: -365px;

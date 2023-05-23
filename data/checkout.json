@@ -1,19 +1,19 @@
 [
     {
         "name": "Latest Checkout",
-        "listone": "<a href='/news'>2023 Best Beaches Contest Winners</a>",
-        "listtwo": "<a href='/news'>Top 10 Diving Spots</a>",
-        "listthree": "<a href='/news'>Fishing ban to be implemented this year</a>",
-        "listfour": "<a href='/news'>Lifeguard saves child from drowning</a>"
+        "listone": "<a href='/checkout'>2023 Best Beaches Contest Winners</a>",
+        "listtwo": "<a href='/checkout'>Top 10 Diving Spots</a>",
+        "listthree": "<a href='/checkout'>Fishing ban to be implemented this year</a>",
+        "listfour": "<a href='/checkout'>Lifeguard saves child from drowning</a>"
     },
     {
         "name": "Latest Checkout",
-        "listone": "<a href='/news'>What to bring on the beach?</a>",
-        "listtwo": "<a href='/news'>Planning Fun Activities</a>",
-        "listthree": "<a href='/news'>Diving Checklist</a>",
-        "listfour": "<a href='/news'>First Aid</a>",
-        "listfive": "<a href='/news'>How to Build a Sand Castle?</a>",
-        "listsix": "<a href='/news'>Tanning Tips</a>"
+        "listone": "<a href='/checkout'>What to bring on the beach?</a>",
+        "listtwo": "<a href='/checkout'>Planning Fun Activities</a>",
+        "listthree": "<a href='/checkout'>Diving Checklist</a>",
+        "listfour": "<a href='/checkout'>First Aid</a>",
+        "listfive": "<a href='/checkout'>How to Build a Sand Castle?</a>",
+        "listsix": "<a href='/checkout'>Tanning Tips</a>"
     },
     {
         "name": "Checkout",
