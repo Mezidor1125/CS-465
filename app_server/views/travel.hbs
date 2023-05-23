@@ -78,22 +78,20 @@
 			<!-- title of the page (SNHU, 2023, p. 1) -->
 			<p id="title">{{this.title}}</p>
 
-			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
-			<form onsubmit="navigateToLink(event,'search-bar-address')">
-				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
-			</form>
-
 			<!-- contents which including the description for the reservation information within the application (SNHU, 2023, p. 1) -->
 			<div id="contents">
 				<div>
 					<div id="reservations" class="body">
+						<h1>Reservations</h1>
 						<ul id="sites">
 							{{#with trips.[0]}}
 							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
 							<li>
 								<a href="/reservations"><img src="images/{{this.1.image}}" alt="Img"></a>
-								<h2><a href="/reservations">{{this.1.name}}</a></h2>
-								{{{this.1.description}}}
+								<h2><a href="/reservations">Vacation Name: {{this.1.name}}</a></h2>
+								<h2>Resort: {{{this.1.resort}}}</h2>
+								<h2>Price Per Person: {{{this.1.perPerson}}}</h2>
+								<h2>{{{this.1.description}}}</h2>
 								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
 							</li>
 							{{/with}}
@@ -102,8 +100,10 @@
 							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
 							<li>
 								<a href="/reservations"><img src="images/{{this.2.image}}" alt="Img"></a>
-								<h2><a href="/reservations">{{this.2.name}}</a></h2>
-								{{{this.2.description}}}
+								<h2><a href="/reservations">Vacation Name: {{this.2.name}}</a></h2>
+								<h2>Resort: {{{this.2.resort}}}</h2>
+								<h2>Price Per Person: {{{this.2.perPerson}}}</h2>
+								<h2>{{{this.2.description}}}</h2>
 								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
 							</li>
 							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
@@ -113,8 +113,10 @@
 							{{#with trips.[2]}}
 							<li>
 								<a href="/reservations"><img src="images/{{this.3.image}}" alt="Img"></a>
-								<h2><a href="/reservations">{{this.3.name}}</a></h2>
-								{{{this.3.description}}}
+								<h2><a href="/reservations">Vacation Name: {{this.3.name}}</a></h2>
+								<h2>Resort: {{{this.3.resort}}}</h2>
+								<h2>Price Per Person: {{{this.3.perPerson}}}</h2>
+								<h2>{{{this.3.description}}}</h2>
 								<!-- implementation of the static to JSON methodology to input descriptions (SNHU, 2023, p. 1) -->
 							</li>
 
