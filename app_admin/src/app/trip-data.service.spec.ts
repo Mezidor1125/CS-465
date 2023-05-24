@@ -51,7 +51,7 @@
 import { TestBed } from '@angular/core/testing';
 
 // import used for the trip data service component within application (SNHU, 2023, p. 1)
-import { TripDataService } from '../../../app_admin/services/trip-data.service';
+import { TripDataService } from '../../services/trip-data.service';
 
 describe('TripDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

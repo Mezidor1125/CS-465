@@ -55,7 +55,7 @@ import { Router } from "@angular/router";
 // import { trips } from '../data/trips';
 
 // import trip data service from within the application (SNHU, 2023, p. 1)
-import { TripDataService } from '../../..//services/trip-data.service';
+import { TripDataService } from '../../../services/trip-data.service';
 
 // import utilized to import trip class(SNHU, 2023, p. 1)
 import { Trip } from '../../../models/trip';

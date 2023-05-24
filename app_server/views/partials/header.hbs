@@ -56,18 +56,14 @@
 
 			<!-- header id used for the project for formatting purposes within the navigation aspect of the file (SNHU, 2023, p. 1) -->
 			<div id="header">
-
 				<!-- navigation id used for the project for formatting purposes within the navigation aspect of the file (SNHU, 2023, p. 1) -->
 				<div id="navigation">
 					<ul>
 						<!-- selected x class used for the first point in the navigation bar used to create the x within the grid (SNHU, 2023, p. 1) -->
 						<li class="selected_x">
-							<a href="/"></a>
-
-							<!-- corporate logo used to show logo depending on which page the user is located, only reveal on the index page, other pages remain
-							hidden (MIT, 2021, p. 1);(Mozilla, 2022, p. 1);(SNHU, 2023, p. 1) -->
-							<label for="corp-logo" {{#unless isIndexPage}}class="hidden" {{/unless}}>Corp Logo</label>
-						</li>
+							<a ahref="/">
+								<img src="images/logo.png" alt="Image description" onclick="window.location.href = '/'" style="cursor: pointer;">
+							</a>
 						<li>
 							<!-- shows the travel icon within the navigation bar (SNHU, 2023, p. 1) -->
 							<a href="/travel">Travel</a>
@@ -82,12 +78,6 @@
 							<!-- shows the reservations icon within the navigation bar (SNHU, 2023, p. 1) -->
 							<a href="/reservations">Reservations</a>
 
-							<!-- logged in logo used to show logo depending on which page the user is located, only reveal on the index page, other pages remain
-							hidden (MIT, 2021, p. 1);(Mozilla, 2022, p. 1);(SNHU, 2023, p. 1) -->
-							<label for="logged-label" {{#unless
-								isIndexPage}}class="hidden {{/unless}}other-label">Logged In
-								Only</label>
-						</li>
 						<li>
 
 							<!-- shows the admin icon within the navigation bar (SNHU, 2023, p. 1) -->
