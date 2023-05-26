@@ -61,8 +61,8 @@ const auth = jwt({
     secret: process.env.JWT_SECRET,
     userProperty: 'payload',
     algorithms: ["RS256"],
-
 });
+
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
 const controller = require('../controllers/trips');
