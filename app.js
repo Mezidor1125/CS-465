@@ -173,10 +173,10 @@ app.use('/users', usersRouter);
 app.use('/api/trips', apiRouter);
 
 // configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
-app.use('/api/login', apiRouter);
+app.use('/api', apiRouter);
 
 // configures middleware for the application utilizing the api router variable (Mozilla, 2022, p. 1)
-app.use('/api/register', apiRouter);
+app.use('/api', apiRouter);
 
 // catches the 404 error message and forwards the error handler within the application (SNHU, 2023, p. 1)
 app.use(function (req, res, next) {

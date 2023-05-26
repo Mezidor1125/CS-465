@@ -74,11 +74,6 @@
 
 			<!-- title of the page utilizing the JSON format this.title (SNHU, 2023, p. 1) -->
 			<p id="title">{{this.title}}</p>
-
-			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
-			<form onsubmit="navigateToLink(event,'search-bar-address')">
-				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com/travel">
-			</form>
 			{{#with travelers.[0]}} <!-- travel label within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
 
 			<!-- title of the page with the id header-travel located at the left side of screen (SNHU, 2023, p. 1) -->
@@ -154,9 +149,8 @@
 					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a
-							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
-							style="text-decoration:none;">{{this.delete}}</a></td>
+					<td class="no-selection" onclick="event.stopPropagation()"> <a href="javascript:void(0);"
+							style="text-decoration:none; color">{{this.delete}}</a></td>
 				</tr>
 				{{/each}}
 			</table>
@@ -188,8 +182,7 @@
 					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a
-							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
+					<td class="no-selection" onclick="event.stopPropagation()"> <a href="javascript:void(0);"
 							style="text-decoration:none;">{{this.delete}}</a></td>
 				</tr>
 				{{/each}}
@@ -222,8 +215,7 @@
 					<td>{{this.price}}</td>
 
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
-					<td class="no-selection" onclick="event.stopPropagation()"><a
-							href="javascript:void(0);">{{this.edit}}</a> <a href="javascript:void(0);"
+					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);"
 							style="text-decoration:none;">{{this.delete}}</a></td>
 				</tr>
 				{{/each}}
@@ -239,7 +231,7 @@
 			{{/with}}
 			{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 		</div>
-		<script src="javascripts/function-scripts.js"></script> <!-- script used for editing and formatting table within application (SNHU, 2023, p. 1) -->
+		<script src="javascripts/function-scripts.js"></script> <!-- script used for editing and formatting table within application (SNHU, 2023, p. 1)
 	</div>
 	</div>
 </body>

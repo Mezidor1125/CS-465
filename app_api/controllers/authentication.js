@@ -59,13 +59,18 @@ const User = mongoose.model('users');
 
 // register variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
 const register = (req, res) => {
-    if (!req.body.name || !req.body.email || !req.body.password) {
+    if (!req.body.email || !req.body.password) {
         return res
             .status(400)
             .json({ "message": "All fields required" });
     }
+
+    if (req.body.password.toString().length < 12) {
+        return res
+            .status(400)
+            .json({ "message": "Password must be at least 12 characters long." });
+    }
     const user = new User();
-    user.name = req.body.name;
     user.email = req.body.email;
     user.setPassword(req.body.password);
     user.save((err) => {

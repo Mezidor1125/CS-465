@@ -53,8 +53,10 @@ const express = require('express');
 // creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
 const router = express.Router();
 
+// create instance of express jwt to be required within application (SNHU, 2023, p. 1)
 const { expressjwt: jwt } = require("express-jwt");
 
+// authentication variable used to supply secret, user property, and algorithm type (SNHU, 2023, p. 1)
 const auth = jwt({
     secret: process.env.JWT_SECRET,
     userProperty: 'payload',
@@ -78,20 +80,21 @@ router
     .route('/register')
     .post(authController.register);
 
-
 // POST, GET, DELETE, and PUT request for controller to find trips, add trips, delete trips, and update trips within application (SNHU, 2023, p. 1)
 router
     .route('/:code')
     .post(auth, controller.tripsAddTrip)
-    .get(controller.tripsFindByCode)
     .delete(auth, controller.tripsDeleteByCode)
-    .put(auth, controller.tripsUpdateTrip);
+    .put(auth, controller.tripsUpdateTrip)
+    .get(controller.tripsFindByCode);
 
 // GET and POST method to add trip and print trip list within application (SNHU, 2023, p. 1)
 router
     .route('/')
-    .get(controller.tripsList)
     .post(auth, controller.tripsAddTrip)
+    .get(controller.tripsList);
+
+
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = router;

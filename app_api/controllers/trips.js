@@ -53,12 +53,13 @@ const mongoose = require('mongoose');
 // variable used to construct the model named trips (SNHU, 2023, p. 1)
 const Trip = mongoose.model('trips');
 
+// variable used to construct the model named users (SNHU, 2023, p. 1)
 const User = mongoose.model('users');
 
 // GET: /trips - lists all the trips  (SNHU, 2023, p. 1)
 const tripsList = async (req, res) => {
     Trip
-        .find({}) // empty filter for all
+        .find({}) // empty filter for all (SNHU, 2023, p. 1)
         .exec((err, trips) => {
 
             // condition that states if no trip exists, then return the status 404 and output the message in json accordingly,
@@ -228,8 +229,6 @@ const getUser = (req, res, callback) => {
             .json({ "message": "User not found" });
     }
 };
-
-
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the 
 // tripsList and tripsFindByCode variables (Megida, 2022, p. 1);(SNHU, 2023, p. 1)

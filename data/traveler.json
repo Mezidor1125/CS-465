@@ -41,7 +41,6 @@
                 "start": "Febr 28, 2021",
                 "resort": "Castaway Cove, 4-stars",
                 "price": "$1,299.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -51,7 +50,6 @@
                 "start": "Mar 15, 2021",
                 "resort": "Waikiki Resort, 5-stars",
                 "price": "$2,599.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -61,7 +59,6 @@
                 "start": "Jul 1, 2021",
                 "resort": "Mountaintop Chalet, 4-stars",
                 "price": "$3,999.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -71,7 +68,6 @@
                 "start": "Mar 28, 2021",
                 "resort": "Heaven, 5-stars",
                 "price": "$1,799.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -81,7 +77,6 @@
                 "start": "Apr 11, 2021",
                 "resort": "Chateau Royal, 5-stars",
                 "price": "$2,499.00",
-                "edit": "Edit",
                 "delete": "⊗"
             }
         ]
@@ -95,7 +90,6 @@
                 "start": "Febr 28, 2021",
                 "resort": "Castaway Cove, 4-stars",
                 "price": "$1,299.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -105,7 +99,6 @@
                 "start": "Mar 15, 2021",
                 "resort": "Waikiki Resort, 5-stars",
                 "price": "$2,599.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -115,7 +108,6 @@
                 "start": "Jul 1, 2021",
                 "resort": "Mountaintop Chalet, 4-stars",
                 "price": "$3,999.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -125,7 +117,6 @@
                 "start": "Mar 28, 2021",
                 "resort": "Heaven, 5-stars",
                 "price": "$1,799.00",
-                "edit": "Edit",
                 "delete": "⊗"
             }
         ]
@@ -139,7 +130,6 @@
                 "start": "Febr 28, 2021",
                 "resort": "Castaway Cove, 4-stars",
                 "price": "$1,299.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -149,7 +139,6 @@
                 "start": "Mar 15, 2021",
                 "resort": "Waikiki Resort, 5-stars",
                 "price": "$2,599.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -159,7 +148,6 @@
                 "start": "Jul 1, 2021",
                 "resort": "Mountaintop Chalet, 4-stars",
                 "price": "$3,999.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -169,7 +157,6 @@
                 "start": "Mar 28, 2021",
                 "resort": "Heaven, 5-stars",
                 "price": "$1,799.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -179,7 +166,6 @@
                 "start": "Apr 11, 2021",
                 "resort": "Chateau Royal, 5-stars",
                 "price": "$2,499.00",
-                "edit": "Edit",
                 "delete": "⊗"
             },
             {
@@ -189,7 +175,6 @@
                 "start": "Apr 11, 2021",
                 "resort": "Chateau Royal, 5-stars",
                 "price": "$2,499.00",
-                "edit": "Edit",
                 "delete": "⊗"
             }
         ]

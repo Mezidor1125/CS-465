@@ -78,11 +78,6 @@
 			<!-- title of the page (SNHU, 2023, p. 1) -->
 			<p id="title">{{this.title}}</p>
 
-			<!-- navigation bar located at the top of the screen which is used for holding website value (SNHU, 2023, p. 1) -->
-			<form onsubmit="navigateToLink(event,'search-bar-address')">
-				<input type="text" class="form-control" id="search-bar-address" value="https://travlr.com">
-			</form>
-
 			<!-- contents which including the description for the reservation information within the application (SNHU, 2023, p. 1) -->
 			<div id="contents">
 				<div>
@@ -96,13 +91,10 @@
 							{{#each trips}}
 							<li>
 								<a href="../../api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="Img"></a>
-								<h2><a href="/reservations">{{this.name}}</a></h2>
-								{{{this.description}}}
-								{{{this.length}}}
-								{{{this.start}}}
-								{{{this.resort}}}
-								{{{this.perPerson}}}
-								{{{this.resort}}}
+								<h2><a href="/reservations">Vacation Name: {{this.name}}</a></h2>
+								<h2>Resort: {{{this.resort}}}</h2>
+								<h2>Price Per Person: {{{this.perPerson}}}</h2>
+								<h2>{{{this.description}}}</h2>
 							</li>
 
 							<!-- implementation of the static to JSON methodology to input images (SNHU, 2023, p. 1) -->
