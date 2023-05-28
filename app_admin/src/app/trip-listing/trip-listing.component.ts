@@ -63,6 +63,7 @@ import { Trip } from '../../../models/trip';
 // import used for the authentication service within application (SNHU, 2023, p. 1)
 import { AuthenticationService } from 'services/authentication.service';
 
+// component used for app trip listing, html, and css (SNHU, 2023, p. 1)
 @Component({
   selector: 'app-trip-listing',
   templateUrl: './trip-listing.component.html',
@@ -93,6 +94,7 @@ export class TripListingComponent implements OnInit {
       });
   }
 
+  // function used to initialize the get trips function (SNHU, 2023, p. 1)
   ngOnInit(): void {
     this.getTrips();
   }

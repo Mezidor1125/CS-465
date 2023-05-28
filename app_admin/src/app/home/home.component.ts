@@ -50,8 +50,10 @@
 // home import used for the component and oninit angular framework (SNHU, 2023, p. 1)
 import { Component, OnInit } from '@angular/core';
 
+// import used for the authentication service within application (SNHU, 2023, p. 1)
 import { AuthenticationService } from 'services/authentication.service';
 
+// component used for the app home, html, and css (SNHU, 2023, p. 1)
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

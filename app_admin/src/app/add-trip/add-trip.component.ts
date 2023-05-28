@@ -64,6 +64,7 @@ import { TripDataService } from '../../../services/trip-data.service';
 // import utilized for the authentication service within application (SNHU, 2023, p. 1)
 import { AuthenticationService } from '../../../services/authentication.service';
 
+// component used for the add trip, html, and css properties (SNHU, 2023, p. 1)
 @Component({
   selector: 'app-add-trip',
   templateUrl: './add-trip.component.html',
@@ -80,6 +81,7 @@ export class AddTripComponent implements OnInit {
 
   ) { }
 
+  // check for valid trip code within application (SNHU, 2023, p. 1)
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       code: ['', Validators.required], // code validation (SNHU, 2023, p. 1)

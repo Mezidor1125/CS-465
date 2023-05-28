@@ -91,7 +91,6 @@ const register = (req, res) => {
 
 // register variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
 const login = (req, res) => {
-    console.log(req.body.email);
     if (!req.body.email || !req.body.password) {
         return res
             .status(400)
