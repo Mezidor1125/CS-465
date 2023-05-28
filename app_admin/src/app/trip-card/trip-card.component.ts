@@ -96,12 +96,13 @@ export class TripCardComponent implements OnInit {
     };
 
     // delete the trip based on the trip code and passed token (SNHU, 2023, p. 1)
-    this.tripDataService.deleteTrip(trip.code, headers);
+    this.tripDataService.deleteTrip(trip.code, headers)
 
-    // navigate to the home screen to populate changes after deletion occurs (SNHU, 2023, p. 1)
-    this.router.navigate(['']);
+      // navigate to the home screen to populate changes after deletion occurs (SNHU, 2023, p. 1)
+      .then(() => {
+        this.router.navigate(['']);
+      });
   }
-
   // public function used to check whether user is logged in within application (SNHU, 2023, p. 1)
   public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
