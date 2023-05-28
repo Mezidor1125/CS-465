@@ -54,6 +54,7 @@ const express = require('express');
 // creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
 const router = express.Router();
 
+// creates an instance of the jwt json web token which is utilized within the application to generate token (SNHU, 2023, p. 1)
 const jwt = require("jsonwebtoken");
 
 // create authentication setup for building secure system in Node.js utilizing jsonwebtoken for proper signing and generation of token (Grey, 2023, p. 1)
