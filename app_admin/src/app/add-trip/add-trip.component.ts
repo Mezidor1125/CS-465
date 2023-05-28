@@ -31,6 +31,7 @@
 // Philiapp, P. (2022, February 2). X mark letters. X mark symbols - ✖., from https://www.piliapp.com/symbol/x-mark/ 
 // Phuoc, N. H. (2021, September 4). Loop over a nodelist - HTML dom. 1LOC., from https://htmldom.dev/loop-over-a-nodelist/ 
 // Sam, B. (2022, July 22). How to highlight-change color of selected row in table. OutSystems., from https://www.outsystems.com/forums/discussion/80134/how-to-highlight-change-color-of-selected-row-in-table/ 
+// Savani, H. (2023, April 4). Angular httpclient headers authorization bearer token example. ItSolutionStuff.com. https://www.itsolutionstuff.com/post/angular-httpclient-headers-authorization-bearer-token-exampleexample.html 
 // Scherer, M. (2023, April 3). 🔍︎ (text style) magnifying glass tilted left : U+1F50D fe0e unicode information. EmojiAll., from https://www.emojiall.com/en/code/1F50D-FE0E 
 // SNHU, S. N. H. U. (2023, May 1). CS 465 Full Stack Guide., from https://learn.snhu.edu/d2l/home 
 // SNHU, S. N. H. U. (2023, May 1). CS 465 Travlr Getaways Wireframe., from https://learn.snhu.edu/content/enforced/1313027-CS-465-T5558-OL-TRAD-UG.23EW5/course_documents/CS%20465%20Travlr%20Getaways%20Wireframe.pdf?ou=1313027
@@ -60,6 +61,9 @@ import { Router } from "@angular/router";
 // import utilized to import trip data service (SNHU, 2023, p. 1)
 import { TripDataService } from '../../../services/trip-data.service';
 
+// import utilized for the authentication service within application (SNHU, 2023, p. 1)
+import { AuthenticationService } from '../../../services/authentication.service';
+
 @Component({
   selector: 'app-add-trip',
   templateUrl: './add-trip.component.html',
@@ -71,7 +75,9 @@ export class AddTripComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private tripService: TripDataService
+    private tripService: TripDataService,
+    private authenticationService: AuthenticationService
+
   ) { }
 
   ngOnInit() {
@@ -93,11 +99,21 @@ export class AddTripComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.addForm.valid) {
-      this.tripService.addTrip(this.addForm.value)
-        .then(data => {
-          console.log(data);
-          this.router.navigate(['']);
-        });
+
+      // obtain the token used within the auth service class to obtain the token generated within login function (SNHU, 2023, p. 1)
+      const token = this.authenticationService.getToken();
+
+      // create authorization header with bearer token attribute (Savani, 2023, p. 1)
+      const headers = {
+        Authorization: `Bearer ${token}`
+      };
+
+      // call add trip from the trip service object passing the values of add form and the authorization bearer token (Savani, 2023, p. 1);(SNHU, 2023, p. 1)
+      this.tripService.addTrip(this.addForm.value, headers)
+      .then(() => {
+        this.router.navigate(['/list-trips']);
+      });
+      
     }
   }
   // get the form short name to access the form fields (SNHU, 2023, p. 1)

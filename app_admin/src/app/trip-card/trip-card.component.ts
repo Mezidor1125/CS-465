@@ -56,10 +56,13 @@ import { Router } from "@angular/router";
 // import utilized to import trip class(SNHU, 2023, p. 1)
 import { Trip } from '../../../models/trip';
 
-// import utilized for authentication service import
+// import utilized for authentication service import (SNHU, 2023, p. 1)
 import { AuthenticationService } from 'services/authentication.service';
 
+// import used for the trip data service within the application (SNHU, 2023, p. 1)
+import { TripDataService } from '../../../services/trip-data.service';
 
+// component used to add trip card within the edit and delete trip functions (SNHU, 2023, p. 1)
 @Component({
   selector: 'app-trip-card',
   templateUrl: './trip-card.component.html',
@@ -69,10 +72,10 @@ export class TripCardComponent implements OnInit {
   @Input('trip') trip: any;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private tripDataService: TripDataService,
   ) { }
   ngOnInit(): void { }
-
 
   // private function edit trip which removes the trip code, sets a new trip code and the attributes within the local storage, and navigates to the edit trip URL (SNHU, 2023, p. 1)
   private editTrip(trip: Trip): void {
@@ -81,11 +84,27 @@ export class TripCardComponent implements OnInit {
     this.router.navigate(['edit-trip']);
   }
 
+  // private function to delete trip which removes the trip code and refreshes pages to reveal the updated trip listing within application (SNHU, 2023, p. 1)
+  private deleteTrip(trip: Trip): void {
+
+    // obtain the token used within the auth service class to obtain the token generated within login function (SNHU, 2023, p. 1)
+    const token = this.authenticationService.getToken();
+
+    // create authorization header with bearer token attribute (Savani, 2023, p. 1)
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+
+    // delete the trip based on the trip code and passed token (SNHU, 2023, p. 1)
+    this.tripDataService.deleteTrip(trip.code, headers);
+
+    // navigate to the home screen to populate changes after deletion occurs (SNHU, 2023, p. 1)
+    this.router.navigate(['']);
+  }
+
   // public function used to check whether user is logged in within application (SNHU, 2023, p. 1)
   public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
   }
-
-
 }
 

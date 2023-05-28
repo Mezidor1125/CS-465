@@ -88,14 +88,19 @@ export class TripDataService {
   }
 
   // public function add trip within application (SNHU, 2023, p. 1)
-  public addTrip(formData: Trip): Promise<Trip[]> {
+  public addTrip(formData: Trip, headers: any): Promise<Trip[]> {
     console.log('Inside TripDataService#addTrip');
+    const requestOptions = {
+      headers: headers
+    };
+
     return this.http
-      .post(`${this.tripUrl}`, formData)
+      .post(`${this.tripUrl}`, formData, requestOptions)
       .toPromise()
       .then(response => response.json() as Trip[])
       .catch(this.handleError);
   }
+
 
   // public function get trip within application (SNHU, 2023, p. 1)
   public getTrip(code: string): Promise<Trip> {
@@ -108,10 +113,28 @@ export class TripDataService {
   }
 
   // public function to update trip within application (SNHU, 2023, p. 1)
-  public updateTrip(formData: Trip): Promise<Trip> {
+  public updateTrip(formData: Trip, headers: any): Promise<Trip> {
     console.log('Inside TripDataService#updateTrip');
+    const requestOptions = {
+      headers: headers
+    };
+
     return this.http
-      .put(this.tripUrl + formData.code, formData)
+      .put(this.tripUrl + formData.code, formData, requestOptions)
+      .toPromise()
+      .then(response => response.json() as Trip[])
+      .catch(this.handleError);
+  }
+
+  // public function to delete trip within application (SNHU, 2023, p. 1)
+  public deleteTrip(code: string, headers: any): Promise<Trip> {
+    console.log('Inside TripDataService#deleteTrip');
+    const requestOptions = {
+      headers: headers
+    };
+
+    return this.http
+      .delete(this.tripUrl + code, requestOptions)
       .toPromise()
       .then(response => response.json() as Trip[])
       .catch(this.handleError);

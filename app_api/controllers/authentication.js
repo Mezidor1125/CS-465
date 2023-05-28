@@ -56,7 +56,6 @@ const mongoose = require('mongoose');
 // user variable utilized to model the users schema (SNHU, 2023, p. 1)
 const User = mongoose.model('users');
 
-
 // register variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
 const register = (req, res) => {
     if (!req.body.email || !req.body.password) {
@@ -70,6 +69,8 @@ const register = (req, res) => {
             .status(400)
             .json({ "message": "Password must be at least 12 characters long." });
     }
+
+    // create new user within the application during registration (SNHU, 2023, p. 1)
     const user = new User();
     user.email = req.body.email;
     user.setPassword(req.body.password);
@@ -80,6 +81,7 @@ const register = (req, res) => {
                 .json(err);
         } else {
             const token = user.generateJwt();
+            req.payload = { token };
             res
                 .status(200)
                 .json({ token });
@@ -89,6 +91,7 @@ const register = (req, res) => {
 
 // register variable used to decide whether all fields are required within the application (SNHU, 2023, p. 1)
 const login = (req, res) => {
+    console.log(req.body.email);
     if (!req.body.email || !req.body.password) {
         return res
             .status(400)
@@ -102,6 +105,7 @@ const login = (req, res) => {
         }
         if (user) {
             const token = user.generateJwt();
+            req.payload = { token };
             res
                 .status(200)
                 .json({ token });

@@ -17,6 +17,7 @@
 // IconScout, I. S. (2022, March 3). Free Mail Icon - download in Glyph style. IconScout., from https://iconscout.com/icons/mail-icon?price=free
 // IconScout, I. S. (2022, March 3). Free Message Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/chat-bubble-4398305
 // IconScout, I. S. (2022, March 3). Free Question Mark Icon - download in Glyph style. IconScout., from https://iconscout.com/icon/help-2653303
+// Grey, E. (2023, April 6). Building a secure authentication system in Node.js with Express and JWT. LinkedIn. https://www.linkedin.com/pulse/building-secure-authentication-system-nodejs-express-jwt-elias-grey 
 // Megida, D. (2022, April 25). Module.exports – how to export in node.js and JavaScript. freeCodeCamp.org., from https://www.freecodecamp.org/news/module-exports-how-to-export-in-node-js-and-javascript/#:~:text=module.exports%20is%20an%20object,with%20the%20require%20global%20method. 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/ 
 // MIT, M. I. T. (2021, October 19). # introduction. Handlebars., from https://handlebarsjs.com/guide/builtin-helpers.html#with 
@@ -53,16 +54,22 @@ const express = require('express');
 // creates a new instance of the Router class within the application (GeeksForGeeks, 2023, p. 1)
 const router = express.Router();
 
-// create instance of express jwt to be required within application (SNHU, 2023, p. 1)
-const { expressjwt: jwt } = require("express-jwt");
+const jwt = require("jsonwebtoken");
 
-// authentication variable used to supply secret, user property, and algorithm type (SNHU, 2023, p. 1)
-const auth = jwt({
-    secret: process.env.JWT_SECRET,
-    userProperty: 'payload',
-    algorithms: ["RS256"],
-});
+// create authentication setup for building secure system in Node.js utilizing jsonwebtoken for proper signing and generation of token (Grey, 2023, p. 1)
+const auth = (req, res, next) => {
 
+    // try to establish the authorization utilizing the req.headers.authorization.split method utilizing the middleware definitions 
+    // the executions below are used to verify that a user has been authenticated with a valid JWT and throws an error of unauthorized if not (Grey, 2023, p. 1)  
+    try {
+        const token = req.headers.authorization.split(" ")[1];
+        const userToken = jwt.verify(token, process.env.JWT_SECRET);
+        req.payload = userToken;
+        next();
+    } catch (error) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+};
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
 const controller = require('../controllers/trips');
@@ -83,7 +90,6 @@ router
 // POST, GET, DELETE, and PUT request for controller to find trips, add trips, delete trips, and update trips within application (SNHU, 2023, p. 1)
 router
     .route('/:code')
-    .post(auth, controller.tripsAddTrip)
     .delete(auth, controller.tripsDeleteByCode)
     .put(auth, controller.tripsUpdateTrip)
     .get(controller.tripsFindByCode);

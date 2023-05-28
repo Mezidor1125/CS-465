@@ -47,16 +47,23 @@
 // W3Schools, W. S. (2021, May 4). JavaScript Window Location., from https://www.w3schools.com/js/js_window_location.asp
 // W3Schools, W. S. (2021, May 4). stopPropagation() Event Method., from https://www.w3schools.com/jsref/event_stoppropagation.asp#:~:text=Definition%20and%20Usage,capturing%20down%20to%20child%20elements.
 
-
+// import used within angular for component and oninit functions (SNHU, 2023, p. 1)
 import { Component, OnInit } from '@angular/core';
+
+// import used within angular for router functionality (SNHU, 2023, p. 1)
 import { Router } from '@angular/router';
+
+// import used to set up authentication service within application (SNHU, 2023, p. 1)
 import { AuthenticationService } from 'services/authentication.service';
 
+// component used for login html and css (SNHU, 2023, p. 1)
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+// export class for login component implementing oninit (SNHU, 2023, p. 1)
 export class LoginComponent implements OnInit {
   public formError: string = '';
   public credentials = {
@@ -69,6 +76,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) { }
 
+  // logged in and logout methods for ngoninit function (SNHU, 2023, p. 1)
   ngOnInit() { }
   public onLoginSubmit(): void {
     this.formError = '';
@@ -80,6 +88,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // public function to register email and password within application (SNHU, 2023, p. 1)
   public onRegisterSubmit(): void {
     this.formError = '';
     if (!this.credentials.email || !this.credentials.password) {
@@ -90,12 +99,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // private function used to register the dologin function within application (SNHU, 2023, p. 1)
   private doLogin(): void {
     this.authenticationService.login(this.credentials)
       .then(() => this.router.navigateByUrl('#'))
       .catch((message) => this.formError = message);
   }
 
+  // private function used to register the doregister function within application (SNHU, 2023, p. 1)
   private doRegister(): void {
     this.authenticationService.register(this.credentials)
       .then(() => this.router.navigateByUrl('#'))
