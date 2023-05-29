@@ -66,7 +66,7 @@ const logger = require('morgan');
 const hbs = require('hbs');
 
 // triggers the database connection and mongoose schema models to be loaded within the application (SNHU, 2023, p. 1)
-require('./app_api/models/db');
+require("./app_api/database/models/db");;
 
 // index router required for the middleware chain to direct proper responses within Node.js framework (Mozilla, 2022, p. 1)
 const indexRouter = require('./app_server/routes/index');

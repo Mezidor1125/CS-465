@@ -57,7 +57,7 @@ const router = express.Router();
 const controller = require('../controllers/trips');
 
 /* GET home page. (SNHU, 2023, p. 1) */
-router.get('/:code', controller.tripsFindByCode);
+router.get('/:code', controller.tripsFindCode);
 router.get('/', controller.tripsList);
 
 // object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the router variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
