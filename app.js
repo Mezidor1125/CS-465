@@ -72,7 +72,7 @@ const hbs = require('hbs');
 const passport = require('passport');
 
 // triggers the database connection and mongoose schema models to be loaded within the application (SNHU, 2023, p. 1)
-require('./app_api/models/db');
+require('./app_api/database/db');
 
 // triggers the passport connection to be loaded within the application (SNHU, 2023, p. 1)
 require('./app_api/config/passport');

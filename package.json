@@ -11,27 +11,29 @@
     "crypto": "^1.0.1",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "~4.16.1",
     "express-handlebars": "^7.0.7",
     "express-jwt": "^8.4.1",
     "express-session": "^1.17.3",
     "express-sslify": "^1.2.0",
-    "hbs": "^4.2.0",
+    "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^5.11.15",
+    "mongoose": "^5.9.1",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "seedgoose": "^2.0.15"
   },
   "seedgoose": {
-    "modelBaseDirectory": "app_api/models",
-    "models": "travlr.js",
+    "modelBaseDirectory": "app_api/database/models",
+    "models": ["*.js", "!db.js"],
     "data": "data",
     "db": "mongodb://127.0.0.1:27017/travlr"
   },
   "devDependencies": {
-    "seedgoose": "^2.0.2"
+    "hbs": "^4.2.0",
+    "seedgoose":"^2.0.2"
   }
 }
