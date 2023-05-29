@@ -54,7 +54,7 @@ const express = require('express');
 const router = express.Router();
 
 // imports the main module which the contents containing the controller functions for the application (Mozilla, 2022, p. 1)
-const ctrlMain = require('../controllers/main');
+const ctrlMain = require('../../../app_server/controllers/main');
 
 /* GET home page. (SNHU, 2023, p. 1) */
 router.get('/', ctrlMain.index);

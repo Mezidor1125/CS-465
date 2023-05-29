@@ -79,7 +79,7 @@ const tripsList = async (req, res) => {
 };
  
 // GET: /trips/:tripCode - returns a single trip (SNHU, 2023, p. 1)
-const tripsFindByCode = async (req, res) => {
+const tripsFindCode = async (req, res) => {
     Model
         .findOne({ 'code': req.params.code })
         .exec((err, trips) => {
@@ -201,7 +201,7 @@ const tripsUpdateTrip = async (req, res) => {
 // tripsList and tripsFindByCode variables (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = {
     tripsList,
-    tripsFindByCode,
+    tripsFindCode,
     tripsAddTrip,
     tripsUpdateTrip,
     tripsDeleteByCode

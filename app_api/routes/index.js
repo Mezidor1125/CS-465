@@ -61,7 +61,7 @@ const controller = require('../controllers/trips');
 router
     .route('/:code')
     .post(controller.tripsAddTrip)
-    .get(controller.tripsFindByCode)
+    .get(controller.tripsFindCode)
     .delete(controller.tripsDeleteByCode)
     .put(controller.tripsUpdateTrip);
     
