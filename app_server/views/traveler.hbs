@@ -92,22 +92,25 @@
 
 			<!-- link used to go back to the previous scree using window.history.back() (W3Schools, 2023, p. 1) -->
 			<a id="previous-screen" href="#" onclick="window.history.back();"> {{this.previous}}</a>
+
 			{{/with}}
 
 			<div class="tab">
 				{{#with travelers.[3]}}
 				<!-- tab label for beach table within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
-				<button class="table-travel active" onclick="openTable(event, 'Beaches')">{{this.beach}}</button>
+				<button class="table-travel active" onclick="openTable(event, 'Beaches')">{{this.beach}} {{counter}}</button>
 				{{/with}}
 
 				{{#with travelers.[4]}}
 				<!-- tab label cruise table within the travel page  (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
-				<button class="table-travel" onclick="openTable(event, 'Cruises')">{{this.cruise}} </button>
+				<button class="table-travel" onclick="openTable(event, 'Cruises')">{{this.cruise}}
+				</button>
 				{{/with}}
 
 				{{#with travelers.[5]}}
 				<!-- tab label for mountain table within the travel page (MIT, 2021, p. 1);(SNHU, 2023, p. 1) -->
-				<button class="table-travel" onclick="openTable(event, 'Mountains')">{{this.mountain}}</button>
+				<button class="table-travel" onclick="openTable(event, 'Mountains')">{{this.mountain}} 
+					</button>
 				{{/with}}
 
 			</div>
@@ -184,7 +187,6 @@
 					<td>{{this.resort}}</td>
 					<td>{{this.perPerson}}</td>
 					<td>{{this.description}}</td>
-
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
 					<td class="no-selection" onclick="event.stopPropagation()"> <a href="javascript:void(0);"
 							style="text-decoration:none;">⊗</a></td>
@@ -219,7 +221,7 @@
 					<td>{{this.resort}}</td>
 					<td>{{this.perPerson}}</td>
 					<td>{{this.description}}</td>
-					
+
 					<!-- populating the delete and edit cells within the table (SNHU, 2023, p. 1);(W3Schools, 2022, p. 1) -->
 					<td class="no-selection" onclick="event.stopPropagation()"><a href="javascript:void(0);"
 							style="text-decoration:none;">⊗</a></td>
@@ -227,17 +229,18 @@
 				{{/each}}
 			</table>
 
-			{{#with travelers.[12]}}
+			{{#with travelers.[9]}}
 			<!-- reference to the previous and next table buttons within the application (SNHU, 2023, p. 1) -->
 			<button id="previous-table">{{this.previous}}</button>
 			{{/with}}
-			{{#with travelers.[11]}}
+			{{#with travelers.[8]}}
 			<!-- reference to the previous and next table buttons within the application (SNHU, 2023, p. 1) -->
-			<button id="next-table">⊗</button>
+			<button id="next-table">{{this.next}}</button>
 			{{/with}}
 			{{> footer}} <!-- reference to the footer partial within the application  (SNHU, 2023, p. 1) -->
 		</div>
-		<script src="javascripts/function-scripts.js"></script> <!-- script used for editing and formatting table within application (SNHU, 2023, p. 1)
+		<script src="javascripts/function-scripts.js"></script>
+		<!-- script used for editing and formatting table within application (SNHU, 2023, p. 1) -->
 	</div>
 	</div>
 </body>
