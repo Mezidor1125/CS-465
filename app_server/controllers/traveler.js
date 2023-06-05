@@ -55,14 +55,80 @@ var travelers = JSON.parse(fs.readFileSync('./data/traveler.json', 'utf8'));
 
 /* GET travel view (SNHU, 2023, p. 1) */
 
-// const travel variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
-const traveler = (req, res) => {
+// create/import HTTP errors for Express, Koa, Connect, etc. throughout the application (NPM, 2022, p. 1)
+const request = require('request');
 
-    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by travel (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
-    res.render('traveler', { title: 'Travlr Getaways | Travel', travelers});
+// api variable used to retrieve static JSON file
+const apiOptions = {
+    server: 'http://localhost:3000'
 };
 
-// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the travel variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
+/* internal method to render the travel list */
+const renderTravel = (req, res, responseBody) => {
+
+    // set message equal to null (SNHU, 2023, p. 1)
+    let message = null;
+
+    // set the page title equal to header within application (SNHU, 2023, p. 1)
+    let pageTitle = 'Travlr Getaways';
+
+    // condition that states if the response body is not an instanceof an array, output api lookup error and empty the response body
+    // variable (SNHU, 2023, p. 1)
+    if (!(responseBody instanceof Array)) {
+        message = 'API lookup error';
+        responseBody = [];
+    }
+
+    // condition that states if the responsebody.length if not present, then set message to appropriate output (SNHU, 2023, p. 1)
+    else {
+        if (!responseBody.length) {
+            message = 'No trips exist in our database!';
+        }
+    }
+
+    // function used to render view and send the rendered HTML string to the client, meaning sends the title Travlr Getaways to the client denoted by reservations  (GeeksForGeeks, 2023, p. 1);(SNHU, 2023, p. 1)
+    res.render('traveler',
+        {
+            title: pageTitle,
+            heading: "Travel",
+            trips: responseBody,
+            travelers,
+            message
+
+        }
+    );
+}
+
+/* GET traveler view (SNHU, 2023, p. 1) */
+
+// const reservations  variable that is used to set the declared function which takes the paramters req and res (SNHU, 2023, p. 1)
+const traveler = (req, res) => {
+
+    // set the path to the api trips path (SNHU, 2023, p. 1)
+    const path = '/api/trips';
+
+    // set request options equal to the server path, set method, and add json capabilities (SNHU, 2023, p. 1)
+    const requestOptions = {
+        url: `${apiOptions.server}${path}`,
+        method: 'GET',
+        json: {},
+    };
+
+    // output the info of travel list being called within the application (SNHU, 2023, p. 1)
+    console.info('>> travelController.travelList calling ' + requestOptions.url);
+
+    // request from the server the request options, error, response, and body variables to output an error if there can be no request
+    // if the console does not pose an error, then render the travel based on these variables (SNHU, 2023, p. 1)
+    request(requestOptions, (err, response, body) => {
+        (err, { statusCode }, body) => {
+            console.error(err);
+        }
+        renderTravel(req, res, body);
+    }
+    );
+};
+
+// object in the Node.js file that holds the exported values and functions from that module, in the case of it being the module exporting to the reservations variable (Megida, 2022, p. 1);(SNHU, 2023, p. 1)
 module.exports = {
     traveler
 };

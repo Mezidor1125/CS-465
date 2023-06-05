@@ -56,7 +56,7 @@ const Model = mongoose.model('trips');
 // GET: /trips - lists all the trips  (SNHU, 2023, p. 1)
 const tripsList = async (req, res) => {
     Model
-        .find({}) // empty filter for all
+        .find({}) // empty filter for all (SNHU, 2023, p. 1)
         .exec((err, trips) => {
 
             // condition that states if no trip exists, then return the status 404 and output the message in json accordingly,
