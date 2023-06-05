@@ -9,13 +9,13 @@
         "previous": "< Back To Previous Page "
     },
     {
-        "beach": "Beaches (5)"
+        "beach": "Beaches (3)"
     },
     {
-        "cruise": "Cruises (4)"
+        "cruise": "Cruises (3)"
     },
     {
-        "mountain": "Mountains (6)"
+        "mountain": "Mountains (3)"
     },
     {
         "addtrip": "Add a Trip"
@@ -28,154 +28,8 @@
                 "length": "Length",
                 "start": "Start",
                 "resort": "Resort",
-                "price": "Per Person"
-            }
-        ]
-    },
-    {
-        "beaches": [
-            {
-                "id": "B0103",
-                "name": "Barbados",
-                "length": "5 nights / 6 days",
-                "start": "Febr 28, 2021",
-                "resort": "Castaway Cove, 4-stars",
-                "price": "$1,299.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "C0234",
-                "name": "Hawaii",
-                "length": "7 nights / 8 days",
-                "start": "Mar 15, 2021",
-                "resort": "Waikiki Resort, 5-stars",
-                "price": "$2,599.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "M0456",
-                "name": "Swiss Alps",
-                "length": "10 nights / 11 days",
-                "start": "Jul 1, 2021",
-                "resort": "Mountaintop Chalet, 4-stars",
-                "price": "$3,999.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0701",
-                "name": "Tahiti",
-                "length": "6 nights / 7 days",
-                "start": "Mar 28, 2021",
-                "resort": "Heaven, 5-stars",
-                "price": "$1,799.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0901",
-                "name": "French Riviera",
-                "length": "5 nights / 6 days",
-                "start": "Apr 11, 2021",
-                "resort": "Chateau Royal, 5-stars",
-                "price": "$2,499.00",
-                "delete": "⊗"
-            }
-        ]
-    },
-    {
-        "cruises": [
-            {
-                "id": "B0103",
-                "name": "Barbados",
-                "length": "5 nights / 6 days",
-                "start": "Febr 28, 2021",
-                "resort": "Castaway Cove, 4-stars",
-                "price": "$1,299.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "C0234",
-                "name": "Hawaii",
-                "length": "7 nights / 8 days",
-                "start": "Mar 15, 2021",
-                "resort": "Waikiki Resort, 5-stars",
-                "price": "$2,599.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "M0456",
-                "name": "Swiss Alps",
-                "length": "10 nights / 11 days",
-                "start": "Jul 1, 2021",
-                "resort": "Mountaintop Chalet, 4-stars",
-                "price": "$3,999.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0701",
-                "name": "Tahiti",
-                "length": "6 nights / 7 days",
-                "start": "Mar 28, 2021",
-                "resort": "Heaven, 5-stars",
-                "price": "$1,799.00",
-                "delete": "⊗"
-            }
-        ]
-    },
-    {
-        "mountains": [
-            {
-                "id": "B0103",
-                "name": "Barbados",
-                "length": "5 nights / 6 days",
-                "start": "Febr 28, 2021",
-                "resort": "Castaway Cove, 4-stars",
-                "price": "$1,299.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "C0234",
-                "name": "Hawaii",
-                "length": "7 nights / 8 days",
-                "start": "Mar 15, 2021",
-                "resort": "Waikiki Resort, 5-stars",
-                "price": "$2,599.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "M0456",
-                "name": "Swiss Alps",
-                "length": "10 nights / 11 days",
-                "start": "Jul 1, 2021",
-                "resort": "Mountaintop Chalet, 4-stars",
-                "price": "$3,999.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0701",
-                "name": "Tahiti",
-                "length": "6 nights / 7 days",
-                "start": "Mar 28, 2021",
-                "resort": "Heaven, 5-stars",
-                "price": "$1,799.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0901",
-                "name": "French Riviera",
-                "length": "5 nights / 6 days",
-                "start": "Apr 11, 2021",
-                "resort": "Chateau Royal, 5-stars",
-                "price": "$2,499.00",
-                "delete": "⊗"
-            },
-            {
-                "id": "B0901",
-                "name": "French Riviera",
-                "length": "5 nights / 6 days",
-                "start": "Apr 11, 2021",
-                "resort": "Chateau Royal, 5-stars",
-                "price": "$2,499.00",
-                "delete": "⊗"
+                "price": "Per Person",
+                "description": "Description"
             }
         ]
     },
