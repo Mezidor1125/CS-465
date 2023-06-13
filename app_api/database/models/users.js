@@ -93,4 +93,4 @@ userSchema.methods.generateJwt = function () {
 };
 
 // model of the user schema (SNHU, 2023, p. 1)
-mongoose.model('users', userSchema);
+module.exports = mongoose.model("users", userSchema);

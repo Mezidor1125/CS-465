@@ -64,8 +64,8 @@ const auth = (req, res, next) => {
     // the executions below are used to verify that a user has been authenticated with a valid JWT and throws an error of unauthorized if not (Grey, 2023, p. 1)  
     try {
         const token = req.headers.authorization.split(" ")[1];
-        const userToken = jwt.verify(token, process.env.JWT_SECRET);
-        req.payload = userToken;
+        const userProperty = jwt.verify(token, process.env.JWT_SECRET);
+        req.payload = userProperty;
         next();
     } catch (error) {
         return res.status(401).json({ message: "Unauthorized" });
