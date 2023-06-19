@@ -27,5 +27,7 @@ Lawrence
 
 # References
 Kazmi, R. (2022, January 31). JSON vs. JavaScript: What is the difference? Koombea. https://www.koombea.com/blog/json-vs-javascript/ 
+
 MongoDB, M. (2022a, March 11). NoSQL vs SQL databases. MongoDB. https://www.mongodb.com/nosql-explained/nosql-vs-sql 
+
 Vsupalov,  Vsupalov. (2019, March 19). How does the front end communicate with the back end? vsupalov.com. https://vsupalov.com/how-backend-and-frontend-communicate/ 
