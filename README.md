@@ -1,4 +1,4 @@
-# CS-465 Lawrence Arundel 
+Rocky Mezidor
 
 Objective:
 The project involves creating a website for a travel booking client to allow customers to book travel packages across the world. The customer must be able to create and utilize an account, search/query various travel packages
@@ -30,11 +30,11 @@ Southern New Hampshire University
 Professor Thomas Butler - t.butler3@snhu.edu
 
 Contact Information:
-Lawrence Arundel - lawrence.arundel@snhu.edu
+Rocky Mezidor  rockynmezidor@gmail.com
 
 I am very grateful to have learned more about the project, and from everyone I have met! Be safe, professor! Have a great rest of your day!
 Sincerely,
 
-Lawrence
+Rocky Mezidor
 
 
